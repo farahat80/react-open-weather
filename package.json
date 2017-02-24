@@ -1,0 +1,40 @@
+{
+  "name": "react-webpack-boilerplate",
+  "bin": {},
+  "version": "1.0.0",
+  "description": "React Boilerplate with Webpack",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "~6.18.2",
+    "babel-loader": "~6.2.8",
+    "babel-preset-latest": "~6.16.0",
+    "babel-preset-react": "~6.16.0",
+    "css-loader": "~0.26.0",
+    "extract-text-webpack-plugin": "~1.0.1",
+    "node-sass": "~3.13.0",
+    "react": "~15.4.1",
+    "react-dom": "~15.4.1",
+    "react-hot-loader": "~3.0.0-beta.6",
+    "sass-loader": "~4.0.2",
+    "style-loader": "~0.13.1",
+    "webpack": "~1.13.3",
+    "webpack-dev-server": "~1.16.2"
+  },
+  "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js -p",
+    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "babel",
+    "es2015",
+    "webpack",
+    "sass",
+    "es6",
+    "boilerplate"
+  ],
+  "author": "Ahmed Farahat <farahat80@gmail.com>",
+  "license": "MIT"
+}
