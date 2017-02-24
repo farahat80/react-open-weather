@@ -6,3 +6,4 @@ dist
 
 # OSX files
 .DS_Store
+.vscode
