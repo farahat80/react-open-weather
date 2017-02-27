@@ -1,5 +1,5 @@
 import React from 'react';
 import {render} from 'react-dom';
-import HelloWorld from './HelloWorld';
+import ReactWeather from './ReactWeather';
 
-render(<HelloWorld />, document.getElementById('app'));
+render(<ReactWeather />, document.getElementById('app'));
