@@ -1,8 +1,8 @@
 {
-  "name": "react-webpack-boilerplate",
+  "name": "react-weather",
   "bin": {},
   "version": "1.0.0",
-  "description": "React Boilerplate with Webpack",
+  "description": "React Weather component",
   "main": "main.js",
   "dependencies": {},
   "devDependencies": {
@@ -26,14 +26,22 @@
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repostitory": {
+    "type": "git",
+    "url": "https://github.com/farahat80/react-weather.git"
+  },
+  "bugs":{
+    "url": "https://github.com/farahat80/react-weather/issues"
+  },
   "keywords": [
     "react",
+    "component",
     "babel",
     "es2015",
     "webpack",
     "sass",
     "es6",
-    "boilerplate"
+    "openweathermap"
   ],
   "author": "Ahmed Farahat <farahat80@gmail.com>",
   "license": "MIT"
