@@ -3,7 +3,7 @@ import style from '../styles/react-weather.scss';
 
 class ReactWeather extends React.Component {
   render() {
-    return (<p>Hello World Component.</p>);
+    return (<p>Weather Component.</p>);
   }
 }
 
