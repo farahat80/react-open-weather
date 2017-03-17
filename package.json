@@ -4,20 +4,28 @@
   "version": "1.0.0",
   "description": "React Weather component",
   "main": "main.js",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "weather-icons": "^1.3.2"
+  },
   "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
     "babel-core": "~6.18.2",
     "babel-loader": "~6.2.8",
     "babel-preset-latest": "~6.16.0",
     "babel-preset-react": "~6.16.0",
-    "css-loader": "~0.26.0",
+    "css-loader": "^0.26.2",
     "extract-text-webpack-plugin": "~1.0.1",
+    "file-loader": "^0.10.1",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
     "node-sass": "~3.13.0",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",
     "react-hot-loader": "~3.0.0-beta.6",
     "sass-loader": "~4.0.2",
-    "style-loader": "~0.13.1",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
     "webpack": "~1.13.3",
     "webpack-dev-server": "~1.16.2"
   },
@@ -30,7 +38,7 @@
     "type": "git",
     "url": "https://github.com/farahat80/react-weather.git"
   },
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/farahat80/react-weather/issues"
   },
   "keywords": [
