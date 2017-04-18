@@ -13,6 +13,6 @@ render(
     lon="145.77"
     lat="-16.92"
     type="city"
-    city="Elena"
+    city="Munich"
   />,
-  document.getElementById('app'));
+  document.getElementById('root'));
