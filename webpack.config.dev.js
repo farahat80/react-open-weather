@@ -4,12 +4,12 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    main: './src/scripts/main.js'
+    main: './src/js/main.js'
   },
   output: {
-    filename: './dist/scripts/[name].js'
+    filename: './dist/js/[name].js'
   },
-  devtool: (process.env.NODE_ENV !== 'production' ? 'source-map' : false),
+  devtool: 'source-map',
   module: {
     loaders: [{
       test: /\.js$/,
@@ -33,7 +33,7 @@ module.exports = {
     }]
   },
   plugins: [
-    new ExtractTextPlugin('dist/styles/main.css', {
+    new ExtractTextPlugin('dist/css/main.css', {
       allChunks: true
     }),
     new HtmlWebpackPlugin({

@@ -1,3 +1,9 @@
+import $ from 'jquery';
+import jQuery from 'jquery';
+
+window.$ = $;
+window.jQuery = jQuery;
+
 export default class OWApi {
   constructor(unit, apiKey) {
     this.unit = unit;

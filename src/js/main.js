@@ -1,11 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ReactWeather from './ReactWeather';
-import $ from 'jquery';
-import jQuery from 'jquery';
 
-window.$ = $;
-window.jQuery = jQuery;
 
 render(
   <ReactWeather

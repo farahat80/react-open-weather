@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/react-weather.scss';
+import style from '../css/react-weather.scss';
 import OWApi from './OWApi';
 import utils from './utils';
 import WeatherIcon from './WeatherIcon';
