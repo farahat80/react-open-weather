@@ -1,13 +1,13 @@
 import React from 'react';
 import style from '../css/react-weather.scss';
-import OWApi from './OWApi';
+import owApi from './owApi';
 import utils from './utils';
 import WeatherIcon from './WeatherIcon';
 
 class ReactWeather extends React.Component {
   constructor(props) {
     super(props);
-    this.api = new OWApi(props.unit, props.apikey);
+    this.api = new owApi(props.unit, props.apikey);
     this.state = {
       data: {
         city: {},
@@ -37,17 +37,14 @@ class ReactWeather extends React.Component {
     const data = this.state.data;
     const symbol = utils.getTempSymbol(this.props.unit);
     return (
-      <div className="row">
-        <div className="col-lg-12">
-          <h2>{data.city.name}</h2>
-          <p>{data.weather.description}</p>
-          <div>Current: <b>{data.temprature.current} {symbol}</b></div>
-          <div>Min: <b>{data.temprature.min} {symbol}</b></div>
-          <div>Max: <b>{data.temprature.max} {symbol}</b></div>
-          <div>Wind Speed: <b>{data.wind.speed}</b></div>
-          <div>Humidity: <b>{data.humidity}</b></div>
-          <div><WeatherIcon icon={data.weather.icon}/></div>
-        </div>
+      <div className="rw-box">
+        <h2>{data.city.name}</h2>
+        <WeatherIcon icon={data.weather.icon}/>
+        <div className="rw-desc">{data.weather.description}</div>
+        <div className="rw-current">{data.temprature.current} {symbol}</div>
+        <div className="rw-range">{data.temprature.min} {symbol} / {data.temprature.max} {symbol} </div>
+        <div>Wind Speed: <b>{data.wind.speed}</b></div>
+        <div>Humidity: <b>{data.humidity}</b></div>
       </div>
     );
   }

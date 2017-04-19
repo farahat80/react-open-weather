@@ -1,7 +1,26 @@
+@import "variables";
 
-.wicon{
-  font-size:35px;
-}
-body{
-  background: red;
+.rw-box {
+  font-family: $rw-box-font;
+  text-align: center;
+  width: $rw-box-width;
+  height: 250px;
+  background-color: $rw-box-bg;
+  padding:20px;
+  h2{
+    margin:0 0 15px 0;
+  }
+  p{
+    margin:0;
+  }
+  .rw-desc{
+    margin-top:20px;
+  }
+  .rw-current{
+    margin-top:5px;
+    font-size:30px;
+  }
+  .wicon {
+    font-size: 55px;
+  }
 }

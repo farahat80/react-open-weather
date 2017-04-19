@@ -18,6 +18,10 @@ module.exports = {
         presets: ['react', 'latest']
       }
     }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract("css-loader!autoprefixer-loader"),
+
+    }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('css!sass')
     }]
@@ -25,8 +29,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('dist/css/main.css', {
       allChunks: true
-    })
-    ,
+    }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html',
