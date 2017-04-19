@@ -1,8 +1,4 @@
-import $ from 'jquery';
-import jQuery from 'jquery';
-
-window.$ = $;
-window.jQuery = jQuery;
+import axios from 'axios';
 
 export default class OWApi {
   constructor(unit, apiKey) {
@@ -20,7 +16,8 @@ export default class OWApi {
       , args
     );
 
-    return $.getJSON(endpoint, params).then(function (data) {
+    return axios.get(endpoint,{params: params}).then(function (response) {
+      var data = response.data;
       if (data) {
         return {
           city: {

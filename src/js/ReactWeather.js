@@ -57,11 +57,11 @@ class ReactWeather extends React.Component {
   getWeatherData() {
     var self = this;
     var params = self._getParams();
-    self.api.getWeatherData(params).done(function (data) {
+    self.api.getWeatherData(params).then(function (data) {
       self.setState({
         data: data
       });
-    }).fail(function () {
+    }).catch(function () {
       console.warn('failed');
     });
   }

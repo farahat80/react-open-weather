@@ -9,7 +9,6 @@ module.exports = {
   output: {
     filename: './dist/js/[name].js'
   },
-  devtool: 'source-map',
   module: {
     loaders: [{
       test: /\.js$/,
@@ -19,23 +18,15 @@ module.exports = {
         presets: ['react', 'latest']
       }
     }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract("css-loader!autoprefixer-loader")
-    }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('css!sass')
-    }, {
-      test: /\.less$/,
-      loader: ExtractTextPlugin.extract('css!less')
-    }, {
-      test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
-      loader: 'url?limit=100000@name=[name][ext]'
     }]
   },
   plugins: [
     new ExtractTextPlugin('dist/css/main.css', {
       allChunks: true
-    }),
+    })
+    ,
     new HtmlWebpackPlugin({
       template: 'index.html',
       filename: 'index.html',

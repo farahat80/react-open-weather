@@ -1,5 +1,4 @@
 import React from 'react';
-import 'weather-icons/css/weather-icons.css';
 import utils from './utils';
 
 const WeatherIcon = ({ icon }) => {
