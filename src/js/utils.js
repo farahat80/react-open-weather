@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 module.exports = {
   icons: {
     "01d": "wi-day-sunny",
@@ -27,11 +29,24 @@ module.exports = {
       return "na"
     }
   },
-  getTempSymbol: function (unit) {
+  getUnits: function (unit) {
     if (unit == "metric") {
-      return "C"
+      return {
+        temp: "C",
+        speed: "Meter/Sec"
+      }
     } else {
-      return "F"
+      return {
+        temp: "F",
+        speed: "Mile/Hour"
+      }
+    }
+  },
+  formatDate(unixStr){
+    if(unixStr){
+      return moment.unix(unixStr).format("D MMM YYYY");
     }
   }
+  
+
 }

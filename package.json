@@ -19,6 +19,7 @@
     "ignore-loader": "^0.1.2",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
+    "moment": "^2.18.1",
     "node-sass": "~3.13.0",
     "react": "~15.4.1",
     "react-dom": "~15.4.1",

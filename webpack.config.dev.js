@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: './dist/js/[name].js'
   },
+  devtool: 'source-map',
   module: {
     loaders: [{
       test: /\.js$/,

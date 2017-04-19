@@ -2,9 +2,10 @@
 
 .rw-box {
   font-family: $rw-box-font;
+  color:$rw-text-color;
   text-align: center;
   width: $rw-box-width;
-  height: 250px;
+  height:$rw-box-height;
   background-color: $rw-box-bg;
   padding:20px;
   h2{
@@ -15,10 +16,18 @@
   }
   .rw-desc{
     margin-top:20px;
+    font-size:12px;
   }
   .rw-current{
     margin-top:5px;
     font-size:30px;
+  }
+  .rw-range{
+    font-size:12px;
+  }
+  .rw-info{
+    margin-top:10px;
+    font-size: 12px;
   }
   .wicon {
     font-size: 55px;
