@@ -34,17 +34,19 @@ class ReactWeather extends React.Component {
   }
   render() {
     const data = this.state.data;
+    const {forecast} = this.props;
     const units = utils.getUnits(this.props.unit);
    // 
     return (
       <div className="rw-box">
         <h2>{data.city.name}</h2>
+        <div className="rw-container">
         {
           data.days.map(function(day, i){
             const iconCls = utils.getIcon(day.weather.icon);
             return(
-              <div key={`day-${i}`}>
-                {day.date}
+              <div key={`day-${i}`} className={`rw-day rw-${forecast}`}>
+                <div className="rw-date">{day.date}</div>
                 <i className={`wicon wi ${iconCls}`}></i>
                 <div className="rw-desc">{day.weather.description}</div>
                 <div className="rw-current">{day.temprature.current} {units.temp}</div>
@@ -57,6 +59,7 @@ class ReactWeather extends React.Component {
             )
           })
         }
+        </div>
       </div>
     );
   }
@@ -71,7 +74,7 @@ class ReactWeather extends React.Component {
     if(forecast=="today"){
       promise = self.api.getWeatherData(params);
     }else if(forecast=="5days"){
-      params.cnt=16;
+      params.cnt=5;
       promise = self.api.getForecastData(params);
     }
     promise.then(function (data) {

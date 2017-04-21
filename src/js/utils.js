@@ -44,7 +44,7 @@ module.exports = {
   },
   formatDate(unixStr){
     if(unixStr){
-      return moment.unix(unixStr).format("D MMM YYYY");
+      return moment.unix(unixStr).format("ddd D MMM");
     }
   }
   

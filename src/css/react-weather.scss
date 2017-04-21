@@ -14,22 +14,37 @@
   p{
     margin:0;
   }
-  .rw-desc{
-    margin-top:20px;
-    font-size:12px;
+  .rw-container{
+    display: flex;
+    .rw-today{
+      width:$rw-box-width;
+    }
+    .rw-5days{
+      width:calc(#{$rw-box-width} / 5);
+    }
+    .rw-date{
+      font-size:12px;
+      font-weight: bold;
+    }
+    .rw-desc{
+      margin-top:20px;
+      font-size:12px;
+    }
+    .rw-current{
+      margin-top:5px;
+      font-size:30px;
+    }
+    .rw-range{
+      font-size:12px;
+    }
+    .rw-info{
+      margin-top:10px;
+      font-size: 12px;
+    }
+    .wicon {
+      margin-top:15px;
+      font-size: $rw-icon-size;
+    }
   }
-  .rw-current{
-    margin-top:5px;
-    font-size:30px;
-  }
-  .rw-range{
-    font-size:12px;
-  }
-  .rw-info{
-    margin-top:10px;
-    font-size: 12px;
-  }
-  .wicon {
-    font-size: 55px;
-  }
+
 }

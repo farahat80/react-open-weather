@@ -99,7 +99,7 @@ export default class OWApi {
         icon: data.weather[0].icon
       },
       wind: {
-        speed: null,
+        speed: Math.round(data.speed),
         degree: null
       },
       pressure: data.pressure,
