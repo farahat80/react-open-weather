@@ -1,4 +1,4 @@
 {
-  "presets": ["latest", "react"],
+  "presets": ["airbnb", "latest", "react"],
   "plugins": ["react-hot-loader/babel"]
 }

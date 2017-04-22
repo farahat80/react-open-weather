@@ -1,0 +1,7 @@
+--compilers js:babel-register 
+--require ignore-styles 
+--require test/helpers/helpers.js
+--require test/helpers/setup.js 
+--require test/helpers/dom.js 
+-R spec
+test/*.spec.js

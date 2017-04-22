@@ -14,8 +14,7 @@ export default class OWApi {
       units: self.unit,
       APPID: self.apiKey
     }, args);
-
-    return axios.get(endpoint, {
+    var promise = axios.get(endpoint, {
       params: params
     }).then(function (response) {
       var data = response.data;
@@ -34,6 +33,7 @@ export default class OWApi {
         return mapped;
       }
     });
+    return promise;
   }
   getForecastData(args) {
     var self = this;

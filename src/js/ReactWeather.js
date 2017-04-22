@@ -18,7 +18,7 @@ class ReactWeather extends React.Component {
     return {
       unit: "metric",
       type: "geo",
-      forecast: "5days"
+      forecast: "today"
     }
   }
   static get propTypes() {

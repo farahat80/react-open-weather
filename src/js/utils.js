@@ -35,16 +35,22 @@ module.exports = {
         temp: "C",
         speed: "Meter/Sec"
       }
-    } else {
+    } else if(unit == "imperial") {
       return {
         temp: "F",
-        speed: "Mile/Hour"
+        speed: "Miles/Hour"
       }
+    }
+    else{
+      return {temp: "", speed: ""}
     }
   },
   formatDate(unixStr){
-    if(unixStr){
+    if(unixStr && moment.unix(unixStr).isValid()){
       return moment.unix(unixStr).format("ddd D MMM");
+    }
+    else{
+      return "";
     }
   }
   
