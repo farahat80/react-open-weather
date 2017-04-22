@@ -4,6 +4,9 @@ node_modules
 #dist
 dist
 
+#coverage
+coverage
+
 # OSX files
 .DS_Store
 .vscode
