@@ -8,6 +8,7 @@ export default class OWApi {
     this.apiKey = apiKey
   }
   getWeatherData(args) {
+    console.log(args);
     var self = this;
     var endpoint = self.baseApiUrl + "weather";
     var params = Object.assign({
@@ -20,17 +21,7 @@ export default class OWApi {
       var data = response.data;
       var mapped = {};
       if (data) {
-        mapped = {
-          city: {
-            name: data.name,
-            id: data.id,
-            lng: data.coord.lon,
-            lat: data.coord.lat
-          },
-          days: []
-        }
-        mapped.days.push(self._mapWeatherData(data));
-        return mapped;
+        return self._mapWeatherData(data);
       }
     });
     return promise;
@@ -46,26 +37,24 @@ export default class OWApi {
       params: params
     }).then(function (response) {
       var data = response.data;
-      var mapped = {};
       if (data) {
-        mapped = {
-          city: {
-            name: data.city.name,
-            id: data.city.id,
-            lng: data.city.coord.lon,
-            lat: data.city.coord.lat
-          },
-          days: []
-        }
-        data.list.forEach(function(item){
-          mapped.days.push(self._mapForecastData(item));
-        });
-        return mapped;
+        return self._mapForecastData(data);
       }
     });
   }
   _mapWeatherData(data) {
-    return {
+    var mapped = {}
+    mapped = {
+      city: {
+        name: data.name,
+        id: data.id,
+        lng: data.coord.lon,
+        lat: data.coord.lat
+      },
+      days: []
+    }
+
+    mapped.days.push({
       date: utils.formatDate(data.dt),
       temprature: {
         current: Math.round(data.main.temp),
@@ -83,27 +72,43 @@ export default class OWApi {
       },
       pressure: data.main.pressure,
       humidity: data.main.humidity
-    }
+    });
+
+    return mapped;
+
   }
   _mapForecastData(data) {
-    return {
-      date: utils.formatDate(data.dt),
-      temprature: {
-        current: Math.round(data.temp.day),
-        min: Math.round(data.temp.min),
-        max: Math.round(data.temp.max)
+    var mapped = {}
+    mapped = {
+      city: {
+        name: data.city.name,
+        id: data.city.id,
+        lng: data.city.coord.lon,
+        lat: data.city.coord.lat
       },
-      weather: {
-        group: data.weather[0].main,
-        description: data.weather[0].description,
-        icon: data.weather[0].icon
-      },
-      wind: {
-        speed: Math.round(data.speed),
-        degree: null
-      },
-      pressure: data.pressure,
-      humidity: data.humidity
+      days: []
     }
+    data.list.forEach(function (data) {
+      mapped.days.push({
+        date: utils.formatDate(data.dt),
+        temprature: {
+          current: Math.round(data.temp.day),
+          min: Math.round(data.temp.min),
+          max: Math.round(data.temp.max)
+        },
+        weather: {
+          group: data.weather[0].main,
+          description: data.weather[0].description,
+          icon: data.weather[0].icon
+        },
+        wind: {
+          speed: Math.round(data.speed),
+          degree: null
+        },
+        pressure: data.pressure,
+        humidity: data.humidity
+      });
+    });
+    return mapped
   }
 }
