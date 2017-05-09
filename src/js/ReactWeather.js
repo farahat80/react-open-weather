@@ -31,7 +31,6 @@ class ReactWeather extends React.Component {
   }
   render() {
     const data = this.state.data;
-    console.log(JSON.stringify(data))
     const {forecast} = this.props;
     const units = utils.getUnits(this.props.unit);
     if(data){

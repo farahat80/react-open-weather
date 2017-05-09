@@ -1,56 +1,43 @@
 import React from 'react';
-import moxios from 'moxios';
-import axios from 'axios';
 import ReactWeather from '../src/js/ReactWeather';
-import owApi from '../src/js/owApi';
 import { dayData, mappedDayData } from './fixtures/daydata.js';
-// import Foo from '../src/js/test-comp';
-// import moxios from 'moxios';
-//import {dayData, mappedDayData} from './fixtures/daydata.js';
 
-describe('Hello World Component', () => {
-  var sb
+describe('ReactWeather Component Shallow', () => {
+  let wrapper;
   beforeEach(function () {
-    moxios.install()
-    sb = sandbox.create();
-  });
-  afterEach(function () {
-    sb.restore();
-  });
-  it('should render a <p> tag', (done) => {
-    const promise = Promise.resolve(['de','am','hl']);
-    sb.stub(owApi, 'getWeatherData', () => promise);
-    const wrapper = shallow(<ReactWeather
-      apikey="7ad07aac9b0943040a4abdd2c23dfc4e"
+    wrapper = shallow(<ReactWeather
+      apikey="dummy-api-key"
       type="city"
       city="Munich"
     />);
-     promise.then(() => {
-// wrapper.setState({data:mappedDayData});
-  expect(wrapper.find('.rw-box')).to.have.length(1);
-}).then(done, done);
-  
-  //expect(ReactWeather.prototype.componentDidMount.calledOnce).to.equal(true);
-    // moxios.wait(function () {
-    //   var request = moxios.requests.mostRecent()
-    //   request.respondWith({
-    //     status: 200,
-    //     response: dayData
-    //   }).then(function (response) {
-        
-        
-    //   }).then(done, done)
-    // });
+    wrapper.setState({ data: mappedDayData });
+  });
+  afterEach(function () {
     
   });
+  it('should render the component', () => {
+    expect(wrapper.find('.rw-box')).to.have.length(1);
+  });
+  it('should show one-day forecast data div', () => {
+    expect(wrapper.find('.rw-day')).to.have.length(1);
+  });
+  it('should render city title', () => {
+    expect(wrapper.find('h2').text()).to.equal('Altstadt');
+  });
+  it('should render the forecast date', () => {
+    expect(wrapper.find('.rw-date').text()).to.equal('Sat 22 Apr');
+  });
+  it('should render the weather description', () => {
+    expect(wrapper.find('.rw-desc').text()).to.equal('moderate rain');
+  });
+  it('should render the current temprature', () => {
+    expect(wrapper.find('.rw-current').text()).to.equal('7 C');
+  });
+  it('should render the temprature range', () => {
+    expect(wrapper.find('.rw-range').html()).to.equal('<div class="rw-range">6 C / 9 C </div>');
+  });
+  it('should render the temprature range', () => {
+    expect(wrapper.find('.rw-info').text()).to.equal('Wind Speed: 5.7 Meter/SecHumidity: 87 %');
+  });
+
 });
-
-// describe('Hello World Component', () => {
-//   const wrapper = shallow(<Foo />);
-
-//   it('should render a <p> tag', () => {
-//     expect(wrapper.find('.foo')).to.have.length(1);
-//     expect(wrapper.state().email).to.equal('hello');
-//     expect(wrapper.props().v).to.be.defined;
-//   });
-// });
