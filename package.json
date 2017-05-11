@@ -4,7 +4,11 @@
   "version": "0.0.1",
   "description": "React Weather component",
   "main": "lib/js/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "moment": "^2.18.1",
+    "react": "~15.4.1",
+    "react-dom": "~15.4.1"
+  },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
     "axios": "^0.16.1",
@@ -28,12 +32,9 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "mocha": "^3.2.0",
-    "moment": "^2.18.1",
     "moxios": "^0.4.0",
     "node-sass": "~3.13.0",
-    "react": "~15.4.1",
     "react-addons-test-utils": "^15.5.1",
-    "react-dom": "~15.4.1",
     "react-hot-loader": "~3.0.0-beta.6",
     "sass-loader": "~4.0.2",
     "sinon": "^2.1.0",
