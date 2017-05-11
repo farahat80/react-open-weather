@@ -12,4 +12,4 @@ coverage
 .vscode
 
 #docs
-docs/_site
+_site
