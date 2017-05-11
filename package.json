@@ -1,5 +1,5 @@
 {
-  "name": "react-weather",
+  "name": "react-open-weather",
   "bin": {},
   "version": "0.0.1",
   "description": "React Weather component",
@@ -52,10 +52,10 @@
   },
   "repostitory": {
     "type": "git",
-    "url": "https://github.com/farahat80/react-weather.git"
+    "url": "https://github.com/farahat80/react-open-weather.git"
   },
   "bugs": {
-    "url": "https://github.com/farahat80/react-weather/issues"
+    "url": "https://github.com/farahat80/react-open-weather/issues"
   },
   "keywords": [
     "react",
