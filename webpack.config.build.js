@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: 'lib/',
-    filename: '/js/index.js',
+    filename: '/js/ReactWeather.js',
     libraryTarget: 'umd',
 
   },
@@ -37,6 +37,12 @@ module.exports = {
     }]
   },
   externals: [{
+    moment: {
+      root: 'moment',
+      commonjs2: 'moment',
+      commonjs: 'moment',
+      amd: 'moment'
+    } ,
     react: {
       root: 'React',
       commonjs2: 'react',
@@ -45,7 +51,7 @@ module.exports = {
     }
   }],
   plugins: [
-    new ExtractTextPlugin('css/main.css', {
+    new ExtractTextPlugin('css/ReactWeather.css', {
       allChunks: true
     }),
   ]
