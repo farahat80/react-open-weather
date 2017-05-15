@@ -33,11 +33,15 @@ you will need to add link to weather icons css file in your html file or require
 ### 1-Loading today weather data by city name
 ```html
   <ReactWeather
-    apikey="7ad07aac9b0943040a4abdd2c23dfc4e"
+    forecast="today"
+    apikey="YOUR_API_KEY"
     type="city"
     city="Munich"/>
 ```
 
 ----------
 
-TBC.
+### 2-Loading today data by longitude and latitude
+```html
+
+```
