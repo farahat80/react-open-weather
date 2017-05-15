@@ -10,7 +10,8 @@ module.exports = {
     path: 'lib/',
     filename: '/js/ReactWeather.js',
     libraryTarget: 'umd',
-
+    library: 'ReactWeather',
+    umdNamedDefine: true
   },
   devtool: false,
   module: {
