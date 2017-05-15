@@ -54,6 +54,6 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('css/ReactWeather.css', {
       allChunks: true
-    }),
+    })
   ]
 };
