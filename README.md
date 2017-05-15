@@ -10,8 +10,8 @@ Features Implemented:
 The Component development is in progress and will contain more features in the future versions.
 
 ### Dependencies
--[Moment JS](https://momentjs.com/)
--React
+- [Moment JS](https://momentjs.com/)
+- React
 
 ### Installation
 -------------
@@ -105,4 +105,4 @@ require('react-open-weather/lib/css/ReactWeather.css');
 | **unit**     | 'imperial', 'meteric' | meteric | The unit system you want to use, for Meteric the temperature will be shown in Celsius and distances will be in kilometers, for Imperial the temperature will be shown in Fahrenheit and distances in miles. |
 
 ## Contribution
-If you want to contribute to a project and make it better, your help is very welcome, create a pull request with your suggested feature/bug fix/ enhancements.
+If you want to contribute to the project and make it better, your help is very welcome, create a pull request with your suggested feature/bug fix/ enhancements.
