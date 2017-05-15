@@ -88,7 +88,7 @@ class ReactWeather extends React.Component {
     })
   }
   _getParams() {
-    const { type, lon, lat, city, cityId, country } = this.props;
+    const { type, lon, lat, city} = this.props;
     switch(type){
       case "geo": 
         return { "lon": lon, "lat": lat }   
