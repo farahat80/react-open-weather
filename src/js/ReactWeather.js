@@ -20,12 +20,12 @@ class ReactWeather extends React.Component {
   }
   static get propTypes() {
     return {
-      unit: React.PropTypes.string,
-      type: React.PropTypes.string,
+      unit: React.PropTypes.oneOf(['metric', 'imperial']),
+      type: React.PropTypes.oneOf(['geo', 'city']),
       lat: React.PropTypes.string,
       lon: React.PropTypes.string,
       city: React.PropTypes.string,
-      forecast: React.PropTypes.string,
+      forecast: React.PropTypes.oneOf(['today', '5days']),
       apikey: React.PropTypes.string.isRequired
     }
   }
@@ -86,9 +86,6 @@ class ReactWeather extends React.Component {
         data: data
       });
     })
-    // .catch(function () {
-    //   // console.warn('failed');
-    // });
   }
   _getParams() {
     const { type, lon, lat, city, cityId, country } = this.props;
