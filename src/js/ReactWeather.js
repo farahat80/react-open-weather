@@ -74,9 +74,9 @@ class ReactWeather extends React.Component {
     var forecast = self.props.forecast;
     var params = self._getParams();
     var promise = null;
-    if(forecast=="today"){
+    if(forecast==="today"){
       promise = self.api.getWeatherData(params);
-    }else if(forecast=="5days"){
+    }else if(forecast==="5days"){
       params.cnt=5;
       promise = self.api.getForecastData(params);
     }

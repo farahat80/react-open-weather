@@ -30,12 +30,12 @@ module.exports = {
     }
   },
   getUnits: function (unit) {
-    if (unit == "metric") {
+    if (unit === "metric") {
       return {
         temp: "C",
         speed: "Meter/Sec"
       }
-    } else if(unit == "imperial") {
+    } else if(unit === "imperial") {
       return {
         temp: "F",
         speed: "Miles/Hour"

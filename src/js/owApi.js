@@ -8,7 +8,6 @@ export default class OWApi {
     this.apiKey = apiKey
   }
   getWeatherData(args) {
-    console.log(args);
     var self = this;
     var endpoint = self.baseApiUrl + "weather";
     var params = Object.assign({
@@ -43,6 +42,7 @@ export default class OWApi {
     });
   }
   _mapWeatherData(data) {
+    var self = this;
     var mapped = {}
     mapped = {
       city: {
@@ -56,16 +56,8 @@ export default class OWApi {
 
     mapped.days.push({
       date: utils.formatDate(data.dt),
-      temprature: {
-        current: Math.round(data.main.temp),
-        min: Math.round(data.main.temp_min),
-        max: Math.round(data.main.temp_max)
-      },
-      weather: {
-        group: data.weather[0].main,
-        description: data.weather[0].description,
-        icon: data.weather[0].icon
-      },
+      temprature: self._getTemperatureObject(data.main.temp, data.main.temp_min, data.main.temp_max),
+      weather: self._getWeatherObject(data.weather[0]),
       wind: {
         speed: data.wind.speed,
         degree: data.wind.deg
@@ -78,6 +70,7 @@ export default class OWApi {
 
   }
   _mapForecastData(data) {
+    var self = this;
     var mapped = {}
     mapped = {
       city: {
@@ -91,16 +84,8 @@ export default class OWApi {
     data.list.forEach(function (data) {
       mapped.days.push({
         date: utils.formatDate(data.dt),
-        temprature: {
-          current: Math.round(data.temp.day),
-          min: Math.round(data.temp.min),
-          max: Math.round(data.temp.max)
-        },
-        weather: {
-          group: data.weather[0].main,
-          description: data.weather[0].description,
-          icon: data.weather[0].icon
-        },
+        temprature: self._getTemperatureObject(data.temp.day, data.temp.min, data.temp.max),
+        weather: self._getWeatherObject(data.weather[0]),
         wind: {
           speed: Math.round(data.speed),
           degree: null
@@ -110,5 +95,19 @@ export default class OWApi {
       });
     });
     return mapped
+  }
+  _getWeatherObject(weather) {
+    return {
+      group: weather.main,
+      description: weather.description,
+      icon: weather.icon
+    }
+  }
+  _getTemperatureObject(current, min, max) {
+    return {
+      current: Math.round(current),
+      min: Math.round(min),
+      max: Math.round(max)
+    }
   }
 }
