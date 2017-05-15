@@ -1,5 +1,7 @@
 # React Open Weather
 -------------
+[![Build Status](https://travis-ci.org/farahat80/react-open-weather.svg?branch=master)](https://travis-ci.org/farahat80/react-open-weather)
+
 React open weather is a React Component loading forecast data from [Open Weather Map](https://openweathermap.org/).
 
 Features Implemented:
