@@ -39,7 +39,7 @@ import 'react-open-weather/lib/css/ReactWeather.css';
 ```
 #### Using CommonJS
 ```js
-var ReactWeather = require('react-open-weather');
+var ReactWeather = require('react-open-weather').default;
 //Optional include of the default css styles 
 require('react-open-weather/lib/css/ReactWeather.css');
 ```
