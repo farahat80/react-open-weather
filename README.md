@@ -100,7 +100,7 @@ require('react-open-weather/lib/css/ReactWeather.css');
 ## Props Options
 | Props    | Options               | Default | Description |
 |----------|-----------------------|---------|-------------|
-| **type**     | 'city', 'geo'         | city    | Determine the data should be loaded by city name or longitude and latitude |
+| **type**     | 'city', 'geo'         | geo    | Determine the data should be loaded by city name or longitude and latitude |
 | **city**     |                       |         | Name of the city to show forecast for, must be provided if the type='city'|
 | **lon**      |                       |         | Longitude value, must be provided if the type='geo' |
 | **lat**      |                       |         | latitude value, must be provided if the type='geo'  |
