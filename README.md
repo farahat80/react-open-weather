@@ -25,9 +25,9 @@ you will need to add link to weather icons css file in your html file or require
 [Weather Icons](https://erikflowers.github.io/weather-icons/), or you can directly use the CDN.
 
 ```html
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" 
-          type="text/css"/>
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" 
+        type="text/css"/>
 ```
 
 Then in your code file you can import the component
