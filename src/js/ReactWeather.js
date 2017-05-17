@@ -35,11 +35,32 @@ class ReactWeather extends React.Component {
     const units = utils.getUnits(this.props.unit);
     if(data){
       const days = data.days;
+      const today = days[0];
+      const todayIcon = utils.getIcon(today.weather.icon);
       return (
         <div className="rw-box">
-          <h2>{data.city.name}</h2>
+          <div className="rw-box-left">
+            <h2>{data.city.name}</h2>
+            <div className="rw-today">
+              <div className="date">{today.date}</div>
+              <div className="hr"></div>
+              <div className="current">{today.temprature.current} {units.temp}</div>
+              <div className="desc"><i className={`wicon wi ${todayIcon}`}></i> {today.weather.description}</div>
+              <div className="hr"></div>
+              <div className="info">
+                <div>Wind Speed: <b>{today.wind.speed}</b> {units.speed}</div>
+                <div>Humidity: <b>{today.humidity}</b> %</div>
+              </div>
+            </div>
+
+            
+            
+          </div>
+          <div className="rw-box-right">
+            <i className={`wicon wi ${todayIcon}`}></i>
+          </div>
           <div className="rw-container">
-          {
+          {/*{
             days.map(function(day, i){
               const iconCls = utils.getIcon(day.weather.icon);
               return(
@@ -56,7 +77,7 @@ class ReactWeather extends React.Component {
                 </div>
               )
             })
-          }
+          }*/}
           </div>
         </div>
       );
