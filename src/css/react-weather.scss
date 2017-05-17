@@ -2,11 +2,13 @@
 
 .rw-box {
   font-family: $rw-box-font;
+  font-size:13px;
   color:$rw-text-color;
   width: $rw-box-width;
   height:$rw-box-height;
   background-color: $rw-box-bg;
   display: flex;
+  border-radius: $rw-box-radius;
   h2{
     margin:0 0 10px 0;
     font-weight: 300;
@@ -16,7 +18,8 @@
   .hr{
     width:100%;
     height: 0;
-    border-bottom:solid 1px #AACBE6;
+    border-bottom: solid 1px #fff;
+    opacity: 0.4;
     margin:10px 0;
   }
   p{
@@ -29,23 +32,34 @@
   }
   .rw-box-right{
     background-color: #3CC0FE;
+    border-radius: 0 $rw-box-radius $rw-box-radius 0 ;
     width:40%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     i{
+      
       font-size:100px;
     }
   }
   .rw-today{
     .date{
-      font-size:13px;
+      color:$rw-text-secondary-color;
     }
     .current{
       font-size:50px;
     }
     .desc{
       color:#D2E9FA;
+      font-size:15px;
       i{
         color:#D2E9FA;
+      }
+    }
+    .info{
+      color: $rw-text-secondary-color;
+      div{
+        margin-bottom:5px;
       }
     }
   }
