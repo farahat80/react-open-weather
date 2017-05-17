@@ -4,12 +4,15 @@
 
 <body>
 	{% include header.html %}
-	<main>
-		<article>
-			{{ content }}
-		</article>
-		{% include footer.html %}
-	</main>
+  <div class="row medium-8 large-7 columns">
+    <main>
+      <article>
+        {{ content }}
+      </article>
+      
+    </main>
+  </div>
+  {% include footer.html %}
   {% include scripts.html %}
 </body>
 </html>

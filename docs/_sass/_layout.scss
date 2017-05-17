@@ -1,8 +1,3 @@
-h1{
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 70px;
-}
 .subnav-hero-section {
   text-align: center;
   background: #1779ba;
@@ -32,6 +27,7 @@ h1{
   margin: 0 auto;
   bottom: 0;
   width: 100%;
+  background: rgba(254, 254, 254, 0.15)
 }
 
 .subnav-hero-subnav li {
@@ -57,4 +53,56 @@ h1{
 .subnav-hero-subnav li a:hover {
   background: rgba(254, 254, 254, 0.15);
 }
+
+.responsive-blog-footer {
+  background: #4a4a4a;
+  padding: 3rem 3rem;
+  color: white;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .responsive-blog-footer h4 {
+    font-size: 1.5rem;
+  }
+}
+
+.responsive-blog-footer p {
+  color: #8a8a8a;
+}
+
+.responsive-blog-footer .mailing-list {
+  margin-bottom: 1.5rem;
+}
+
+.responsive-blog-footer .mailing-container {
+  margin-bottom: 2rem;
+}
+
+.responsive-blog-footer .about-section, .responsive-blog-footer .tag-section {
+  margin-bottom: 2rem;
+}
+
+.responsive-blog-footer .about-section a, .responsive-blog-footer .tag-section a {
+  color: #1779ba;
+}
+
+.responsive-blog-footer .subscribe-button {
+  background-color: #1779ba;
+}
+
+.responsive-blog-footer .subscribe-button:hover {
+  background-color: #146aa3;
+  transition: color 0.3s ease-in;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up {
+  font-size: 3rem;
+  color: #8a8a8a;
+}
+
+.responsive-blog-footer .fa-chevron-circle-up:hover {
+  color: #b0b0b0;
+  transition: color 0.3s ease-in;
+}
+
 
