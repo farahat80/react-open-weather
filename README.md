@@ -1,7 +1,7 @@
 # React Open Weather
 -------------
 [![Build Status](https://travis-ci.org/farahat80/react-open-weather.svg?branch=master)](https://travis-ci.org/farahat80/react-open-weather)
-[![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.svg?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.png?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
 [![Code Climate](https://codeclimate.com/github/farahat80/react-open-weather/badges/gpa.svg)](https://codeclimate.com/github/farahat80/react-open-weather)
 
 React open weather is a React Component loading forecast data from [Open Weather Map](https://openweathermap.org/).
@@ -100,7 +100,7 @@ require('react-open-weather/lib/css/ReactWeather.css');
 ## Props Options
 | Props    | Options               | Default | Description |
 |----------|-----------------------|---------|-------------|
-| **type**     | 'city', 'geo'         | city    | Determine the data should be loaded by city name or longitude and latitude |
+| **type**     | 'city', 'geo'         | geo    | Determine the data should be loaded by city name or longitude and latitude |
 | **city**     |                       |         | Name of the city to show forecast for, must be provided if the type='city'|
 | **lon**      |                       |         | Longitude value, must be provided if the type='geo' |
 | **lat**      |                       |         | latitude value, must be provided if the type='geo'  |
