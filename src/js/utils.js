@@ -21,7 +21,7 @@ module.exports = {
     "50d": "wi-day-fog",
     "50n": "wi-night-fog"
   },
-  getIcon: function (icon) {
+  getIcon(icon) {
     var icoClass = this.icons[icon];
     if (icoClass) {
       return icoClass;
@@ -29,7 +29,7 @@ module.exports = {
       return "na"
     }
   },
-  getUnits: function (unit) {
+  getUnits(unit) {
     if (unit === "metric") {
       return {
         temp: "C",
@@ -44,6 +44,9 @@ module.exports = {
     else{
       return {temp: "", speed: ""}
     }
+  },
+  toTitleCase(str) {
+    return str.replace(/\b\w/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
   },
   formatDate(unixStr){
     if(unixStr && moment.unix(unixStr).isValid()){

@@ -31,7 +31,6 @@ class ReactWeather extends React.Component {
   }
   render() {
     const data = this.state.data;
-    const {forecast} = this.props;
     const units = utils.getUnits(this.props.unit);
     if(data){
       const days = data.days;
@@ -39,45 +38,29 @@ class ReactWeather extends React.Component {
       const todayIcon = utils.getIcon(today.weather.icon);
       return (
         <div className="rw-box">
-          <div className="rw-box-left">
-            <h2>{data.city.name}</h2>
-            <div className="rw-today">
-              <div className="date">{today.date}</div>
-              <div className="hr"></div>
-              <div className="current">{today.temprature.current} {units.temp}</div>
-              <div className="desc"><i className={`wicon wi ${todayIcon}`}></i> {today.weather.description}</div>
-              <div className="hr"></div>
-              <div className="info">
-                <div>Wind Speed: <b>{today.wind.speed}</b> {units.speed}</div>
-                <div>Humidity: <b>{today.humidity}</b> %</div>
+          <div className={`rw-main type-${this.props.forecast}`}>
+            <div className="rw-box-left">
+              <h2>{data.city.name}</h2>
+              <div className="rw-today">
+                <div className="date">{today.date}</div>
+                <div className="hr"></div>
+                <div className="current">{today.temprature.current} {units.temp}</div>
+                <div className="desc"><i className={`wicon wi ${todayIcon}`}></i> {utils.toTitleCase(today.weather.description)}</div>
+                <div className="hr"></div>
+                <div className="info">
+                  <div>Wind Speed: <b>{today.wind.speed}</b> {units.speed}</div>
+                  <div>Humidity: <b>{today.humidity}</b> %</div>
+                </div>
               </div>
             </div>
-
-            
-            
+            <div className="rw-box-right">
+              <i className={`wicon wi ${todayIcon}`}></i>
+            </div>
           </div>
-          <div className="rw-box-right">
-            <i className={`wicon wi ${todayIcon}`}></i>
-          </div>
-          <div className="rw-container">
-          {/*{
-            days.map(function(day, i){
-              const iconCls = utils.getIcon(day.weather.icon);
-              return(
-                <div key={`day-${i}`} className={`rw-day rw-${forecast}`}>
-                  <div className="rw-date">{day.date}</div>
-                  <i className={`wicon wi ${iconCls}`}></i>
-                  <div className="rw-desc">{day.weather.description}</div>
-                  <div className="rw-current">{day.temprature.current} {units.temp}</div>
-                  <div className="rw-range">{day.temprature.min} {units.temp} / {day.temprature.max} {units.temp} </div>
-                  <div className="rw-info">
-                    <div>Wind Speed: <b>{day.wind.speed}</b> {units.speed}</div>
-                    <div>Humidity: <b>{day.humidity}</b> %</div>
-                  </div>
-                </div>
-              )
-            })
-          }*/}
+          <div className="rw-box-days">
+              {
+                this.renderForecastDays()
+              }
           </div>
         </div>
       );
@@ -85,10 +68,31 @@ class ReactWeather extends React.Component {
     else{
       return(<div>Loading...</div>)
     }
-    
   }
   componentDidMount() {
     this.getWeatherData();
+  }
+  renderForecastDays() {
+    if (this.props.forecast == "5days") {
+      const { forecast, unit } = this.props;
+      const units = utils.getUnits(unit);
+      let days = this.state.data.days;
+      return (
+        days.map(function (day, i) {
+          if (i > 0) {
+            const iconCls = utils.getIcon(day.weather.icon);
+            return (
+              <div key={`day-${i}`} className='rw-day'>
+                <div className="rw-date">{day.date}</div>
+                <i className={`wicon wi ${iconCls}`}></i>
+                <div className="rw-current">{day.temprature.current} {units.temp}</div>
+                <div className="rw-range">{day.temprature.min} {units.temp} / {day.temprature.max} {units.temp} </div>
+              </div>
+            )
+          }  
+        })
+      )
+    }  
   }
   getWeatherData() {
     var self = this;
