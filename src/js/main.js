@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ReactWeather from './ReactWeather';
+import ReactWeather from './components/ReactWeather';
 
 
 render(
