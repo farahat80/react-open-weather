@@ -16,6 +16,10 @@ module.exports = {
       exclude: /(node_modules|bower_components)/,
       loader: 'babel'
     }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loaders: ['babel-loader', 'eslint-loader']
+    }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract("css-loader!autoprefixer-loader")
     }, {
