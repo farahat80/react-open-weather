@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactWeather from '../src/js/ReactWeather';
+import ReactWeather from '../src/js/components/ReactWeather';
 import { dayData, mappedDayData } from './fixtures/daydata.js';
 
 describe('ReactWeather Component Shallow', () => {

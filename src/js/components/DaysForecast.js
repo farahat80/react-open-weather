@@ -1,39 +1,40 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import utils from '../utils';
 import WeatherIcon from './WeatherIcon';
-import styles from '../../css/components/DaysForecast.scss';
+import '../../css/components/DaysForecast.scss';
 
-const propTypes ={
+const propTypes = {
   forecast: PropTypes.string.isRequired,
   unit: PropTypes.string.isRequired,
   daysData: PropTypes.array.isRequired
-}
+};
 
 const DaysForecast = (props) => {
   const { forecast, unit, daysData } = props;
-  if (forecast == "5days") {
+  if (forecast === '5days') {
     const units = utils.getUnits(unit);
     return (
       <div className="rw-box-days">
-      {
-        daysData.map(function (day, i) {
-          if (i > 0) {
-            const iconCls = utils.getIcon(day.weather.icon);
-            return (
-              <div key={`day-${i}`} className='rw-day'>
-                <div className="rw-date">{day.date}</div>
-                <WeatherIcon name={iconCls}/>
-                <div className="rw-current">{day.temprature.current} {units.temp}</div>
-                <div className="rw-range">{day.temprature.min} {units.temp} / {day.temprature.max} {units.temp} </div>
-              </div>
-            )
-          }  
-        })
-      }
+        {
+          daysData.map((day, i) => {
+            if (i > 0) {
+              const iconCls = utils.getIcon(day.weather.icon);
+              return (
+                <div key={`day-${i}`} className='rw-day'>
+                  <div className="rw-date">{day.date}</div>
+                  <WeatherIcon name={iconCls} />
+                  <div className="rw-current">{day.temprature.current} {units.temp}</div>
+                  <div className="rw-range">{day.temprature.min} {units.temp} / {day.temprature.max} {units.temp} </div>
+                </div>
+              );
+            }
+          })
+        }
       </div>
-    )
-  }  
-}
+    );
+  }
+  return (<div></div>);
+};
 
 DaysForecast.propTypes = propTypes;
 

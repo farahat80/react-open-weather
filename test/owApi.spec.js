@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import owApi from '../src/js/owApi';
+import OWApi from '../src/js/OWApi';
 import { dayData, mappedDayData } from './fixtures/daydata.js';
 import {  forecastData, mappedForecastData } from './fixtures/forecastdata.js';
 
@@ -13,7 +13,7 @@ describe("Testing API calls", function () {
   });
 
   it("should make an api call to weather data", function (done) {
-    var api = new owApi("metric", "test");
+    var api = new OWApi("metric", "test");
     var params = {
       q: "munich"
     }
@@ -32,7 +32,7 @@ describe("Testing API calls", function () {
   });
 
   it("should make an api call to forecast data", function (done) {
-    var api = new owApi("metric", "test");
+    var api = new OWApi("metric", "test");
     var params = {
       q: "munich"
     }
@@ -54,13 +54,13 @@ describe("Testing API calls", function () {
 describe("Testing data mapping", function () {
 
   it("should map weather data", function () {
-    var api = new owApi();
+    var api = new OWApi();
     var mapped = api._mapWeatherData(dayData);
     expect(mapped).to.deep.equal(mappedDayData);
   });
 
   it("should map forecast data", function () {
-    var api = new owApi();
+    var api = new OWApi();
     var mapped = api._mapForecastData(forecastData);
     expect(mapped).to.deep.equal(mappedForecastData);
   });

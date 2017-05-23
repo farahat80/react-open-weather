@@ -7,11 +7,11 @@
   "dependencies": {
     "moment": "^2.18.1",
     "react": "~15.4.1",
-    "react-dom": "~15.4.1"
+    "react-dom": "~15.4.1",
+    "axios": "^0.16.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
-    "axios": "^0.16.1",
     "babel-cli": "^6.24.1",
     "babel-core": "~6.18.2",
     "babel-eslint": "^7.2.3",
@@ -56,6 +56,7 @@
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline --config webpack.config.dev.js",
     "test": "mocha --recursive",
     "tdd": "npm test -- --watch",
+    "lint": "./node_modules/.bin/eslint src",
     "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha"
   },
   "repostitory": {
