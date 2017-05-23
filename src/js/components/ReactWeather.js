@@ -4,7 +4,7 @@ import utils from '../utils';
 import TodayForecast from './TodayForecast';
 import DaysForecast from './DaysForecast';
 import WeatherIcon from './WeatherIcon';
-import styles from '../../css/ReactWeather.scss';
+import styles from '../../css/components/ReactWeather.scss';
 
 const propTypes = {
   unit: PropTypes.oneOf(['metric', 'imperial']),

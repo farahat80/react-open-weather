@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import utils from '../utils';
-import styles from '../../css/TodayForecast.scss';
+import styles from '../../css/components/TodayForecast.scss';
 
 const propTypes = {
   todayData: PropTypes.object.isRequired,

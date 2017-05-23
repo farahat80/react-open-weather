@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import utils from '../utils';
 import WeatherIcon from './WeatherIcon';
-import styles from '../../css/DaysForecast.scss';
+import styles from '../../css/components/DaysForecast.scss';
 
 const propTypes ={
   forecast: PropTypes.string.isRequired,
