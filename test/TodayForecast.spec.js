@@ -24,21 +24,3 @@ describe('TodayForecast Component Shallow', () => {
     expect(wrapper.find('.current').text()).to.equal('7 C');
   });
 });
-
-// describe('ReactWeather Component Render', () => {
-//   it('should accept the props and ggenerate params object', () => {
-//     const wrapper = mount(<ReactWeather apikey="dummy-api-key" type="city" city="Munich" />);
-//     expect(wrapper.instance()._getParams()).to.deep.equal({'q':'Munich'});
-//   });
-//   it('calls componentDidMount', () => {
-//     spy(ReactWeather.prototype, 'componentDidMount');
-//     const wrapper = mount(<ReactWeather apikey="dummy-api-key" type="city" city="Munich" />);
-//     expect(ReactWeather.prototype.componentDidMount.calledOnce).to.equal(true);
-//   });
-//   it('have default props', () => {
-//     const wrapper = mount(<ReactWeather apikey="dummy-api-key" />);
-//     expect(wrapper.props().unit).to.equal("metric");
-//     expect(wrapper.props().forecast).to.equal("today");
-//     expect(wrapper.props().type).to.equal("geo");
-//   });
-// });
