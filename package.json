@@ -56,7 +56,7 @@
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline --config webpack.config.dev.js",
     "test": "mocha --recursive",
     "tdd": "npm test -- --watch",
-    "lint": "./node_modules/.bin/eslint src",
+    "lint": "./node_modules/.bin/eslint ./src/js ;exit 0",
     "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha"
   },
   "repostitory": {
