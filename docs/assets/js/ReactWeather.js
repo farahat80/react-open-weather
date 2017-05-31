@@ -289,7 +289,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, OWApi);
 
 	    this.unit = unit;
-	    this.baseApiUrl = 'http://api.openweathermap.org/data/2.5/';
+	    this.baseApiUrl = '//api.openweathermap.org/data/2.5/';
 	    this.apiKey = apiKey;
 	  }
 
@@ -4494,10 +4494,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var propTypes = {
-	  name: _react.PropTypes.string.isRequired
-	};
-
 	var WeatherIcon = function () {
 	  function WeatherIcon(props) {
 	    return _react2['default'].createElement('i', { className: 'wicon wi ' + props.name });
@@ -4506,7 +4502,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return WeatherIcon;
 	}();
 
-	WeatherIcon.propTypes = propTypes;
+	WeatherIcon.propTypes = {
+	  name: _react.PropTypes.string.isRequired
+	};
 
 	var _default = WeatherIcon;
 	exports['default'] = _default;
@@ -4516,8 +4514,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
 	    return;
 	  }
-
-	  __REACT_HOT_LOADER__.register(propTypes, 'propTypes', '/Users/farahat/work/codelab/react-weather/src/js/components/WeatherIcon.js');
 
 	  __REACT_HOT_LOADER__.register(WeatherIcon, 'WeatherIcon', '/Users/farahat/work/codelab/react-weather/src/js/components/WeatherIcon.js');
 
