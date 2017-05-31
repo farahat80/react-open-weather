@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    main: './src/js/ReactWeather.js'
+    main: './src/js/components/ReactWeather.js'
   },
   output: {
     path: 'lib/',
