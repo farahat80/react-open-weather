@@ -38,10 +38,10 @@
   },
   "import/extensions": [
     "error",
-    "always",
+    "never",
     {
-      "js": "always",
-      "jsx": "always"
+      "js": "never",
+      "jsx": "never"
     }
   ]
 }
