@@ -4,7 +4,7 @@ import utils from './utils';
 export default class OWApi {
   constructor(unit, apiKey) {
     this.unit = unit;
-    this.baseApiUrl = 'http://api.openweathermap.org/data/2.5/';
+    this.baseApiUrl = '//api.openweathermap.org/data/2.5/';
     this.apiKey = apiKey;
   }
   getWeatherData(args) {
