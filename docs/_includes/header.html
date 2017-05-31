@@ -1,6 +1,7 @@
 <header class="subnav-hero-section">
   <h1 class="subnav-hero-headline">{{ site.title }}</small></h1>
   <ul class="subnav-hero-subnav">
+    <li><a href="/">Demos</a></li>
     {% for page in site.pages %} 
       {% if page.title %}
 				<li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
