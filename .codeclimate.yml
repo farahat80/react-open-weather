@@ -1,4 +1,27 @@
-## other configuration excluded from example...
+engines:
+  rubocop:
+    enabled: true
+    #checks:
+    #	Rubocop/Metrics/ClassLength:
+    #  	enabled: false
+  golint:
+   	enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  duplication:
+  	enabled: true
+    config:
+    	languages:
+      - javascript
+ratings:
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+  - "**.go"
 exclude_paths:
-  - "test/"
-  - "docs/"
+- docs
+- test
+- "**/vendor/**/*"
