@@ -1,8 +1,4 @@
 engines:
-  rubocop:
-    enabled: true
-  golint:
-   	enabled: true
   eslint:
     enabled: true
   csslint:
