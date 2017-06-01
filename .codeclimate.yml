@@ -4,9 +4,9 @@ engines:
   csslint:
     enabled: true
   duplication:
-  	enabled: true
+    enabled: true
     config:
-    	languages:
+      languages:
       - javascript
 ratings:
   paths:
