@@ -1,19 +1,20 @@
 engines:
-  rubocop:
+  eslint:
     enabled: true
-  reek:
+  csslint:
     enabled: true
   duplication:
     enabled: true
     config:
       languages:
-        javascript
+      - javascript
 ratings:
-   paths:
-   - Gemfile.lock
-   - "**.rb"
-   - "**.md"
-
+  paths:
+  - app/**
+  - lib/**
+  - "**.rb"
+  - "**.go"
 exclude_paths:
-- "test/**/*"
-- "docs/**/*"
+- docs
+- test
+- "**/vendor/**/*"
