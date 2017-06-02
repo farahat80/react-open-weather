@@ -14,7 +14,9 @@ export default class OWApi {
       units: self.unit,
       APPID: self.apiKey
     }, args);
-    const promise = self.fetchData(params).then((response) => {
+    const promise = axios.get(endpoint, {
+      params
+    }).then((response) => {
       const data = response.data;
       if (data) {
         return self._mapWeatherData(data);
@@ -30,17 +32,14 @@ export default class OWApi {
       units: self.unit,
       APPID: self.apiKey
     }, args);
-    return self.fetchData(params).then((response) => {
+    return axios.get(endpoint, {
+      params
+    }).then((response) => {
       const data = response.data;
       if (data) {
         return self._mapForecastData(data);
       }
       return {};
-    });
-  }
-  fetchData(params) {
-    return axios.get(endpoint, {
-      params
     });
   }
   _mapWeatherData(data) {
