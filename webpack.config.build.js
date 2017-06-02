@@ -1,6 +1,4 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -24,7 +22,7 @@ module.exports = {
       }
     }, {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract("css-loader!autoprefixer-loader")
+      loader: ExtractTextPlugin.extract('css-loader!autoprefixer-loader')
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('css!sass')
@@ -42,7 +40,7 @@ module.exports = {
       commonjs2: 'moment',
       commonjs: 'moment',
       amd: 'moment'
-    } ,
+    },
     react: {
       root: 'React',
       commonjs2: 'react',
