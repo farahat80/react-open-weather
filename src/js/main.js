@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 import ReactWeather from './components/ReactWeather';
-
+import XuApi from './XuApi';
 render(
   <ReactWeather
     forecast="5days"
-    apikey="7ad07aac9b0943040a4abdd2c23dfc4e"
+    apikey="5a9719b325d148eda80141801170606"
     type="city"
     city="Munich"
   />,

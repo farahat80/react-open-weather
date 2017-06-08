@@ -1,5 +1,5 @@
 var ReactWeather = window.ReactWeather.default;
-var API_KEY = "7ad07aac9b0943040a4abdd2c23dfc4e"
+var API_KEY = "5a9719b325d148eda80141801170606"
 var rwTodayEl = React.createElement(ReactWeather, {
   apikey: API_KEY,
   type: "city",

@@ -18,13 +18,13 @@ const DaysForecast = (props) => {
         {
           daysData.map((day, i) => {
             if (i > 0) {
-              const iconCls = utils.getIcon(day.weather.icon);
+              const iconCls = utils.getIcon(day.icon);
               return (
                 <div key={`day-${i}`} className='rw-day'>
                   <div className="rw-date">{day.date}</div>
                   <WeatherIcon name={iconCls} />
-                  <div className="rw-current">{day.temprature.current} {units.temp}</div>
-                  <div className="rw-range">{day.temprature.min} {units.temp} / {day.temprature.max} {units.temp} </div>
+                  <div className="rw-desc">{day.description}</div>
+                  <div className="rw-range">{day.temperature.max} / {day.temperature.min} {units.temp}</div>
                 </div>
               );
             }

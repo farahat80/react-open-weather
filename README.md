@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.png?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
 [![Code Climate](https://codeclimate.com/github/farahat80/react-open-weather/badges/gpa.svg)](https://codeclimate.com/github/farahat80/react-open-weather)
 
-React open weather is a React Component loading forecast data from [Open Weather Map](https://openweathermap.org/).
+React open weather is a React Component loading forecast data from [ApiXU](https://www.apixu.com/).
 
 Features Implemented:
 
@@ -19,7 +19,7 @@ The Component development is in progress and will contain more features in the f
 
 ### Installation
 -------------
-First you will need to register and account on open weather map website and obtain an [API key](http://openweathermap.org/appid)
+First you will need to register and account on ApiXu website and obtain an [API key](https://www.apixu.com/pricing.aspx)
 
 Next, in your project directory run:
 ```sh
@@ -77,6 +77,14 @@ require('react-open-weather/lib/css/ReactWeather.css');
     lon="11.5820"
   />
 ```
+### 3-Loading today data based on the current IP address (default)
+```html
+  <ReactWeather
+    forecast="today"  
+    apikey="YOUR_API_KEY"
+    type="auto"
+  />
+```
 
 ### 3-Loading 5 days forecast 
 ```html
@@ -100,7 +108,7 @@ require('react-open-weather/lib/css/ReactWeather.css');
 ## Props Options
 | Props    | Options               | Default | Description |
 |----------|-----------------------|---------|-------------|
-| **type**     | 'city', 'geo'         | geo    | Determine the data should be loaded by city name or longitude and latitude |
+| **type**     | 'city', 'geo', 'auto' | auto    | Determine the data should be loaded by city name or longitude and latitude |
 | **city**     |                       |         | Name of the city to show forecast for, must be provided if the type='city'|
 | **lon**      |                       |         | Longitude value, must be provided if the type='geo' |
 | **lat**      |                       |         | latitude value, must be provided if the type='geo'  |

@@ -19,22 +19,22 @@ describe('DaysForecast Component Shallow', () => {
   it('should render 4 days weather blocks', () => {
     expect(wrapper.find('.rw-day')).to.have.length(4);
   });
-  it('should render the current temprature and unit for 4 days ahead', () => {
-    expect(wrapper.find('.rw-current').at(0).text()).to.equal('8 C');
-    expect(wrapper.find('.rw-current').at(1).text()).to.equal('14 C');
-    expect(wrapper.find('.rw-current').at(2).text()).to.equal('19 C');
-    expect(wrapper.find('.rw-current').at(3).text()).to.equal('12 C');
+  it('should render the temprature range and unit for 4 days ahead', () => {
+    expect(wrapper.find('.rw-range').at(0).text()).to.equal('25 / 15 C');
+    expect(wrapper.find('.rw-range').at(1).text()).to.equal('22 / 13 C');
+    expect(wrapper.find('.rw-range').at(2).text()).to.equal('28 / 15 C');
+    expect(wrapper.find('.rw-range').at(3).text()).to.equal('27 / 17 C');
   });
   it('should render the date for 4 days ahead', () => {
-    expect(wrapper.find('.rw-date').at(0).text()).to.equal('Sun 23 Apr');
-    expect(wrapper.find('.rw-date').at(1).text()).to.equal('Mon 24 Apr');
-    expect(wrapper.find('.rw-date').at(2).text()).to.equal('Tue 25 Apr');
-    expect(wrapper.find('.rw-date').at(3).text()).to.equal('Wed 26 Apr');
+    expect(wrapper.find('.rw-date').at(0).text()).to.equal('Fri 9 Jun');
+    expect(wrapper.find('.rw-date').at(1).text()).to.equal('Sat 10 Jun');
+    expect(wrapper.find('.rw-date').at(2).text()).to.equal('Sun 11 Jun');
+    expect(wrapper.find('.rw-date').at(3).text()).to.equal('Mon 12 Jun');
   });
   it('should render the icon component for 4 days ahead', () => {
-    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-day-snow-wind");
-    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal("wi-day-sunny");
-    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal("wi-day-cloudy");
-    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal("wi-day-rain");
+    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-day-cloudy");
+    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal("wi-day-showers");
+    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal("wi-day-sunny");
+    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal("wi-day-sunny");
   });
 });
