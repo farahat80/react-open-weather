@@ -11,7 +11,7 @@ permalink: /docs/
 
 ### Installation
 -------------
-First you will need to register and account on open weather map website and obtain an [API key](http://openweathermap.org/appid)
+First you will need to register and account on open weather map website and obtain an [API key](https://www.apixu.com/pricing.aspx)
 
 Next, in your project directory run:
 ```sh
