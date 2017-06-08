@@ -2,27 +2,35 @@ import moment from 'moment';
 
 module.exports = {
   icons: {
-    '01d': 'wi-day-sunny',
-    '01n': 'wi-night-clear',
-    '02d': 'wi-day-cloudy',
-    '02n': 'wi-night-alt-cloudy',
-    '03d': 'wi-cloudy',
-    '03n': 'wi-cloudy',
-    '04d': 'wi-cloudy',
-    '04n': 'wi-cloudy',
-    '09d': 'wi-day-showers',
-    '09n': 'wi-night-alt-showers',
-    '10d': 'wi-day-rain',
-    '10n': 'wi-night-alt-rain-wind',
-    '11d': 'wi-day-thunderstorm',
-    '11n': 'wi-night-alt-thunderstorm',
-    '13d': 'wi-day-snow-wind',
-    '13n': 'wi-night-alt-snow',
-    '50d': 'wi-day-fog',
-    '50n': 'wi-night-fog'
+    day: {
+      '1009': 'wi-cloud',
+      '1063': 'wi-day-sleet-storm',
+      '1000': 'wi-day-sunny',
+      '1003': 'wi-day-cloudy',
+      '1006': 'wi-cloudy',
+      '1240': 'wi-day-showers',
+      '1195': 'wi-day-rain',
+      '1087': 'wi-day-thunderstorm',
+      '1225': 'wi-day-snow-wind',
+      '1135': 'wi-day-fog',
+    },
+    night: {
+      '1009': 'wi-cloud',
+      '1063': 'wi-night-alt-sleet-storm',
+      '1000': 'wi-night-clear',
+      '1003': 'wi-night-alt-cloudy',
+      '1006': 'wi-cloudy',
+      '1240': 'wi-night-alt-showers',
+      '1195': 'wi-night-alt-rain-wind',
+      '1087': 'wi-night-alt-thunderstorm',
+      '1225': 'wi-night-alt-snow',
+      '1135': 'wi-night-fog'
+    }
   },
   getIcon(icon) {
-    const icoClass = this.icons[icon];
+    if (!icon) { return 'na'; }
+    let time = 'day';
+    const icoClass = this.icons[time][icon];
     if (icoClass) {
       return icoClass;
     }
@@ -32,37 +40,20 @@ module.exports = {
     if (unit === 'metric') {
       return {
         temp: 'C',
-        speed: 'Meter/Sec'
+        speed: 'kph'
       };
     } else if (unit === 'imperial') {
       return {
         temp: 'F',
-        speed: 'Miles/Hour'
+        speed: 'mph'
       };
     }
     return { temp: '', speed: '' };
   },
-  toTitleCase(str) {
-    return str.replace(/\b\w/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
-  },
-  formatDate(unixStr) {
-    if (unixStr && moment.unix(unixStr).isValid()) {
-      return moment.unix(unixStr).format('ddd D MMM');
+  formatDate(dte) {
+    if (dte && moment(dte).isValid()) {
+      return moment(dte).format('ddd D MMM');
     }
     return '';
-  },
-  getWeatherObject(weather) {
-    return {
-      group: weather.main,
-      description: weather.description,
-      icon: weather.icon
-    };
-  },
-  getTemperatureObject(current, min, max) {
-    return {
-      current: Math.round(current),
-      min: Math.round(min),
-      max: Math.round(max)
-    };
   }
 };

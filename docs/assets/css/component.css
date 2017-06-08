@@ -36,7 +36,11 @@
   .rw-main .rw-today .date {
     color: #B5DEF4; }
   .rw-main .rw-today .current {
-    font-size: 50px; }
+    font-size: 45px; }
+  .rw-main .rw-today .range {
+    color: #B5DEF4;
+    font-size: 12px;
+    margin: 0 0 5px 2px; }
   .rw-main .rw-today .desc {
     color: #B5DEF4;
     font-size: 16px; }
@@ -67,11 +71,8 @@
     font-size: 11px;
     font-weight: bold; }
   .rw-box-days .rw-desc {
-    margin-top: 20px;
+    margin: 10px 0 10px 0;
     font-size: 12px; }
-  .rw-box-days .rw-current {
-    margin-top: 10px;
-    font-size: 20px; }
   .rw-box-days .rw-range {
     font-size: 11px; }
   .rw-box-days .rw-info {

@@ -3,7 +3,7 @@ import ReactWeather from '../src/js/components/ReactWeather';
 import TodayForecast from '../src/js/components/TodayForecast';
 import WeatherIcon from '../src/js/components/WeatherIcon';
 import DaysForecast from '../src/js/components/DaysForecast';
-import { dayData, mappedDayData } from './fixtures/daydata.js';
+import { forecastData, mappedForecastData } from './fixtures/forecastdata.js';
 
 describe('ReactWeather Component Shallow', () => {
   let wrapper;
@@ -13,7 +13,7 @@ describe('ReactWeather Component Shallow', () => {
       type="city"
       city="Munich"
     />);
-    wrapper.setState({ data: mappedDayData });
+    wrapper.setState({ data: mappedForecastData });
   });
   afterEach(function () {
     
@@ -31,7 +31,7 @@ describe('ReactWeather Component Shallow', () => {
     expect(wrapper.find(DaysForecast)).to.have.length(1);
   });
   it('should render city title', () => {
-    expect(wrapper.find('.rw-box-left h2').text()).to.equal('Altstadt');
+    expect(wrapper.find('.rw-box-left h2').text()).to.equal('Munich');
   });
 });
 
@@ -49,6 +49,6 @@ describe('ReactWeather Component Render', () => {
     const wrapper = mount(<ReactWeather apikey="dummy-api-key" />);
     expect(wrapper.props().unit).to.equal("metric");
     expect(wrapper.props().forecast).to.equal("today");
-    expect(wrapper.props().type).to.equal("geo");
+    expect(wrapper.props().type).to.equal("auto");
   });
 });

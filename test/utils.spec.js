@@ -4,7 +4,7 @@ describe('Utils module', () => {
 
   describe('getIcon', () => {
     it('return the weather-con class equivalent to OW class', () => {
-      var icon = utils.getIcon("04n");
+      var icon = utils.getIcon("1006");
       expect(icon).to.equal("wi-cloudy");
     });
     it('return "na" if no mapped class name found', () => {
@@ -18,14 +18,14 @@ describe('Utils module', () => {
       var units = utils.getUnits("metric");
       expect(units).to.deep.equal({
         temp: "C",
-        speed: "Meter/Sec"
+        speed: "kph"
       });
     });
     it('return imperial units', () => {
       var units = utils.getUnits("imperial");
       expect(units).to.deep.equal({
         temp: "F",
-        speed: "Miles/Hour"
+        speed: "mph"
       });
     });
     it('return empty values if value provided doesnt exist', () => {
@@ -38,14 +38,13 @@ describe('Utils module', () => {
   });
 
   describe('formatDate', () => {
-    it('return date value formatted to "ddd D MMM" from unix string', () => {
-      var date = utils.formatDate("1492772400");
-      expect(date).to.equal("Fri 21 Apr");
+    it('return date value formatted to "ddd D MMM" from string', () => {
+      var date = utils.formatDate("2017-06-08");
+      expect(date).to.equal("Thu 8 Jun");
     });
     it('handles invalid input values', () => {
       expect(utils.formatDate(null)).to.equal("");
       expect(utils.formatDate("")).to.equal("");
-      expect(utils.formatDate("invalid unix string")).to.equal("");
     });
   });
 

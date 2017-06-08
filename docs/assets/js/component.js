@@ -66,9 +66,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _OWApi = __webpack_require__(2);
+	var _XuApi = __webpack_require__(2);
 
-	var _OWApi2 = _interopRequireDefault(_OWApi);
+	var _XuApi2 = _interopRequireDefault(_XuApi);
 
 	var _utils = __webpack_require__(33);
 
@@ -98,7 +98,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var propTypes = {
 	  unit: _react.PropTypes.oneOf(['metric', 'imperial']),
-	  type: _react.PropTypes.oneOf(['geo', 'city']),
+	  type: _react.PropTypes.oneOf(['geo', 'city', 'auto']),
 	  lat: _react.PropTypes.string,
 	  lon: _react.PropTypes.string,
 	  city: _react.PropTypes.string,
@@ -108,7 +108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var defaultProps = {
 	  unit: 'metric',
-	  type: 'geo',
+	  type: 'auto',
 	  forecast: 'today'
 	};
 
@@ -120,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    var _this = _possibleConstructorReturn(this, (ReactWeather.__proto__ || Object.getPrototypeOf(ReactWeather)).call(this, props));
 
-	    _this.api = new _OWApi2['default'](props.unit, props.apikey);
+	    _this.api = new _XuApi2['default'](props.unit, props.apikey);
 	    _this.state = {
 	      data: null
 	    };
@@ -139,7 +139,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (data) {
 	          var days = data.days;
 	          var today = days[0];
-	          var todayIcon = _utils2['default'].getIcon(today.weather.icon);
+	          var todayIcon = _utils2['default'].getIcon(today.icon);
 	          return _react2['default'].createElement(
 	            'div',
 	            { className: 'rw-box' },
@@ -152,7 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _react2['default'].createElement(
 	                  'h2',
 	                  null,
-	                  data.city.name
+	                  data.location.name
 	                ),
 	                _react2['default'].createElement(_TodayForecast2['default'], { todayData: today, unit: unit })
 	              ),
@@ -178,25 +178,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'componentDidMount',
 	    value: function () {
 	      function componentDidMount() {
-	        this.getWeatherData();
+	        this.getForecastData();
 	      }
 
 	      return componentDidMount;
 	    }()
 	  }, {
-	    key: 'getWeatherData',
+	    key: 'getForecastData',
 	    value: function () {
-	      function getWeatherData() {
+	      function getForecastData() {
 	        var self = this;
 	        var forecast = self.props.forecast;
 	        var params = self._getParams();
 	        var promise = null;
-	        if (forecast === 'today') {
-	          promise = self.api.getWeatherData(params);
-	        } else if (forecast === '5days') {
-	          params.cnt = 5;
-	          promise = self.api.getForecastData(params);
-	        }
+	        promise = self.api.getForecast(params);
 	        promise.then(function (data) {
 	          self.setState({
 	            data: data
@@ -204,7 +199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      }
 
-	      return getWeatherData;
+	      return getForecastData;
 	    }()
 	  }, {
 	    key: '_getParams',
@@ -219,8 +214,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        switch (type) {
 	          case 'city':
 	            return { q: city };
+	          case 'geo':
+	            return {
+	              q: lat + ',' + lon
+	            };
 	          default:
-	            return { lon: lon, lat: lat };
+	            return {
+	              q: 'auto:ip'
+	            };
 	        }
 	      }
 
@@ -284,130 +285,93 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var OWApi = function () {
-	  function OWApi(unit, apiKey) {
-	    _classCallCheck(this, OWApi);
+	var FIELDS = {
+	  metric: {
+	    temperature: {
+	      current: 'temp_c',
+	      min: 'mintemp_c',
+	      max: 'maxtemp_c'
+	    },
+	    wind: 'maxwind_kph'
+	  },
+	  imperial: {
+	    temperature: {
+	      current: 'temp_f',
+	      min: 'mintemp_f',
+	      max: 'maxtemp_f'
+	    },
+	    wind: 'maxwind_mph'
+	  }
+	};
+
+	var XuApi = function () {
+	  function XuApi(unit, apiKey) {
+	    _classCallCheck(this, XuApi);
 
 	    this.unit = unit;
-	    this.baseApiUrl = '//api.openweathermap.org/data/2.5/';
 	    this.apiKey = apiKey;
+	    this.baseApiUrl = '//api.apixu.com/v1/forecast.json';
 	  }
 
-	  _createClass(OWApi, [{
-	    key: 'getWeatherData',
+	  _createClass(XuApi, [{
+	    key: 'getForecast',
 	    value: function () {
-	      function getWeatherData(args) {
+	      function getForecast(args) {
 	        var self = this;
-	        var endpoint = self.baseApiUrl + 'weather';
+	        var endpoint = self.baseApiUrl;
 	        var params = Object.assign({
-	          units: self.unit,
-	          APPID: self.apiKey
+	          key: self.apiKey,
+	          days: 5
 	        }, args);
 	        var promise = _axios2['default'].get(endpoint, {
 	          params: params
 	        }).then(function (response) {
 	          var data = response.data;
 	          if (data) {
-	            return self._mapWeatherData(data);
+	            return self._map(data);
 	          }
 	          return {};
 	        });
 	        return promise;
 	      }
 
-	      return getWeatherData;
+	      return getForecast;
 	    }()
 	  }, {
-	    key: 'getForecastData',
+	    key: '_map',
 	    value: function () {
-	      function getForecastData(args) {
+	      function _map(data) {
 	        var self = this;
-	        var endpoint = self.baseApiUrl + 'forecast/daily';
-	        var params = Object.assign({
-	          units: self.unit,
-	          APPID: self.apiKey
-	        }, args);
-	        return _axios2['default'].get(endpoint, {
-	          params: params
-	        }).then(function (response) {
-	          var data = response.data;
-	          if (data) {
-	            return self._mapForecastData(data);
-	          }
-	          return {};
-	        });
-	      }
-
-	      return getForecastData;
-	    }()
-	  }, {
-	    key: '_mapWeatherData',
-	    value: function () {
-	      function _mapWeatherData(data) {
+	        var daysData = data.forecast.forecastday;
 	        var mapped = {};
-	        mapped = {
-	          city: {
-	            name: data.name,
-	            id: data.id,
-	            lng: data.coord.lon,
-	            lat: data.coord.lat
-	          },
-	          days: []
-	        };
-	        mapped.days.push({
-	          date: _utils2['default'].formatDate(data.dt),
-	          temprature: _utils2['default'].getTemperatureObject(data.main.temp, data.main.temp_min, data.main.temp_max),
-	          weather: _utils2['default'].getWeatherObject(data.weather[0]),
-	          wind: {
-	            speed: data.wind.speed,
-	            degree: data.wind.deg
-	          },
-	          pressure: data.main.pressure,
-	          humidity: data.main.humidity
-	        });
-	        return mapped;
-	      }
-
-	      return _mapWeatherData;
-	    }()
-	  }, {
-	    key: '_mapForecastData',
-	    value: function () {
-	      function _mapForecastData(data) {
-	        var mapped = {};
-	        mapped = {
-	          city: {
-	            name: data.city.name,
-	            id: data.city.id,
-	            lng: data.city.coord.lon,
-	            lat: data.city.coord.lat
-	          },
-	          days: []
-	        };
-	        data.list.forEach(function (day) {
-	          mapped.days.push({
-	            date: _utils2['default'].formatDate(day.dt),
-	            temprature: _utils2['default'].getTemperatureObject(day.temp.day, day.temp.min, day.temp.max),
-	            weather: _utils2['default'].getWeatherObject(day.weather[0]),
-	            wind: {
-	              speed: Math.round(day.speed),
-	              degree: null
+	        mapped.location = data.location;
+	        mapped.days = daysData.map(function (item) {
+	          return {
+	            date: _utils2['default'].formatDate(item.date),
+	            description: item.day.condition.text,
+	            icon: item.day.condition.code,
+	            temperature: {
+	              min: item.day[FIELDS[self.unit].temperature.min].toFixed(0),
+	              max: item.day[FIELDS[self.unit].temperature.max].toFixed(0)
 	            },
-	            pressure: day.pressure,
-	            humidity: day.humidity
-	          });
+	            wind: item.day[FIELDS[self.unit].wind].toFixed(0),
+	            humidity: item.day.avghumidity
+	          };
 	        });
+	        if (mapped.days.length > 0) {
+	          mapped.days[0].temperature.current = data.current[FIELDS[self.unit].temperature.current];
+	        }
 	        return mapped;
 	      }
 
-	      return _mapForecastData;
+	      return _map;
 	    }()
 	  }]);
 
-	  return OWApi;
+	  return XuApi;
 	}();
 
-	var _default = OWApi;
+	var _default = XuApi;
 	exports['default'] = _default;
 	;
 
@@ -416,9 +380,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return;
 	  }
 
-	  __REACT_HOT_LOADER__.register(OWApi, 'OWApi', '/Users/farahat/work/codelab/react-weather/src/js/OWApi.js');
+	  __REACT_HOT_LOADER__.register(XuApi, 'XuApi', '/Users/farahat/work/codelab/react-weather/src/js/XuApi.js');
 
-	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/farahat/work/codelab/react-weather/src/js/OWApi.js');
+	  __REACT_HOT_LOADER__.register(FIELDS, 'FIELDS', '/Users/farahat/work/codelab/react-weather/src/js/XuApi.js');
+
+	  __REACT_HOT_LOADER__.register(_default, 'default', '/Users/farahat/work/codelab/react-weather/src/js/XuApi.js');
 	}();
 
 	;
@@ -4150,28 +4116,38 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 	  icons: {
-	    '01d': 'wi-day-sunny',
-	    '01n': 'wi-night-clear',
-	    '02d': 'wi-day-cloudy',
-	    '02n': 'wi-night-alt-cloudy',
-	    '03d': 'wi-cloudy',
-	    '03n': 'wi-cloudy',
-	    '04d': 'wi-cloudy',
-	    '04n': 'wi-cloudy',
-	    '09d': 'wi-day-showers',
-	    '09n': 'wi-night-alt-showers',
-	    '10d': 'wi-day-rain',
-	    '10n': 'wi-night-alt-rain-wind',
-	    '11d': 'wi-day-thunderstorm',
-	    '11n': 'wi-night-alt-thunderstorm',
-	    '13d': 'wi-day-snow-wind',
-	    '13n': 'wi-night-alt-snow',
-	    '50d': 'wi-day-fog',
-	    '50n': 'wi-night-fog'
+	    day: {
+	      '1009': 'wi-cloud',
+	      '1063': 'wi-day-sleet-storm',
+	      '1000': 'wi-day-sunny',
+	      '1003': 'wi-day-cloudy',
+	      '1006': 'wi-cloudy',
+	      '1240': 'wi-day-showers',
+	      '1195': 'wi-day-rain',
+	      '1087': 'wi-day-thunderstorm',
+	      '1225': 'wi-day-snow-wind',
+	      '1135': 'wi-day-fog'
+	    },
+	    night: {
+	      '1009': 'wi-cloud',
+	      '1063': 'wi-night-alt-sleet-storm',
+	      '1000': 'wi-night-clear',
+	      '1003': 'wi-night-alt-cloudy',
+	      '1006': 'wi-cloudy',
+	      '1240': 'wi-night-alt-showers',
+	      '1195': 'wi-night-alt-rain-wind',
+	      '1087': 'wi-night-alt-thunderstorm',
+	      '1225': 'wi-night-alt-snow',
+	      '1135': 'wi-night-fog'
+	    }
 	  },
 	  getIcon: function () {
 	    function getIcon(icon) {
-	      var icoClass = this.icons[icon];
+	      if (!icon) {
+	        return 'na';
+	      }
+	      var time = 'day';
+	      var icoClass = this.icons[time][icon];
 	      if (icoClass) {
 	        return icoClass;
 	      }
@@ -4185,12 +4161,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (unit === 'metric') {
 	        return {
 	          temp: 'C',
-	          speed: 'Meter/Sec'
+	          speed: 'kph'
 	        };
 	      } else if (unit === 'imperial') {
 	        return {
 	          temp: 'F',
-	          speed: 'Miles/Hour'
+	          speed: 'mph'
 	        };
 	      }
 	      return { temp: '', speed: '' };
@@ -4198,46 +4174,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    return getUnits;
 	  }(),
-	  toTitleCase: function () {
-	    function toTitleCase(str) {
-	      return str.replace(/\b\w/g, function (txt) {
-	        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-	      });
-	    }
-
-	    return toTitleCase;
-	  }(),
 	  formatDate: function () {
-	    function formatDate(unixStr) {
-	      if (unixStr && _moment2['default'].unix(unixStr).isValid()) {
-	        return _moment2['default'].unix(unixStr).format('ddd D MMM');
+	    function formatDate(dte) {
+	      if (dte && (0, _moment2['default'])(dte).isValid()) {
+	        return (0, _moment2['default'])(dte).format('ddd D MMM');
 	      }
 	      return '';
 	    }
 
 	    return formatDate;
-	  }(),
-	  getWeatherObject: function () {
-	    function getWeatherObject(weather) {
-	      return {
-	        group: weather.main,
-	        description: weather.description,
-	        icon: weather.icon
-	      };
-	    }
-
-	    return getWeatherObject;
-	  }(),
-	  getTemperatureObject: function () {
-	    function getTemperatureObject(current, min, max) {
-	      return {
-	        current: Math.round(current),
-	        min: Math.round(min),
-	        max: Math.round(max)
-	      };
-	    }
-
-	    return getTemperatureObject;
 	  }()
 	};
 	;
@@ -4288,7 +4233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var todayData = props.todayData,
 	        unit = props.unit;
 
-	    var todayIcon = _utils2['default'].getIcon(todayData.weather.icon);
+	    var todayIcon = _utils2['default'].getIcon(todayData.icon);
 	    var units = _utils2['default'].getUnits(unit);
 	    return _react2['default'].createElement(
 	      'div',
@@ -4302,7 +4247,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _react2['default'].createElement(
 	        'div',
 	        { className: 'current' },
-	        todayData.temprature.current,
+	        todayData.temperature.current,
+	        ' ',
+	        units.temp
+	      ),
+	      _react2['default'].createElement(
+	        'div',
+	        { className: 'range' },
+	        todayData.temperature.max,
+	        ' / ',
+	        todayData.temperature.min,
 	        ' ',
 	        units.temp
 	      ),
@@ -4311,7 +4265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        { className: 'desc' },
 	        _react2['default'].createElement('i', { className: 'wicon wi ' + todayIcon }),
 	        '\xA0',
-	        _utils2['default'].toTitleCase(todayData.weather.description)
+	        todayData.description
 	      ),
 	      _react2['default'].createElement('div', { className: 'hr' }),
 	      _react2['default'].createElement(
@@ -4324,7 +4278,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2['default'].createElement(
 	            'b',
 	            null,
-	            todayData.wind.speed
+	            todayData.wind
 	          ),
 	          ' ',
 	          units.speed
@@ -4418,7 +4372,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        { className: 'rw-box-days' },
 	        daysData.map(function (day, i) {
 	          if (i > 0) {
-	            var iconCls = _utils2['default'].getIcon(day.weather.icon);
+	            var iconCls = _utils2['default'].getIcon(day.icon);
 	            return _react2['default'].createElement(
 	              'div',
 	              { key: 'day-' + i, className: 'rw-day' },
@@ -4430,22 +4384,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2['default'].createElement(_WeatherIcon2['default'], { name: iconCls }),
 	              _react2['default'].createElement(
 	                'div',
-	                { className: 'rw-current' },
-	                day.temprature.current,
-	                ' ',
-	                units.temp
+	                { className: 'rw-desc' },
+	                day.description
 	              ),
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'rw-range' },
-	                day.temprature.min,
-	                ' ',
-	                units.temp,
+	                day.temperature.max,
 	                ' / ',
-	                day.temprature.max,
+	                day.temperature.min,
 	                ' ',
-	                units.temp,
-	                ' '
+	                units.temp
 	              )
 	            );
 	          }

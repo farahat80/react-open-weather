@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import OWApi from '../OWApi';
+import XuApi from '../XuApi';
 import utils from '../utils';
 import TodayForecast from './TodayForecast';
 import DaysForecast from './DaysForecast';
@@ -8,7 +8,7 @@ import '../../css/components/ReactWeather.scss';
 
 const propTypes = {
   unit: PropTypes.oneOf(['metric', 'imperial']),
-  type: PropTypes.oneOf(['geo', 'city']),
+  type: PropTypes.oneOf(['geo', 'city', 'auto']),
   lat: PropTypes.string,
   lon: PropTypes.string,
   city: PropTypes.string,
@@ -18,14 +18,14 @@ const propTypes = {
 
 const defaultProps = {
   unit: 'metric',
-  type: 'geo',
+  type: 'auto',
   forecast: 'today'
 };
 
 class ReactWeather extends React.Component {
   constructor(props) {
     super(props);
-    this.api = new OWApi(props.unit, props.apikey);
+    this.api = new XuApi(props.unit, props.apikey);
     this.state = {
       data: null
     };
@@ -36,12 +36,12 @@ class ReactWeather extends React.Component {
     if (data) {
       const days = data.days;
       const today = days[0];
-      const todayIcon = utils.getIcon(today.weather.icon);
+      const todayIcon = utils.getIcon(today.icon);
       return (
         <div className="rw-box">
           <div className={`rw-main type-${forecast}`}>
             <div className="rw-box-left">
-              <h2>{data.city.name}</h2>
+              <h2>{data.location.name}</h2>
               <TodayForecast todayData={today} unit={unit} />
             </div>
             <div className="rw-box-right">
@@ -55,19 +55,14 @@ class ReactWeather extends React.Component {
     return (<div>Loading...</div>);
   }
   componentDidMount() {
-    this.getWeatherData();
+    this.getForecastData();
   }
-  getWeatherData() {
+  getForecastData() {
     const self = this;
     const forecast = self.props.forecast;
     const params = self._getParams();
     let promise = null;
-    if (forecast === 'today') {
-      promise = self.api.getWeatherData(params);
-    } else if (forecast === '5days') {
-      params.cnt = 5;
-      promise = self.api.getForecastData(params);
-    }
+    promise = self.api.getForecast(params);
     promise.then((data) => {
       self.setState({
         data
@@ -79,8 +74,14 @@ class ReactWeather extends React.Component {
     switch (type) {
       case 'city':
         return { q: city };
+      case 'geo':
+        return {
+          q: `${lat},${lon}`
+        };
       default:
-        return { lon, lat };
+        return {
+          q: 'auto:ip'
+        }
     }
   }
 }
