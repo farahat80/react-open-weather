@@ -59,7 +59,6 @@ class ReactWeather extends React.Component {
   }
   getForecastData() {
     const self = this;
-    const forecast = self.props.forecast;
     const params = self._getParams();
     let promise = null;
     promise = self.api.getForecast(params);
@@ -82,7 +81,7 @@ class ReactWeather extends React.Component {
         return {
           q: 'auto:ip'
         }
-    }
+    };
   }
 }
 

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import utils from './utils'
+import utils from './utils';
 
 const FIELDS = {
   metric: {
@@ -18,7 +18,7 @@ const FIELDS = {
     },
     wind: 'maxwind_mph'
   }
-}
+};
 
 export default class XuApi {
   constructor(unit, apiKey) {
@@ -45,11 +45,11 @@ export default class XuApi {
     return promise;
   }
   _map(data) {
-    let self = this;
-    let daysData = data.forecast.forecastday;
-    let mapped = {}
+    const self = this;
+    const daysData = data.forecast.forecastday;
+    const mapped = {};
     mapped.location = data.location;
-    mapped.days = daysData.map((item) => {
+    mapped.days = daysData.map(item => {
       return {
         date: utils.formatDate(item.date),
         description: item.day.condition.text,
@@ -60,7 +60,7 @@ export default class XuApi {
         },
         wind: item.day[FIELDS[self.unit].wind].toFixed(0),
         humidity: item.day.avghumidity
-      }
+      };
     });
     if (mapped.days.length > 0) {
       mapped.days[0].temperature.current = data.current[FIELDS[self.unit].temperature.current];

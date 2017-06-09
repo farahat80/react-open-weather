@@ -4,6 +4,8 @@ engines:
     checks:
       import/extensions:
         enabled: false
+      quote-props:
+        enabled: false
   csslint:
     enabled: true
   duplication:
