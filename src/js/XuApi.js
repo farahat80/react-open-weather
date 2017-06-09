@@ -49,19 +49,17 @@ export default class XuApi {
     const daysData = data.forecast.forecastday;
     const mapped = {};
     mapped.location = data.location;
-    mapped.days = daysData.map((item) => {
-      return {
-        date: utils.formatDate(item.date),
-        description: item.day.condition.text,
-        icon: item.day.condition.code,
-        temperature: {
-          min: item.day[FIELDS[self.unit].temperature.min].toFixed(0),
-          max: item.day[FIELDS[self.unit].temperature.max].toFixed(0)
-        },
-        wind: item.day[FIELDS[self.unit].wind].toFixed(0),
-        humidity: item.day.avghumidity
-      };
-    });
+    mapped.days = daysData.map((item) => ({
+      date: utils.formatDate(item.date),
+      description: item.day.condition.text,
+      icon: item.day.condition.code,
+      temperature: {
+        min: item.day[FIELDS[self.unit].temperature.min].toFixed(0),
+        max: item.day[FIELDS[self.unit].temperature.max].toFixed(0)
+      },
+      wind: item.day[FIELDS[self.unit].wind].toFixed(0),
+      humidity: item.day.avghumidity
+    }));
     if (mapped.days.length > 0) {
       mapped.days[0].temperature.current = data.current[FIELDS[self.unit].temperature.current];
     }
