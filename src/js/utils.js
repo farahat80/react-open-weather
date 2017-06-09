@@ -29,7 +29,7 @@ module.exports = {
   },
   getIcon(icon) {
     if (!icon) { return 'na'; }
-    const  time = 'day';
+    const time = 'day';
     const icoClass = this.icons[time][icon];
     if (icoClass) {
       return icoClass;
