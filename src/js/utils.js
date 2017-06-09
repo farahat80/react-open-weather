@@ -12,7 +12,7 @@ module.exports = {
       '1195': 'wi-day-rain',
       '1087': 'wi-day-thunderstorm',
       '1225': 'wi-day-snow-wind',
-      '1135': 'wi-day-fog',
+      '1135': 'wi-day-fog'
     },
     night: {
       '1009': 'wi-cloud',
@@ -29,7 +29,7 @@ module.exports = {
   },
   getIcon(icon) {
     if (!icon) { return 'na'; }
-    let time = 'day';
+    const  time = 'day';
     const icoClass = this.icons[time][icon];
     if (icoClass) {
       return icoClass;

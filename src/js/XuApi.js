@@ -49,7 +49,7 @@ export default class XuApi {
     const daysData = data.forecast.forecastday;
     const mapped = {};
     mapped.location = data.location;
-    mapped.days = daysData.map(item => {
+    mapped.days = daysData.map((item) => {
       return {
         date: utils.formatDate(item.date),
         description: item.day.condition.text,

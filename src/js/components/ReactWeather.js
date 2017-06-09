@@ -80,8 +80,8 @@ class ReactWeather extends React.Component {
       default:
         return {
           q: 'auto:ip'
-        }
-    };
+        };
+    }
   }
 }
 
