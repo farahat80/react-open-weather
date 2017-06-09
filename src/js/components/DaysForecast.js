@@ -28,9 +28,7 @@ const DaysForecast = (props) => {
                 </div>
               );
             }
-            else{
-              return '';
-            }
+            return '';
           })
         }
       </div>
