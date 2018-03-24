@@ -21,36 +21,38 @@ const FIELDS = {
 };
 
 export default class XuApi {
-  constructor(unit, apiKey) {
+  constructor(unit, apiKey, lang) {
     this.unit = unit;
     this.apiKey = apiKey;
     this.baseApiUrl = '//api.apixu.com/v1/forecast.json';
+    this.lang = lang;
   }
   getForecast(args) {
     const self = this;
     const endpoint = self.baseApiUrl;
     const params = Object.assign({
       key: self.apiKey,
-      days: 5
+      days: 5,
+      lang: self.lang
     }, args);
     const promise = axios.get(endpoint, {
       params
     }).then((response) => {
       const data = response.data;
       if (data) {
-        return self._map(data);
+        return self._map(data, params.lang);
       }
       return {};
     });
     return promise;
   }
-  _map(data) {
+  _map(data, lang) {
     const self = this;
     const daysData = data.forecast.forecastday;
     const mapped = {};
     mapped.location = data.location;
     mapped.days = daysData.map(item => ({
-      date: utils.formatDate(item.date),
+      date: utils.formatDate(item.date, lang),
       description: item.day.condition.text,
       icon: item.day.condition.code,
       temperature: {

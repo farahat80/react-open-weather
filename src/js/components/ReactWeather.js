@@ -13,25 +13,27 @@ const propTypes = {
   lon: PropTypes.string,
   city: PropTypes.string,
   forecast: PropTypes.oneOf(['today', '5days']),
-  apikey: PropTypes.string.isRequired
+  apikey: PropTypes.string.isRequired,
+  lang: PropTypes.string,
 };
 
 const defaultProps = {
   unit: 'metric',
   type: 'auto',
-  forecast: 'today'
+  forecast: 'today',
+  lang: 'en'
 };
 
 class ReactWeather extends React.Component {
   constructor(props) {
     super(props);
-    this.api = new XuApi(props.unit, props.apikey);
+    this.api = new XuApi(props.unit, props.apikey, props.lang);
     this.state = {
       data: null
     };
   }
   render() {
-    const { unit, forecast } = this.props;
+    const { unit, forecast, lang } = this.props;
     const data = this.state.data;
     if (data) {
       const days = data.days;
@@ -42,13 +44,13 @@ class ReactWeather extends React.Component {
           <div className={`rw-main type-${forecast}`}>
             <div className="rw-box-left">
               <h2>{data.location.name}</h2>
-              <TodayForecast todayData={today} unit={unit} />
+              <TodayForecast todayData={today} unit={unit} lang={lang} />
             </div>
             <div className="rw-box-right">
               <WeatherIcon name={todayIcon} />
             </div>
           </div>
-          <DaysForecast unit={unit} forecast={forecast} daysData={days} />
+          <DaysForecast unit={unit} forecast={forecast} daysData={days} lang={lang} />
         </div>
       );
     }
@@ -69,17 +71,19 @@ class ReactWeather extends React.Component {
     });
   }
   _getParams() {
-    const { type, lon, lat, city } = this.props;
+    const { type, lon, lat, city, lang } = this.props;
     switch (type) {
       case 'city':
-        return { q: city };
+        return { q: city, lang };
       case 'geo':
         return {
-          q: `${lat},${lon}`
+          q: `${lat},${lon}`,
+          lang
         };
       default:
         return {
-          q: 'auto:ip'
+          q: 'auto:ip',
+          lang
         };
     }
   }

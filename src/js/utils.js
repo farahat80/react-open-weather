@@ -9,6 +9,7 @@ module.exports = {
       '1003': 'wi-day-cloudy',
       '1006': 'wi-cloudy',
       '1240': 'wi-day-showers',
+      '1189': 'wi-day-hail',
       '1195': 'wi-day-rain',
       '1087': 'wi-day-thunderstorm',
       '1225': 'wi-day-snow-wind',
@@ -22,6 +23,7 @@ module.exports = {
       '1006': 'wi-cloudy',
       '1240': 'wi-night-alt-showers',
       '1195': 'wi-night-alt-rain-wind',
+      '1189': 'wi-night-alt-hail',
       '1087': 'wi-night-alt-thunderstorm',
       '1225': 'wi-night-alt-snow',
       '1135': 'wi-night-fog'
@@ -40,7 +42,7 @@ module.exports = {
     if (unit === 'metric') {
       return {
         temp: 'C',
-        speed: 'kph'
+        speed: 'km/h'
       };
     } else if (unit === 'imperial') {
       return {
@@ -50,10 +52,27 @@ module.exports = {
     }
     return { temp: '', speed: '' };
   },
-  formatDate(dte) {
+  formatDate(dte, lang) {
     if (dte && moment(dte).isValid()) {
-      return moment(dte).format('ddd D MMM');
+      moment.locale(lang);
+      return moment(dte).format('ddd D MMMM');
     }
     return '';
+  },
+  getLangs(lang) {
+    switch (lang) {
+      case "en":
+        return {
+          Wind: "Wind",
+          Humidity: "Humidity"
+        }
+      break;
+      case "es":
+        return {
+          Wind : "Viento",
+          Humidity: "Humedad"
+        }
+      break;
+    }
   }
 };
