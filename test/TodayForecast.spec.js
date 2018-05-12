@@ -7,6 +7,7 @@ describe('TodayForecast Component Shallow', () => {
   beforeEach(function () {
     wrapper = shallow(<TodayForecast
       unit="metric"
+      lang="es"
       todayData={mappedForecastData.days[0]}
     />);
   });
@@ -15,7 +16,7 @@ describe('TodayForecast Component Shallow', () => {
     expect(wrapper.find('.rw-today')).to.have.length(1);
   });
   it('should render the date', () => {
-    expect(wrapper.find('.date').text()).to.equal('Thu 8 Jun');
+    expect(wrapper.find('.date').text()).to.equal('Thu 8 June');
   });
   it('should render the current temprature and unit', () => {
     expect(wrapper.find('.current').text()).to.equal('17 C');
