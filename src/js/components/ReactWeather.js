@@ -14,7 +14,7 @@ const propTypes = {
   city: PropTypes.string,
   forecast: PropTypes.oneOf(['today', '5days']),
   apikey: PropTypes.string.isRequired,
-  lang: PropTypes.string,
+  lang: PropTypes.string
 };
 
 const defaultProps = {

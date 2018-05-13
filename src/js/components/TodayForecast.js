@@ -5,7 +5,7 @@ import '../../css/components/TodayForecast.scss';
 const propTypes = {
   todayData: PropTypes.object.isRequired,
   unit: PropTypes.string.isRequired,
-  lang: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired
 };
 
 const TodayForecast = (props) => {
