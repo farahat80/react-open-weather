@@ -7,10 +7,10 @@ module.exports = {
     if (!icon) { return 'na'; }
     let time = 'day';
     const hour = new Date().getHours();
-    if (hour > 6 && hour < 20) { 
-      time = 'day' 
-    } else { 
-      time = 'night' 
+    if (hour > 6 && hour < 20) {
+      time = 'day';
+    } else {
+      time = 'night';
     }
     const icoClass = icons[time][icon];
     if (icoClass) {
@@ -40,6 +40,6 @@ module.exports = {
     return '';
   },
   getLangs(lang) {
-    return langText[lang] === undefined ? langText["en"] : langText[lang];
+    return langText[lang] === undefined ? langText['en'] : langText[lang];
   }
 };
