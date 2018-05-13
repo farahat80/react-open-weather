@@ -134,7 +134,7 @@ require('react-open-weather/lib/css/ReactWeather.css');
 
 ## Translate Wind and Humidity
 
-on utils.js set getLangs(lang), implement a basic switch to return translate Wind and Humidity to others languages, if you want to implement another language, this is where you can do it. Remember to make a Pull request to share it with everyone
+In lang.js you can implement the necessary translation, to correctly translate Wind and Humidity into other languages, if you want to implement another language, this is where you can do it. Remember to make a Pull request to share it with everyone
 
 ## Language and lang codes of APIXU
 
