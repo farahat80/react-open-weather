@@ -60,22 +60,16 @@ module.exports = {
     return '';
   },
   getLangs(lang) {
+    let langText = { Wind: 'Wind', Humidity: 'Humidity' };
     switch (lang) {
-      case 'en':
-        return {
-          Wind: 'Wind',
-          Humidity: 'Humidity'
-        };
-      case 'es':
-        return {
-          Wind : 'Viento',
-          Humidity: 'Humedad'
-        };
-      default:
-        return {
-          Wind: 'Wind',
-          Humidity: 'Humidity'
-        };
+      case 'es': {
+        langText = { Wind: 'Viento', Humidity: 'Humedad' };
+        break;
+      }
+      default: {
+        langText = { Wind: 'Wind', Humidity: 'Humidity' };
+      }
     }
+    return langText;
   }
 };
