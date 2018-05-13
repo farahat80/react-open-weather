@@ -40,6 +40,6 @@ module.exports = {
     return '';
   },
   getLangs(lang) {
-    return langText[lang] === undefined ? langText['en'] : langText[lang];
+    return langText[lang] === undefined ? langText.en : langText[lang];
   }
 };
