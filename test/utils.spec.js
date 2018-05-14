@@ -1,4 +1,5 @@
 import utils from '../src/js/utils';
+import MockDate from 'mockdate';
 
 describe('Utils module', () => {
 
@@ -6,6 +7,12 @@ describe('Utils module', () => {
     it('return the weather-con class equivalent to OW class', () => {
       var icon = utils.getIcon("1006");
       expect(icon).to.equal("wi-cloudy");
+    });
+    it('return the weather-icon night class equivalent to OW class', ()=>{
+      MockDate.set('2016-06-19T22:00:00');
+      var icon = utils.getIcon("1000");
+      expect(icon).to.equal("wi-night-clear");
+      MockDate.reset();
     });
     it('return "na" if no mapped class name found', () => {
       var icon = utils.getIcon(null);

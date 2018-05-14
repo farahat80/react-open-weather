@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/Cellar/node/9.9.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js test
+  /usr/local/Cellar/node/9.9.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add mockdate --dev
 
 PATH: 
-  /Volumes/DEV/Android/android-sdk/tools:/Volumes/DEV/Android/android-sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/Volumes/DEV/Android/android-sdk/tools:/Volumes/DEV/Android/android-sdk/platform-tools
+  /Volumes/DEV/Android/android-sdk/tools:/Volumes/DEV/Android/android-sdk/platform-tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public
 
 Yarn version: 
   1.5.1
@@ -5926,16 +5926,4 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c mocha test/*.spec.js --recursive
-  Directory: /Volumes/DEV/JS/React/react-open-weather
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
-      at ChildProcess.emit (events.js:180:13)
-      at maybeClose (internal/child_process.js:936:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
+  Error: EACCES: permission denied, copyfile '/usr/local/share/Library/Caches/Yarn/v1/npm-abab-1.0.4-5faad9c2c07f60dd76770f71cf025b62a63cfd4e/CHANGELOG.md' -> '/Volumes/DEV/JS/React/react-open-weather/node_modules/abab/CHANGELOG.md'
