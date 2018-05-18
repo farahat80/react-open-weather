@@ -26,10 +26,10 @@ describe('DaysForecast Component Shallow', () => {
     expect(wrapper.find('.rw-range').at(3).text()).to.equal('27 / 17 C');
   });
   it('should render the date for 4 days ahead', () => {
-    expect(wrapper.find('.rw-date').at(0).text()).to.equal('Fri 9 Jun');
-    expect(wrapper.find('.rw-date').at(1).text()).to.equal('Sat 10 Jun');
-    expect(wrapper.find('.rw-date').at(2).text()).to.equal('Sun 11 Jun');
-    expect(wrapper.find('.rw-date').at(3).text()).to.equal('Mon 12 Jun');
+    expect(wrapper.find('.rw-date').at(0).text()).to.equal('Fri 9 June');
+    expect(wrapper.find('.rw-date').at(1).text()).to.equal('Sat 10 June');
+    expect(wrapper.find('.rw-date').at(2).text()).to.equal('Sun 11 June');
+    expect(wrapper.find('.rw-date').at(3).text()).to.equal('Mon 12 June');
   });
   it('should render the icon component for 4 days ahead', () => {
     expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-day-cloudy");

@@ -4,13 +4,15 @@ import '../../css/components/TodayForecast.scss';
 
 const propTypes = {
   todayData: PropTypes.object.isRequired,
-  unit: PropTypes.string.isRequired
+  unit: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired
 };
 
 const TodayForecast = (props) => {
-  const { todayData, unit } = props;
+  const { todayData, unit, lang } = props;
   const todayIcon = utils.getIcon(todayData.icon);
   const units = utils.getUnits(unit);
+  const langs = utils.getLangs(lang);
   return (
     <div className="rw-today">
       <div className="date">{todayData.date}</div>
@@ -23,8 +25,8 @@ const TodayForecast = (props) => {
       </div>
       <div className="hr"></div>
       <div className="info">
-        <div>Wind Speed: <b>{todayData.wind}</b> {units.speed}</div>
-        <div>Humidity: <b>{todayData.humidity}</b> %</div>
+        <div>{langs.Wind}: <b>{todayData.wind}</b> {units.speed}</div>
+        <div>{langs.Humidity}: <b>{todayData.humidity}</b> %</div>
       </div>
     </div>
   );

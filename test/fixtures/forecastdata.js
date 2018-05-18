@@ -4293,7 +4293,7 @@ var mappedForecastData = {
 		"localtime": "2017-06-08 11:59"
 	},
 	"days": [{
-		"date": "Thu 8 Jun",
+		"date": "Thu 8 June",
 		"description": "Sunny",
 		"icon": 1000,
 		"temperature": {
@@ -4304,7 +4304,7 @@ var mappedForecastData = {
 		"wind": "10",
 		"humidity": 54
 	}, {
-		"date": "Fri 9 Jun",
+		"date": "Fri 9 June",
 		"description": "Partly cloudy",
 		"icon": 1003,
 		"temperature": {
@@ -4314,7 +4314,7 @@ var mappedForecastData = {
 		"wind": "12",
 		"humidity": 59
 	}, {
-		"date": "Sat 10 Jun",
+		"date": "Sat 10 June",
 		"description": "Light rain shower",
 		"icon": 1240,
 		"temperature": {
@@ -4324,7 +4324,7 @@ var mappedForecastData = {
 		"wind": "11",
 		"humidity": 68
 	}, {
-		"date": "Sun 11 Jun",
+		"date": "Sun 11 June",
 		"description": "Sunny",
 		"icon": 1000,
 		"temperature": {
@@ -4334,7 +4334,7 @@ var mappedForecastData = {
 		"wind": "14",
 		"humidity": 63
 	}, {
-		"date": "Mon 12 Jun",
+		"date": "Mon 12 June",
 		"description": "Sunny",
 		"icon": 1000,
 		"temperature": {

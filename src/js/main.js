@@ -5,8 +5,9 @@ import ReactWeather from './components/ReactWeather';
 render(
   <ReactWeather
     forecast="5days"
-    apikey="5a9719b325d148eda80141801170606"
+    apikey="YOUR_API_KEY"
     type="city"
     city="Munich"
+    lang="es"
   />,
   document.getElementById('root'));

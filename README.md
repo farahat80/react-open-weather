@@ -109,6 +109,17 @@ require('react-open-weather/lib/css/ReactWeather.css');
     city="Munich"/>
 ```
 
+### 5-Changing the language
+```html
+  <ReactWeather
+    forecast="today"
+    unit="imperial"
+    apikey="YOUR_API_KEY"
+    type="city"
+    city="Munich"
+    lang="es"/>
+```
+
 ## Props Options
 | Props    | Options               | Default | Description |
 |----------|-----------------------|---------|-------------|
@@ -119,6 +130,65 @@ require('react-open-weather/lib/css/ReactWeather.css');
 | **forecast** | 'today', '5days'      | today   | Determine what forecast to show, today or today plus 4 days ahead |
 | **apikey**   |                       |         | Your API key for open weather map API |
 | **unit**     | 'imperial', 'meteric' | meteric | The unit system you want to use, for Meteric the temperature will be shown in Celsius and distances will be in kilometers, for Imperial the temperature will be shown in Fahrenheit and distances in miles. |
+| **lang**     | lang codes (show lang code table) https://www.apixu.com/doc/request.aspx     | en      | Returns 'condition:text' field in API in the desired language, Please pass 'lang code' from below table. e.g.: lang=es  |
+
+## Translate Wind and Humidity
+
+In lang.js you can implement the necessary translation, to correctly translate Wind and Humidity into other languages, if you want to implement another language, this is where you can do it. Remember to make a Pull request to share it with everyone
+```Javascript
+    langText: {
+          en: { Wind: 'Wind', Humidity: 'Humidity',},
+          es: { Wind: 'Viento', Humidity: 'Humedad',}
+        }
+```
+
+## Language and lang codes of APIXU
+
+https://www.apixu.com/doc/request.aspx
+
+| Language	          | lang code |
+|---------------------|-----------|
+| Arabic              |   ar      |
+| Bengali             | 	bn      |
+| Bulgarian           | 	bg      |
+| Chinese Simplified  | 	zh      |
+| Chinese Traditional | 	zh_tw   |
+| Czech               | 	cs      |
+| Danish              | 	da      |
+| Dutch               | 	nl      |
+| Finnish             | 	fi      |
+| French              | 	fr      |
+| German              | 	de      |
+| Greek               | 	el      |
+| Hindi               | 	hi      |
+| Hungarian           | 	hu      |
+| Italian             | 	it      |
+| Japanese            | 	ja      |
+| Javanese            | 	jv      |
+| Korean              | 	ko      |
+| Mandarin            | 	zh_cmn  |
+| Marathi             | 	mr      |
+| Polish              | 	pl      |
+| Portuguese          | 	pt      |
+| Punjabi             | 	pa      |
+| Romanian            | 	ro      |
+| Russian             | 	ru      |
+| Serbian             | 	sr      |
+| Sinhalese           | 	si      |
+| Slovak              | 	sk      |
+| Spanish             | 	es      |
+| Swedish             | 	sv      |
+| Tamil               | 	ta      |
+| Telugu              | 	te      |
+| Turkish             | 	tr      |
+| Ukrainian           | 	uk      |
+| Urdu                | 	ur      |
+| Vietnamese          | 	vi      |
+| Wu (Shanghainese)   | 	zh_wuu  |
+| Xiang               | 	zh_hsn  |
+| Yue (Cantonese)     | 	zh_yue  |
+| Zulu                | 	zu      |
+
 
 ## Contribution
 If you want to contribute to the project and make it better, your help is very welcome, create a pull request with your suggested feature/bug fix/ enhancements.
