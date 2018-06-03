@@ -32,9 +32,9 @@ describe('DaysForecast Component Shallow', () => {
     expect(wrapper.find('.rw-date').at(3).text()).to.equal('Mon 12 June');
   });
   it('should render the icon component for 4 days ahead', () => {
-    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-day-cloudy");
-    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal("wi-day-showers");
-    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal("wi-day-sunny");
-    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal("wi-day-sunny");
+    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-night-alt-cloudy");
+    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal("wi-night-alt-showers");
+    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal("wi-night-clear");
+    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal("wi-night-clear");
   });
 });
