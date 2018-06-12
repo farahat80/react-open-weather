@@ -8,6 +8,6 @@ render(
     apikey="YOUR_API_KEY"
     type="city"
     city="Munich"
-    lang="es"
+    lang="en"
   />,
   document.getElementById('root'));

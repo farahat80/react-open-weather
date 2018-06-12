@@ -1,17 +1,18 @@
+/* global shallow */
 import React from 'react';
-import { forecastData, mappedForecastData } from './fixtures/forecastdata.js';
+import { mappedForecastData } from './fixtures/forecastdata';
 import TodayForecast from '../src/js/components/TodayForecast';
 
 describe('TodayForecast Component Shallow', () => {
   let wrapper;
-  beforeEach(function () {
+  beforeEach(() => {
     wrapper = shallow(<TodayForecast
-      unit="metric"
-      lang="es"
+      unit='metric'
+      lang='es'
       todayData={mappedForecastData.days[0]}
     />);
   });
-  afterEach(function () { });
+  afterEach(() => { });
   it('should render the component', () => {
     expect(wrapper.find('.rw-today')).to.have.length(1);
   });
