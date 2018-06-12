@@ -43,5 +43,9 @@
       "js": "never",
       "jsx": "never"
     }
-  ]
+  ],
+  "env":{
+    "mocha": true,
+    "jest": true
+  }
 }

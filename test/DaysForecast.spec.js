@@ -1,18 +1,19 @@
+/* global shallow */
 import React from 'react';
-import { forecastData, mappedForecastData } from './fixtures/forecastdata.js';
+import { mappedForecastData } from './fixtures/forecastdata';
 import DaysForecast from '../src/js/components/DaysForecast';
 import WeatherIcon from '../src/js/components/WeatherIcon';
 
 describe('DaysForecast Component Shallow', () => {
   let wrapper;
-  beforeEach(function () {
+  beforeEach(() => {
     wrapper = shallow(<DaysForecast
-      unit="metric"
-      forecast="5days"
+      unit='metric'
+      forecast='5days'
       daysData={mappedForecastData.days}
     />);
   });
-  afterEach(function () { });
+  afterEach(() => { });
   it('should render the component', () => {
     expect(wrapper.find('.rw-box-days')).to.have.length(1);
   });
@@ -32,9 +33,9 @@ describe('DaysForecast Component Shallow', () => {
     expect(wrapper.find('.rw-date').at(3).text()).to.equal('Mon 12 June');
   });
   it('should render the icon component for 4 days ahead', () => {
-    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal("wi-night-alt-cloudy");
-    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal("wi-night-alt-showers");
-    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal("wi-night-clear");
-    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal("wi-night-clear");
+    expect(wrapper.find(WeatherIcon).at(0).props().name).to.equal('wi-cloudy');
+    expect(wrapper.find(WeatherIcon).at(1).props().name).to.equal('wi-showers');
+    expect(wrapper.find(WeatherIcon).at(2).props().name).to.equal('wi-day-sunny');
+    expect(wrapper.find(WeatherIcon).at(3).props().name).to.equal('wi-day-sunny');
   });
 });

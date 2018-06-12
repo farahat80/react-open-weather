@@ -5,14 +5,7 @@ import { langText } from './lang';
 module.exports = {
   getIcon(icon) {
     if (!icon) { return 'na'; }
-    let time = 'day';
-    const hour = new Date().getHours();
-    if (hour > 6 && hour < 20) {
-      time = 'day';
-    } else {
-      time = 'night';
-    }
-    const icoClass = icons[time][icon];
+    const icoClass = icons[icon];
     if (icoClass) {
       return icoClass;
     }
