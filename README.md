@@ -14,8 +14,8 @@ Features Implemented:
 The Component development is in progress and will contain more features in the future versions.
 
 ### Demo & Docs
-- [Demo](https://farahat80.github.io/react-open-weather/)
-- [Docs](https://farahat80.github.io/react-open-weather/docs/)
+- [Demo](https://react-open-weather.gitbook.io/project/)
+- [Docs](https://react-open-weather.gitbook.io/project/)
 
 ### Dependencies
 - [Moment JS](https://momentjs.com/)
