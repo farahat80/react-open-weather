@@ -1,5 +1,9 @@
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import moment from 'moment';
+
+const url = '//api.apixu.com/v1/forecast.json';
 
 const formatDate = (dte, lang) => {
   if (dte && moment(dte).isValid()) {
@@ -44,38 +48,35 @@ const FIELDS = {
   },
 };
 
-export default class XuApi {
-  constructor(unit, apiKey, lang) {
-    this.unit = unit;
-    this.apiKey = apiKey;
-    this.baseApiUrl = '//api.apixu.com/v1/forecast.json';
-    this.lang = lang;
+class XuApiProvider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
-  getForecast(args) {
-    const endpoint = this.baseApiUrl;
-    const params = Object.assign(
-      {
-        key: this.apiKey,
-        days: 5,
-        lang: this.lang,
-      },
-      args,
-    );
+  componentDidMount() {
+    const { apiKey, lat, lon, lang } = this.props;
+    const params = {
+      key: apiKey,
+      days: 5,
+      lang,
+      q: `${lat},${lon}`,
+    };
     return axios
-      .get(endpoint, {
+      .get(url, {
         params,
       })
       .then(({ data }) => {
         if (data) {
-          return this.map(data, params.lang);
+          this.setState({ data: this.map(data, lang) });
         }
         return {};
       });
   }
 
   map(data, lang) {
-    const units = getUnits(this.unit);
+    const { unit } = this.props;
+    const units = getUnits(unit);
     const daysData = data.forecast.forecastday;
     const mapped = {};
     mapped.location = data.location;
@@ -86,17 +87,30 @@ export default class XuApi {
       description: item.day.condition.text,
       icon: item.day.condition.code,
       temperature: {
-        min: item.day[FIELDS[this.unit].temperature.min].toFixed(0),
-        max: item.day[FIELDS[this.unit].temperature.max].toFixed(0),
+        min: item.day[FIELDS[unit].temperature.min].toFixed(0),
+        max: item.day[FIELDS[unit].temperature.max].toFixed(0),
       },
-      wind: item.day[FIELDS[this.unit].wind].toFixed(0),
+      wind: item.day[FIELDS[unit].wind].toFixed(0),
       humidity: item.day.avghumidity,
     }));
     if (mapped.days.length > 0) {
       mapped.days[0].temperature.current = data.current[
-        FIELDS[this.unit].temperature.current
+        FIELDS[unit].temperature.current
       ].toFixed(0);
     }
     return mapped;
   }
+
+  render() {
+    const props = {
+      data: this.state.data,
+    };
+    return this.props.children(props);
+  }
 }
+
+XuApiProvider.propTypes = {};
+
+XuApiProvider.defaultProps = {};
+
+export default XuApiProvider;
