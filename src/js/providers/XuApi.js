@@ -51,7 +51,10 @@ const FIELDS = {
 class XuApiProvider extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: {},
+      isLoading: true,
+    };
   }
 
   componentDidMount() {
@@ -68,7 +71,7 @@ class XuApiProvider extends Component {
       })
       .then(({ data }) => {
         if (data) {
-          this.setState({ data: this.map(data, lang) });
+          this.setState({ data: this.map(data, lang), isLoading: false });
         }
         return {};
       });
@@ -79,10 +82,30 @@ class XuApiProvider extends Component {
     const units = getUnits(unit);
     const daysData = data.forecast.forecastday;
     const mapped = {};
-    mapped.location = data.location;
-    mapped.temperatureUnit = units.temp;
-    mapped.windSpeedUnit = units.speed;
-    mapped.days = daysData.map(item => ({
+    mapped.location = {
+      name: data.location.name,
+      country: data.location.country,
+      lon: data.location.lon,
+      lat: data.location.lat,
+    };
+    mapped.units = {
+      temperature: units.temp,
+      windSpeed: units.speed,
+    };
+    mapped.today = {
+      date: formatDate(daysData[0].date, lang),
+      description: daysData[0].day.condition.text,
+      icon: daysData[0].day.condition.code,
+      temperature: {
+        current: data.current[FIELDS[unit].temperature.current].toFixed(0),
+        min: daysData[0].day[FIELDS[unit].temperature.min].toFixed(0),
+        max: daysData[0].day[FIELDS[unit].temperature.max].toFixed(0),
+      },
+      wind: daysData[0].day[FIELDS[unit].wind].toFixed(0),
+      humidity: daysData[0].day.avghumidity,
+    };
+
+    mapped.forecast = daysData.slice(1).map(item => ({
       date: formatDate(item.date, lang),
       description: item.day.condition.text,
       icon: item.day.condition.code,
@@ -93,17 +116,13 @@ class XuApiProvider extends Component {
       wind: item.day[FIELDS[unit].wind].toFixed(0),
       humidity: item.day.avghumidity,
     }));
-    if (mapped.days.length > 0) {
-      mapped.days[0].temperature.current = data.current[
-        FIELDS[unit].temperature.current
-      ].toFixed(0);
-    }
     return mapped;
   }
 
   render() {
     const props = {
-      data: this.state.data,
+      isLoading: this.state.isLoading,
+      ...this.state.data,
     };
     return this.props.children(props);
   }

@@ -5,54 +5,63 @@ import Today from './Today';
 import Forecast from './Forecast';
 import WeatherIcon from './WeatherIcon';
 
-const ReactWeather = ({ forecast, lang, classes, data }) => {
-  if (data) {
-    const { days } = data;
-    const todayData = days[0];
-    return (
-      <div className={classes.container}>
-        <div className={classes.main}>
-          <div className={classes.left}>
-            <h2 className={classes.header}>{data.location.name}</h2>
-            <Today
-              todayData={todayData}
-              temperatureUnit={data.temperatureUnit}
-              windSpeedUnit={data.windSpeedUnit}
-              lang={lang}
-            />
-          </div>
-          <div className={classes.right}>
-            <WeatherIcon
-              iconCode={todayData.icon}
-              size={120}
-              color="white"
-              title={todayData.description}
-            />
-          </div>
-        </div>
-        {forecast && (
-          <Forecast
-            temperatureUnit={data.temperatureUnit}
-            forecast={forecast}
-            daysData={days}
+const ReactWeather = ({
+  showForecast,
+  lang,
+  classes,
+  today,
+  forecast,
+  units,
+  location,
+  isLoading,
+}) => {
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div className={classes.container}>
+      <div className={classes.main}>
+        <div className={classes.left}>
+          <h2 className={classes.header}>{location.name}</h2>
+          <Today
+            todayData={today}
+            temperatureUnit={units.temperature}
+            windSpeedUnit={units.windSpeed}
             lang={lang}
           />
-        )}
+        </div>
+        <div className={classes.right}>
+          <WeatherIcon
+            iconCode={today.icon}
+            size={120}
+            color="white"
+            title={today.description}
+          />
+        </div>
       </div>
-    );
-  }
-  return <div>Loading...</div>;
+      {showForecast && (
+        <Forecast
+          temperatureUnit={units.temperature}
+          showForecast={showForecast}
+          daysData={forecast}
+          lang={lang}
+        />
+      )}
+    </div>
+  );
 };
 
 ReactWeather.propTypes = {
   classes: PropTypes.object.isRequired,
-  forecast: PropTypes.bool,
+  showForecast: PropTypes.bool,
+  isLoading: PropTypes.bool,
   lang: PropTypes.string,
 };
 
 ReactWeather.defaultProps = {
-  forecast: true,
+  showForecast: true,
   lang: 'en',
+  isLoading: true,
 };
 
 const style = createStyle({

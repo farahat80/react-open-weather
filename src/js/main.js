@@ -12,7 +12,18 @@ render(
     lang="en"
     unit="metric"
   >
-    {({ data }) => <ReactWeather forecast data={data} />}
+    {({ today, forecast, units, location, isLoading }) => {
+      return (
+        <ReactWeather
+          showForecast
+          today={today}
+          forecast={forecast}
+          units={units}
+          location={location}
+          isLoading={isLoading}
+        />
+      );
+    }}
   </XuApiProvider>,
   document.getElementById('root'),
 );
