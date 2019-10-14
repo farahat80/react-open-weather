@@ -8,12 +8,14 @@ import { mappedForecastData } from './fixtures/forecastdata';
 describe('ReactWeather Component Shallow', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = mount(<ReactWeather
-      apikey='dummy-api-key'
-      type='city'
-      city='Munich'
-      lang='en'
-    />);
+    wrapper = mount(
+      <ReactWeather
+        apikey="dummy-api-key"
+        type="city"
+        city="Munich"
+        lang="en"
+      />
+    );
     wrapper.setState({ data: mappedForecastData });
   });
   it('should render the component', () => {
@@ -35,19 +37,29 @@ describe('ReactWeather Component Shallow', () => {
 /* global mount, spy */
 describe('ReactWeather Component Render', () => {
   it('should accept the props and ggenerate params object', () => {
-    const wrapper = mount(<ReactWeather apikey='dummy-api-key' type='city' city='Munich' lang='en'/>);
-    expect(wrapper.instance()._getParams()).to.deep.equal({ q: 'Munich', lang: 'en' });
+    const wrapper = mount(
+      <ReactWeather
+        apikey="dummy-api-key"
+        type="city"
+        city="Munich"
+        lang="en"
+      />
+    );
+    expect(wrapper.instance()._getParams()).to.deep.equal({
+      q: 'Munich',
+      lang: 'en',
+    });
   });
   it('calls componentDidMount', () => {
     spy(ReactWeather.prototype, 'componentDidMount');
-    mount(<ReactWeather apikey='dummy-api-key' type='city' city='Munich' />);
+    mount(<ReactWeather apikey="dummy-api-key" type="city" city="Munich" />);
     expect(ReactWeather.prototype.componentDidMount.calledOnce).to.equal(true);
   });
   it('have default props', () => {
-    const wrapper = mount(<ReactWeather apikey='dummy-api-key' />);
+    const wrapper = mount(<ReactWeather apikey="dummy-api-key" />);
     expect(wrapper.props().unit).to.equal('metric');
     expect(wrapper.props().forecast).to.equal('today');
-    expect(wrapper.props().type).to.equal('auto');
+    expect(wrapper.props().type).to.equal('city');
     expect(wrapper.props().lang).to.equal('en');
   });
 });

@@ -1,7 +1,7 @@
 {
   "name": "react-open-weather",
   "bin": {},
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "React Weather component",
   "main": "lib/js/ReactWeather.js",
   "dependencies": {
