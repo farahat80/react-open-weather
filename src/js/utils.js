@@ -4,7 +4,9 @@ import { langText } from './lang';
 
 module.exports = {
   getIcon(icon) {
-    if (!icon) { return 'na'; }
+    if (!icon) {
+      return 'na';
+    }
     const icoClass = icons[icon];
     if (icoClass) {
       return icoClass;
@@ -15,12 +17,12 @@ module.exports = {
     if (unit === 'metric') {
       return {
         temp: 'C',
-        speed: 'km/h'
+        speed: 'km/h',
       };
     } else if (unit === 'imperial') {
       return {
         temp: 'F',
-        speed: 'mph'
+        speed: 'mph',
       };
     }
     return { temp: '', speed: '' };
@@ -28,11 +30,11 @@ module.exports = {
   formatDate(dte, lang) {
     if (dte && moment(dte).isValid()) {
       moment.locale(lang);
-      return moment(dte).format('ddd D MMMM');
+      return moment.unix(dte).format('ddd D MMMM');
     }
     return '';
   },
   getLangs(lang) {
     return langText[lang] === undefined ? langText.en : langText[lang];
-  }
+  },
 };

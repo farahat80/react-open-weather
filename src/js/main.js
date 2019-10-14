@@ -10,4 +10,5 @@ render(
     city="Munich"
     lang="en"
   />,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
