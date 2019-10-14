@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import XuApi from '../XuApi';
+import OpenWeatherApi from '../OpenWeatherApi';
 import utils from '../utils';
 import TodayForecast from './TodayForecast';
 import DaysForecast from './DaysForecast';
@@ -8,28 +8,28 @@ import '../../css/components/ReactWeather.scss';
 
 const propTypes = {
   unit: PropTypes.oneOf(['metric', 'imperial']),
-  type: PropTypes.oneOf(['geo', 'city', 'auto']),
+  type: PropTypes.oneOf(['geo', 'city']),
   lat: PropTypes.string,
   lon: PropTypes.string,
   city: PropTypes.string,
   forecast: PropTypes.oneOf(['today', '5days']),
   apikey: PropTypes.string.isRequired,
-  lang: PropTypes.string
+  lang: PropTypes.string,
 };
 
 const defaultProps = {
   unit: 'metric',
-  type: 'auto',
+  type: 'city',
   forecast: 'today',
-  lang: 'en'
+  lang: 'en',
 };
 
 class ReactWeather extends React.Component {
   constructor(props) {
     super(props);
-    this.api = new XuApi(props.unit, props.apikey, props.lang);
+    this.api = new OpenWeatherApi(props.unit, props.apikey, props.lang);
     this.state = {
-      data: null
+      data: null,
     };
   }
   render() {
@@ -50,11 +50,16 @@ class ReactWeather extends React.Component {
               <WeatherIcon name={todayIcon} />
             </div>
           </div>
-          <DaysForecast unit={unit} forecast={forecast} daysData={days} lang={lang} />
+          <DaysForecast
+            unit={unit}
+            forecast={forecast}
+            daysData={days}
+            lang={lang}
+          />
         </div>
       );
     }
-    return (<div>Loading...</div>);
+    return <div>Loading...</div>;
   }
   componentDidMount() {
     this.getForecastData();
@@ -64,9 +69,9 @@ class ReactWeather extends React.Component {
     const params = self._getParams();
     let promise = null;
     promise = self.api.getForecast(params);
-    promise.then((data) => {
+    promise.then(data => {
       self.setState({
-        data
+        data,
       });
     });
   }
@@ -77,13 +82,14 @@ class ReactWeather extends React.Component {
         return { q: city, lang };
       case 'geo':
         return {
-          q: `${lat},${lon}`,
-          lang
+          lat,
+          lon,
+          lang,
         };
       default:
         return {
           q: 'auto:ip',
-          lang
+          lang,
         };
     }
   }
