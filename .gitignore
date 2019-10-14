@@ -2,8 +2,8 @@
 node_modules
 npm-debug.log
 
-#dist
-lib
+# #dist
+# lib
 
 #coverage
 coverage
