@@ -1,6 +1,0 @@
---compilers js:babel-register 
---require test/helpers/dom.js 
---require ignore-styles 
---require test/helpers/helpers.js
---require test/helpers/setup.js 
--R spec
