@@ -1,56 +1,35 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: {
-    main: './src/js/components/ReactWeather.js'
+    main: './src/js/index.js',
   },
   output: {
-    path: 'lib/',
-    filename: '/js/ReactWeather.js',
+    path: path.resolve(__dirname, './lib'),
+    filename: 'ReactWeather.js',
     libraryTarget: 'umd',
     library: 'ReactWeather',
-    umdNamedDefine: true
+    umdNamedDefine: true,
   },
   devtool: false,
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'latest']
-      }
-    }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('css-loader!autoprefixer-loader')
-    }, {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('css!sass')
-    }, {
-      test: /\.((woff2?|svg)(\?v=[0-9]\.[0-9]\.[0-9]))|(woff2?|svg|jpe?g|png|gif|ico)$/,
-      loader: 'url?limit=10000'
-    }, {
-      test: /\.((ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))|(ttf|eot)$/,
-      loader: 'file'
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+      },
+    ],
   },
-  externals: [{
-    moment: {
-      root: 'moment',
-      commonjs2: 'moment',
-      commonjs: 'moment',
-      amd: 'moment'
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react',
+      },
     },
-    react: {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
-    }
-  }],
-  plugins: [
-    new ExtractTextPlugin('css/ReactWeather.css', {
-      allChunks: true
-    })
-  ]
+  ],
+  plugins: [],
 };
