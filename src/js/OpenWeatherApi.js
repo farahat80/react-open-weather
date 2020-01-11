@@ -9,7 +9,7 @@ export default class OpenWeatherApi {
     this.lang = lang;
   }
   getForecast(args) {
-    var endpointForecast = this.baseApiUrl + '/forecast';
+    const endpointForecast = this.baseApiUrl + '/forecast';
     const endPointToday = `${this.baseApiUrl}/weather`;
     const params = Object.assign(
       {
