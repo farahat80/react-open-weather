@@ -17,7 +17,7 @@ const DaysForecast = (props) => {
       <div className="rw-box-days">
         {
           daysData.map((day, i) => {
-            if (i > 0) {
+            if (i >= 0) {
               const iconCls = utils.getIcon(day.icon);
               return (
                 <div key={`day-${i}`} className='rw-day'>

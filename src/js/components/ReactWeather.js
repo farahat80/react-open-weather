@@ -37,7 +37,7 @@ class ReactWeather extends React.Component {
     const data = this.state.data;
     if (data) {
       const days = data.days;
-      const today = days[0];
+      const today = data.current;
       const todayIcon = utils.getIcon(today.icon);
       return (
         <div className="rw-box">
