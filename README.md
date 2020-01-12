@@ -1,7 +1,5 @@
 # React Open Weather
 
-### NOTE: the component forecast only works with the startup plan package from openweather api https://openweathermap.org/price
-
 ---
 
 [![Build Status](https://travis-ci.org/farahat80/react-open-weather.svg?branch=master)](https://travis-ci.org/farahat80/react-open-weather)
