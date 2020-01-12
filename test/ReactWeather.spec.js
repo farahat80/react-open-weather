@@ -4,6 +4,7 @@ import TodayForecast from '../src/js/components/TodayForecast';
 import WeatherIcon from '../src/js/components/WeatherIcon';
 import DaysForecast from '../src/js/components/DaysForecast';
 import { mappedForecastData } from './fixtures/forecastdata';
+import { mappedDayData } from './fixtures/daydata';
 
 describe('ReactWeather Component Shallow', () => {
   let wrapper;
@@ -16,7 +17,14 @@ describe('ReactWeather Component Shallow', () => {
         lang="en"
       />
     );
-    wrapper.setState({ data: mappedForecastData });
+    const dataObj = {
+      location: {
+        name: "Munich"
+      },
+      current: mappedDayData,
+      days: mappedForecastData
+    };
+    wrapper.setState({ data: dataObj });
   });
   it('should render the component', () => {
     expect(wrapper.find('.rw-box')).to.have.length(1);
