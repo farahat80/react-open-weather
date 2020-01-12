@@ -37,10 +37,10 @@ module.exports = {
   getLangs(lang) {
     return langText[lang] === undefined ? langText.en : langText[lang];
   },
-  getNextDays(){  // Returns an array containing the next 4 days dates in format yyyy-mm-dd
+  getNextDays(tomorrow){  // Returns an array containing the next 4 days dates in format yyyy-mm-dd
 
     var fourDates = [];
-    var tomorrow = new Date(); // initialized at today
+    //var tomorrow = new Date(); // initialized at today
     var tomorrow_formated = "";
 
     // Creating the 4 dates in the good format

@@ -1,6 +1,6 @@
 /* global shallow */
 import React from 'react';
-import { mappedForecastData } from './fixtures/forecastdata';
+import { mappedDayData } from './fixtures/daydata';
 import TodayForecast from '../src/js/components/TodayForecast';
 
 describe('TodayForecast Component Shallow', () => {
@@ -9,8 +9,8 @@ describe('TodayForecast Component Shallow', () => {
     wrapper = shallow(
       <TodayForecast
         unit="metric"
-        lang="es"
-        todayData={mappedForecastData.days[0]}
+        lang="en"
+        todayData={mappedDayData}
       />
     );
   });
@@ -19,9 +19,9 @@ describe('TodayForecast Component Shallow', () => {
     expect(wrapper.find('.rw-today')).to.have.length(1);
   });
   it('should render the date', () => {
-    expect(wrapper.find('.date').text()).to.equal('Mon 14 October');
+    expect(wrapper.find('.date').text()).to.equal('Sun 12 January');
   });
   it('should render the current temprature and unit', () => {
-    expect(wrapper.find('.current').text()).to.equal('21 C');
+    expect(wrapper.find('.current').text()).to.equal('4 °C');
   });
 });

@@ -36,7 +36,7 @@ describe('ReactWeather Component Shallow', () => {
 });
 /* global mount, spy */
 describe('ReactWeather Component Render', () => {
-  it('should accept the props and ggenerate params object', () => {
+  it('should accept the props and generate params object', () => {
     const wrapper = mount(
       <ReactWeather
         apikey="dummy-api-key"

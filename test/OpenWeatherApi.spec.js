@@ -2,7 +2,7 @@
 import moxios from 'moxios';
 import OpenWeatherApi from '../src/js/OpenWeatherApi';
 import { forecastData, mappedForecastData } from './fixtures/forecastdata';
-import { dayData } from './fixtures/daydata';
+import { dayData, mappedDayData } from './fixtures/daydata';
 
 describe('Testing API calls', () => {
   beforeEach(() => {
@@ -38,6 +38,7 @@ describe('Testing data mapping', () => {
   it('should map weather data', () => {
     const api = new OpenWeatherApi('metric', 'test');
     const mapped = api._map(forecastData, dayData);
-    expect(mapped).to.deep.equal(mappedForecastData);
+    expect(mapped.days).to.deep.equal(mappedForecastData);
+    expect(mapped.current).to.deep.equal(mappedDayData);
   });
 });

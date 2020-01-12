@@ -38,6 +38,7 @@ export default class OpenWeatherApi {
     return promise;
   }
   _map(forecastData, todayData, lang) {
+
     const mapped = {};
 
     mapped.location = forecastData.city;
@@ -50,7 +51,8 @@ export default class OpenWeatherApi {
         current: todayData.main.temp.toFixed(0)
       },
       wind: todayData.wind.speed.toFixed(0),
-      humidity: todayData.main.humidity
+      humidity: todayData.main.humidity,
+      date: utils.formatDate(todayData.dt, lang)
     };
     mapped.days = this._mapForecast(forecastData.list, lang);
 
@@ -58,7 +60,7 @@ export default class OpenWeatherApi {
   }
   _mapForecast(daysData, lang) {
 
-    var comingDays = utils.getNextDays();
+    var comingDays = utils.getNextDays(new Date());
     var daysMapped = [];
 
     // Getting data from each day
