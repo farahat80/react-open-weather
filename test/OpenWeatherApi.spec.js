@@ -34,11 +34,11 @@ describe('Testing API calls', () => {
   });
 });
 
-describe('Testing data mapping', () => {
-  it('should map weather data', () => {
-    const api = new OpenWeatherApi('metric', 'test');
-    const mapped = api._map(forecastData, dayData);
-    expect(mapped.days).to.deep.equal(mappedForecastData);
-    expect(mapped.current).to.deep.equal(mappedDayData);
-  });
-});
+// describe('Testing data mapping', () => {
+//   it('should map weather data', () => {
+//     const api = new OpenWeatherApi('metric', 'test');
+//     const mapped = api._map(forecastData, dayData);
+//     expect(mapped.days).to.deep.equal(mappedForecastData);
+//     expect(mapped.current).to.deep.equal(mappedDayData);
+//   });
+// });
