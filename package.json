@@ -5,7 +5,7 @@
   "description": "React Weather component",
   "main": "lib/js/ReactWeather.js",
   "dependencies": {
-    "axios": "^0.16.1",
+    "axios": "^0.18.1",
     "moment": "^2.18.1",
     "react": "~15.4.1",
     "react-dom": "~15.4.1"
