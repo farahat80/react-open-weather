@@ -11,7 +11,7 @@ describe('DaysForecast Component Shallow', () => {
       <DaysForecast
         unit="metric"
         forecast="5days"
-        daysData={mappedForecastData.days}
+        daysData={mappedForecastData}
       />
     );
   });
@@ -28,25 +28,25 @@ describe('DaysForecast Component Shallow', () => {
         .find('.rw-range')
         .at(0)
         .text()
-    ).to.equal('18 / 10 C');
+    ).to.equal('6 / -0 °C');
     expect(
       wrapper
         .find('.rw-range')
         .at(1)
         .text()
-    ).to.equal('15 / 8 C');
+    ).to.equal('8 / -0 °C');
     expect(
       wrapper
         .find('.rw-range')
         .at(2)
         .text()
-    ).to.equal('15 / 8 C');
+    ).to.equal('8 / -0 °C');
     expect(
       wrapper
         .find('.rw-range')
         .at(3)
         .text()
-    ).to.equal('16 / 7 C');
+    ).to.equal('8 / 2 °C');
   });
   it('should render the date for 4 days ahead', () => {
     expect(
@@ -54,25 +54,25 @@ describe('DaysForecast Component Shallow', () => {
         .find('.rw-date')
         .at(0)
         .text()
-    ).to.equal('Tue 15 October');
+    ).to.equal('Mon 13 January');
     expect(
       wrapper
         .find('.rw-date')
         .at(1)
         .text()
-    ).to.equal('Wed 16 October');
+    ).to.equal('Tue 14 January');
     expect(
       wrapper
         .find('.rw-date')
         .at(2)
         .text()
-    ).to.equal('Thu 17 October');
+    ).to.equal('Wed 15 January');
     expect(
       wrapper
         .find('.rw-date')
         .at(3)
         .text()
-    ).to.equal('Fri 18 October');
+    ).to.equal('Thu 16 January');
   });
   it('should render the icon component for 4 days ahead', () => {
     expect(
@@ -80,13 +80,13 @@ describe('DaysForecast Component Shallow', () => {
         .find(WeatherIcon)
         .at(0)
         .props().name
-    ).to.equal('wi-day-rain');
+    ).to.equal('wi-cloudy');
     expect(
       wrapper
         .find(WeatherIcon)
         .at(1)
         .props().name
-    ).to.equal('wi-day-rain');
+    ).to.equal('wi-cloudy');
     expect(
       wrapper
         .find(WeatherIcon)
@@ -98,6 +98,6 @@ describe('DaysForecast Component Shallow', () => {
         .find(WeatherIcon)
         .at(3)
         .props().name
-    ).to.equal('wi-cloudy');
+    ).to.equal('wi-day-cloudy');
   });
 });
