@@ -58,8 +58,7 @@
     "test": "mocha test/*.spec.js --recursive",
     "tdd": "npm test -- --watch",
     "lint": "./node_modules/.bin/eslint ./src/js ;exit 0",
-    "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha",
-    "postinstall": "npm run build"
+    "coverage": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha"
   },
   "repostitory": {
     "type": "git",

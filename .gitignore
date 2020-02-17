@@ -3,7 +3,7 @@ node_modules
 npm-debug.log
 
 # #dist
-lib
+#lib
 
 #coverage
 coverage
