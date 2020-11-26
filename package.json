@@ -70,11 +70,6 @@
   "keywords": [
     "react",
     "component",
-    "babel",
-    "es2015",
-    "webpack",
-    "sass",
-    "es6",
     "openweathermap"
   ],
   "author": "Ahmed Farahat <farahat80@gmail.com>",
