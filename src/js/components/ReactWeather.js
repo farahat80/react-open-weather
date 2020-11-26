@@ -1,27 +1,28 @@
-import React, { PropTypes } from 'react';
-import OpenWeatherApi from '../OpenWeatherApi';
-import utils from '../utils';
-import TodayForecast from './TodayForecast';
-import DaysForecast from './DaysForecast';
-import WeatherIcon from './WeatherIcon';
-import '../../css/components/ReactWeather.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import OpenWeatherApi from "../OpenWeatherApi";
+import utils from "../utils";
+import TodayForecast from "./TodayForecast";
+import DaysForecast from "./DaysForecast";
+import WeatherIcon from "./WeatherIcon";
+import "../../css/components/ReactWeather.scss";
 
 const propTypes = {
-  unit: PropTypes.oneOf(['metric', 'imperial']),
-  type: PropTypes.oneOf(['geo', 'city']),
+  unit: PropTypes.oneOf(["metric", "imperial"]),
+  type: PropTypes.oneOf(["geo", "city"]),
   lat: PropTypes.string,
   lon: PropTypes.string,
   city: PropTypes.string,
-  forecast: PropTypes.oneOf(['today', '5days']),
+  forecast: PropTypes.oneOf(["today", "5days"]),
   apikey: PropTypes.string.isRequired,
   lang: PropTypes.string,
 };
 
 const defaultProps = {
-  unit: 'metric',
-  type: 'city',
-  forecast: 'today',
-  lang: 'en',
+  unit: "metric",
+  type: "city",
+  forecast: "today",
+  lang: "en",
 };
 
 class ReactWeather extends React.Component {
@@ -69,7 +70,7 @@ class ReactWeather extends React.Component {
     const params = self._getParams();
     let promise = null;
     promise = self.api.getForecast(params);
-    promise.then(data => {
+    promise.then((data) => {
       self.setState({
         data,
       });
@@ -78,9 +79,9 @@ class ReactWeather extends React.Component {
   _getParams() {
     const { type, lon, lat, city, lang } = this.props;
     switch (type) {
-      case 'city':
+      case "city":
         return { q: city, lang };
-      case 'geo':
+      case "geo":
         return {
           lat,
           lon,
@@ -88,7 +89,7 @@ class ReactWeather extends React.Component {
         };
       default:
         return {
-          q: 'auto:ip',
+          q: "auto:ip",
           lang,
         };
     }

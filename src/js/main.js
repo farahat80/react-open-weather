@@ -1,6 +1,6 @@
-import React from 'react';
-import { render } from 'react-dom';
-import ReactWeather from './components/ReactWeather';
+import React from "react";
+import { render } from "react-dom";
+import ReactWeather from "./components/ReactWeather";
 
 render(
   <ReactWeather
@@ -10,5 +10,5 @@ render(
     city="Munich"
     lang="en"
   />,
-  document.getElementById('root')
+  document.getElementById("root")
 );
