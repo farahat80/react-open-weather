@@ -27,18 +27,6 @@ export const fetchReducer = (state, { type, payload }) => {
   }
 };
 
-export const getLocationParams = options => {
-  const { type, lon, lat, city, lang } = options;
-  if (type === 'geo') {
-    return {
-      lat,
-      lon,
-      lang,
-    };
-  }
-  return { city, lang };
-};
-
 export const formatDate = (dte, lang) => {
   if (dte && dayjs().isValid(dte)) {
     return dayjs(dte).format('ddd D MMMM');
@@ -90,21 +78,21 @@ export const mapData = (daysData, current, lang) => {
   return mapped;
 };
 
-const useWeatherBit = options => {
+const useWeatherBit = (options) => {
   const baseApiUrl = 'https://api.weatherbit.io/v2.0';
   const endpointForecast = `${baseApiUrl}/forecast/daily`;
   const endPointToday = `${baseApiUrl}/current`;
   const [state, dispatch] = useReducer(fetchReducer, initialState);
   const { data, isLoading, errorMessage } = state;
-  const { unit, lang, key } = options;
-  const baseParams = {
+  const { unit, lang, key, lon, lat } = options;
+  const params = {
     key,
     days: 5,
     lang,
     units: unit,
+    lon,
+    lat,
   };
-  const args = getLocationParams(options);
-  const params = Object.assign(baseParams, args);
 
   const fetchData = async () => {
     try {

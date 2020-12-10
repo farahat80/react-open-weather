@@ -1,24 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import createStyle from 'react-jss';
 import { getLabelsByLanguage } from '../utils';
+import useStyles from './Today.styles';
 
-const Today = props => {
-  const { current, unitsLabels, lang, classes } = props;
+const Today = ({ current, unitsLabels, lang, theme }) => {
+  const classes = useStyles({ theme });
   const labels = getLabelsByLanguage(lang);
+  const hasRange =
+    current.temperature.min !== undefined &&
+    current.temperature.max !== undefined;
   return (
     <div className="rw-today">
       <div className={classes.date}>{current.date}</div>
-      <div className={classes.hr}></div>
+      <div className={classes.hr} />
       <div className={classes.current}>
         {current.temperature.current} {unitsLabels.temperature}
       </div>
-      <div className={classes.range}>
-        {current.temperature.max} / {current.temperature.min}{' '}
-        {unitsLabels.temperature}
-      </div>
+      {hasRange && (
+        <div className={classes.range}>
+          {current.temperature.max} / {current.temperature.min}{' '}
+          {unitsLabels.temperature}
+        </div>
+      )}
       <div className={classes.desc}>{current.description}</div>
-      <div className={classes.hr}></div>
+      <div className={classes.hr} />
       <div className={classes.info}>
         <div>
           {labels.wind}: <b>{current.wind}</b> {unitsLabels.windSpeed}
@@ -31,46 +36,11 @@ const Today = props => {
   );
 };
 
-const style = createStyle({
-  date: {
-    color: '#B5DEF4',
-  },
-  current: {
-    fontSize: 45,
-  },
-  range: {
-    color: '#B5DEF4',
-    fontSize: 12,
-    margin: [0, 0, 5, 2],
-  },
-  desc: {
-    color: '#B5DEF4',
-    fontSize: 16,
-    '& i': {
-      fontSize: 20,
-      color: '#B5DEF4',
-    },
-  },
-  info: {
-    color: '#B5DEF4',
-    '& div': {
-      marginBottom: 5,
-    },
-  },
-  hr: {
-    width: '100%',
-    height: 0,
-    borderBottom: 'solid 1px #fff',
-    opacity: '0.4',
-    margin: [10, 0],
-  },
-});
-
 Today.propTypes = {
   current: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
   unitsLabels: PropTypes.object.isRequired,
   lang: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
-export default style(Today);
+export default Today;

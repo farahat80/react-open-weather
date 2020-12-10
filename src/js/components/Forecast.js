@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import createStyle from 'react-jss';
 import WeatherIcon from './WeatherIcon';
+import useStyles from './Forecast.styles';
 
-const Forecast = ({ unitsLabels, forecast, classes }) => {
+const Forecast = ({ unitsLabels, forecast, theme }) => {
+  const classes = useStyles({ theme });
   return (
     <div className={classes.daysPanel}>
       {forecast.map((day, i) => {
@@ -12,7 +13,11 @@ const Forecast = ({ unitsLabels, forecast, classes }) => {
             <div key={day.date} className={classes.day}>
               <div className={classes.date}>{day.date}</div>
               <div className={classes.icon}>
-                <WeatherIcon path={day.icon} title={day.description} />
+                <WeatherIcon
+                  path={day.icon}
+                  title={day.description}
+                  color={theme.forecastIconColor}
+                />
               </div>
               <div className={classes.desc}>{day.description}</div>
               <div className={classes.range}>
@@ -28,46 +33,10 @@ const Forecast = ({ unitsLabels, forecast, classes }) => {
   );
 };
 
-const style = createStyle({
-  daysPanel: {
-    clear: 'both',
-    display: 'flex',
-    borderLeft: 'solid 1px #ddd',
-    borderRight: 'solid 1px #ddd',
-    borderBottom: 'solid 1px #ddd',
-    borderRadius: [0, 0, 5, 5],
-    fontSize: 11,
-    color: '#777',
-    backgroundColor: '#fff',
-  },
-  day: {
-    width: '25%',
-    textAlign: 'center',
-    margin: 10,
-    '&:not(:first-child)': {
-      borderLeft: 'solid 1px #ddd',
-    },
-  },
-  date: {
-    fontSize: 11,
-    fontWeight: 'bold',
-  },
-  desc: {
-    margin: [10, 0, 10, 0],
-    fontSize: 12,
-  },
-  range: {
-    fontSize: 11,
-  },
-  icon: {
-    paddingTop: 10,
-  },
-});
-
 Forecast.propTypes = {
-  classes: PropTypes.object.isRequired,
   unitsLabels: PropTypes.object.isRequired,
   forecast: PropTypes.array.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
-export default style(Forecast);
+export default Forecast;

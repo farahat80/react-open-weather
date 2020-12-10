@@ -4,7 +4,7 @@ import snapshot from 'check-snapshot';
 import WeatherIcon from '../src/js/components/WeatherIcon';
 
 describe('WeatherIcon', () => {
-  it('render WeatherIcon', () => {
+  test('render WeatherIcon', () => {
     snapshot(
       <WeatherIcon
         path="svg path here"

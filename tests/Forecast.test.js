@@ -5,11 +5,13 @@ import Forecast from '../src/js/components/Forecast';
 import { mappedForecast } from './fixtures/openweather/forecast';
 
 describe('Forecast', () => {
-  it('should render the Forecast component', () => {
+  test('should render the Forecast component', () => {
     const labels = {
       temperature: 'F',
       windSpeed: 'km/h',
     };
-    snapshot(<Forecast unitsLabels={labels} forecast={mappedForecast} />);
+    snapshot(
+      <Forecast unitsLabels={labels} forecast={mappedForecast} theme={{}} />,
+    );
   });
 });

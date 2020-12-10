@@ -5,39 +5,30 @@ exports[`Forecast should render the Forecast component 1`] = `
   className="rw-today"
 >
   <div
-    className="Today-date-0-2-1"
+    className="date-0-2-1 date-d0-0-2-7"
   >
-    Tue 12 November
+    Fri 27 November
   </div>
   <div
-    className="Today-hr-0-2-6"
+    className="hr-0-2-6"
   />
   <div
-    className="Today-current-0-2-2"
+    className="current-0-2-2 current-d1-0-2-8"
   >
-    6
+    -2
      
     F
   </div>
   <div
-    className="Today-range-0-2-3"
+    className="desc-0-2-4 desc-d3-0-2-10"
   >
-    7
-     / 
-    4
-     
-    F
+    Clear
   </div>
   <div
-    className="Today-desc-0-2-4"
-  >
-    Clouds
-  </div>
-  <div
-    className="Today-hr-0-2-6"
+    className="hr-0-2-6"
   />
   <div
-    className="Today-info-0-2-5"
+    className="info-0-2-5 info-d4-0-2-11"
   >
     <div>
       Wind
@@ -52,7 +43,7 @@ exports[`Forecast should render the Forecast component 1`] = `
       Humidity
       : 
       <b>
-        80
+        90
       </b>
        %
     </div>
