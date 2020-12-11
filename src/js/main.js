@@ -15,6 +15,7 @@ const App = () => {
   //   lon: '11.576124',
   //   lang: 'en',
   //   key: 'YOUR_API_KEY',
+  //   unit: 'M',
   // });
   return (
     <ReactWeather

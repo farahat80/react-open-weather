@@ -10,6 +10,10 @@
 
 React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org) and [WeatherBit](https://www.weatherbit.io/).
 
+![Without Forecast](https://gblobscdn.gitbook.com/assets%2F-LHDmRJGuDYmiafAZxRf%2F-LKWsPRjgUAoeOiA5r0T%2F-LKWsUDUkizG0yD1Sw-I%2Frw2.png?alt=media&token=38214fad-2c8f-4d5e-b819-07d6ee511247=50x)
+
+![With Forecast](https://gblobscdn.gitbook.com/assets%2F-LHDmRJGuDYmiafAZxRf%2F-LKWsZMkGEBGfuD_Vhg8%2F-LKWscTt6oVePvCdhYts%2Frw1.png?alt=media&token=be8eae45-1340-4351-994c-54d08270a081)
+
 # Version 1
 
 The component has been fully refactored and now the UI presenation is completely decoupled from the weather provider to allow using any data sources for weather, the component currently comes with 2 weather providers (WeatherBit and OpenWeather), you can create your own provider easily and provide data to the component, the two provider are built as a custom react hooks
@@ -24,12 +28,6 @@ The component has been fully refactored and now the UI presenation is completely
 More providers to be added in the future, feel free to open a pull request with any weather providers that allow a free plan.
 
 ##### For verion 0.6 please find the old read me here [v0.6 readme](https://github.com/farahat80/react-open-weather/blob/master/README_0.6.md)
-
-### Demo & Docs
-
-- [Demo](https://react-open-weather.gitbook.io/project/)
-
-- [Docs](https://react-open-weather.gitbook.io/project/)
 
 ### Dependencies
 
@@ -58,7 +56,7 @@ const App = () => {
     lat: '48.137154',
     lon: '11.576124',
     lang: 'en',
-    unit: 'metric',
+    unit: 'metric', // values are (metric, standard, imperial)
   });
   return (
     <ReactWeather
@@ -84,6 +82,7 @@ const { data, isLoading, errorMessage } = useWeatherBit({
   lat: '48.137154',
   lon: '11.576124',
   lang: 'en',
+  unit: 'M', // values are (M,S,I)
 });
 ```
 
@@ -116,7 +115,16 @@ const customStyles = {
 		/>
 ```
 
-## Props
+## useOpenWeather and useWeatherBit options
+
+| Option | Description                                                                                                               |
+| ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| key    | your api key from the openweather or weatherbit websites                                                                  |
+| lon    | longitude of the location                                                                                                 |
+| lat    | latitude of the location                                                                                                  |
+| unit   | the unit will be passed to the openweather or weatherbit "units" property, please check their documentation for more info |
+
+## UI Component Props
 
 | Props         | Options          | Default                                 | Description                                                                                                                                    |
 | ------------- | ---------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,6 +186,16 @@ es: { Wind: 'Viento', Humidity: 'Humedad',}
 
 }
 
+```
+
+now in order to format the dates according to your locale you will need to import the local from [dayjs](https://github.com/iamkun/dayjs) and in your code before rendering the component you will need to set the locale as follow
+
+```js
+import 'dayjs/locale/de';
+import dayjs from 'dayjs';
+
+// then before using the hooks you will need to set the local
+dayjs.locale('de');
 ```
 
 ## Contribution

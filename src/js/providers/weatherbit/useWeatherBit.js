@@ -27,7 +27,7 @@ export const fetchReducer = (state, { type, payload }) => {
   }
 };
 
-export const formatDate = (dte, lang) => {
+export const formatDate = (dte) => {
   if (dte && dayjs().isValid(dte)) {
     return dayjs(dte).format('ddd D MMMM');
   }
