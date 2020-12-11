@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 import { getIcon } from './iconsMap';
 
-export const formatDate = (dte, lang) => {
+export const formatDate = (dte) => {
   if (dte && dayjs().isValid(dte)) {
     return dayjs.unix(dte).format('ddd D MMMM');
   }
@@ -13,7 +13,7 @@ export const formatDate = (dte, lang) => {
 export const mapCurrent = (day, lang) => {
   return {
     date: formatDate(day.dt, lang),
-    description: day.weather[0] ? day.weather[0].main : null,
+    description: day.weather[0] ? day.weather[0].description : null,
     icon: day.weather[0] && getIcon(day.weather[0].icon),
     temperature: {
       current: day.temp.toFixed(0),
@@ -30,7 +30,9 @@ export const mapForecast = (forecast, lang) => {
   for (let i = 0; i < 5; i += 1) {
     mappedForecast.push({
       date: formatDate(forecast[i].dt, lang),
-      description: forecast[i].weather[0] ? forecast[i].weather[0].main : null,
+      description: forecast[i].weather[0]
+        ? forecast[i].weather[0].description
+        : null,
       icon: forecast[i].weather[0] && getIcon(forecast[i].weather[0].icon),
       temperature: {
         min: forecast[i].temp.min.toFixed(0),

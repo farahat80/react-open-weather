@@ -22,7 +22,7 @@ exports[`Forecast should render the Forecast component 1`] = `
   <div
     className="desc-0-2-4 desc-d3-0-2-10"
   >
-    Clear
+    clear sky
   </div>
   <div
     className="hr-0-2-6"
