@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
     borderLeft: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
     borderRight: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
     borderBottom: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
-    borderRadius: [0, 0, 5, 5],
+    borderRadius: '0 0 5px 5px',
     fontSize: 11,
     backgroundColor: ({ theme }) => theme.forecastBackgroundColor,
   },

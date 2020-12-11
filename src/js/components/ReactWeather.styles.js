@@ -4,6 +4,8 @@ const useStyles = createUseStyles({
   container: {
     fontFamily: ({ theme }) => theme.fontFamily,
     fontSize: 13,
+    boxShadow: ({ theme }) => theme.containerDropShadow,
+    borderRadius: '0 0 5px 5px',
   },
   main: {
     color: ({ theme }) => theme.locationFontColor,

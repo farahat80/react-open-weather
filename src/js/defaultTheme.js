@@ -16,4 +16,5 @@ export default {
   forecastDescColor: '#777',
   forecastRangeColor: '#777',
   forecastIconColor: '#4BC4F7',
+  containerDropShadow: '0px 3px 6px 0px rgba(50, 50, 50, 0.5)',
 };
