@@ -22,8 +22,8 @@ module.exports = {
     ],
   },
   externals: {
-    react: 'commonjs2 react',
-    'react-dom': 'commonjs2 react-dom',
+    react: 'react',
+    'react-dom': 'react-dom',
   },
   plugins: [],
 };
