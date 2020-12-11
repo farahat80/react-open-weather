@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Forecast should render the Forecast component 1`] = `
+<div
+  className="rw-today"
+>
+  <div
+    className="date-0-2-1 date-d0-0-2-7"
+  >
+    Fri 27 November
+  </div>
+  <div
+    className="hr-0-2-6"
+  />
+  <div
+    className="current-0-2-2 current-d1-0-2-8"
+  >
+    -2
+     
+    F
+  </div>
+  <div
+    className="desc-0-2-4 desc-d3-0-2-10"
+  >
+    Clear
+  </div>
+  <div
+    className="hr-0-2-6"
+  />
+  <div
+    className="info-0-2-5 info-d4-0-2-11"
+  >
+    <div>
+      Wind
+      : 
+      <b>
+        2
+      </b>
+       
+      km/h
+    </div>
+    <div>
+      Humidity
+      : 
+      <b>
+        90
+      </b>
+       %
+    </div>
+  </div>
+</div>
+`;
