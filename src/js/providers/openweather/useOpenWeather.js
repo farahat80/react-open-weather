@@ -112,7 +112,7 @@ const useOpenWeather = (options) => {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [options]);
   return { data, isLoading, errorMessage, fetchData };
 };
 

@@ -115,7 +115,7 @@ const useWeatherBit = (options) => {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [options]);
   return { data, isLoading, errorMessage, fetchData };
 };
 
