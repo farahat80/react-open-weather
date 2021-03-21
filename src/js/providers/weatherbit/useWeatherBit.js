@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import dayjs from 'dayjs';
 import axios from 'axios';
 import { getIcon } from './iconsMap';
@@ -8,7 +8,6 @@ const FAILURE = 'FAILURE';
 
 const initialState = {
   data: null,
-  isLoading: false,
   errorMessage: null,
 };
 
@@ -17,11 +16,10 @@ export const fetchReducer = (state, { type, payload }) => {
     case SUCCESS:
       return {
         data: payload,
-        isLoading: false,
         errorMessage: null,
       };
     case FAILURE:
-      return { data: null, isLoading: false, errorMessage: payload };
+      return { data: null, errorMessage: payload };
     default:
       return state;
   }
@@ -82,8 +80,9 @@ const useWeatherBit = (options) => {
   const baseApiUrl = 'https://api.weatherbit.io/v2.0';
   const endpointForecast = `${baseApiUrl}/forecast/daily`;
   const endPointToday = `${baseApiUrl}/current`;
+  const [isLoading, setIsLoading] = useState(false);
   const [state, dispatch] = useReducer(fetchReducer, initialState);
-  const { data, isLoading, errorMessage } = state;
+  const { data, errorMessage } = state;
   const { unit, lang, key, lon, lat } = options;
   const params = {
     key,
@@ -95,6 +94,7 @@ const useWeatherBit = (options) => {
   };
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const [forecastResponse, todayResponse] = await axios.all([
         axios.get(endpointForecast, { params }),
@@ -112,10 +112,11 @@ const useWeatherBit = (options) => {
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message || error });
     }
+    setIsLoading(false);
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [lon, lat]);
   return { data, isLoading, errorMessage, fetchData };
 };
 

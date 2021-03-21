@@ -262,14 +262,6 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
 </div>
 `;
 
-exports[`ReactWeather should render the errormessage when provided with one 1`] = `
-<div>
-  error occurred
-</div>
-`;
+exports[`ReactWeather should render the errormessage when provided with one 1`] = `null`;
 
-exports[`ReactWeather should render the loader when isLoading is true  1`] = `
-<div>
-  Loading...
-</div>
-`;
+exports[`ReactWeather should render the loader when isLoading is true  1`] = `null`;
