@@ -3,7 +3,10 @@ import dayjs from 'dayjs';
 import axios from 'axios';
 import { getIcon } from './iconsMap';
 
-export const formatDate = (dte) => {
+export const formatDate = (dte, lang) => {
+  if (lang && lang !== 'en') {
+    dayjs.locale(lang.replace('_', '-'));
+  }
   if (dte && dayjs().isValid(dte)) {
     return dayjs.unix(dte).format('ddd D MMMM');
   }
