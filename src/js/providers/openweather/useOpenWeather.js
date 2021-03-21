@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import dayjs from 'dayjs';
 import axios from 'axios';
 import { getIcon } from './iconsMap';
@@ -60,7 +60,6 @@ export const FAILURE = 'FAILURE';
 
 const initialState = {
   data: null,
-  isLoading: true,
   errorMessage: null,
 };
 
@@ -69,11 +68,10 @@ export const fetchReducer = (state, { type, payload }) => {
     case SUCCESS:
       return {
         data: payload,
-        isLoading: false,
         errorMessage: null,
       };
     case FAILURE:
-      return { data: null, isLoading: false, errorMessage: payload };
+      return { data: null, errorMessage: payload };
     default:
       return state;
   }
@@ -82,7 +80,8 @@ export const fetchReducer = (state, { type, payload }) => {
 const useOpenWeather = (options) => {
   const endpoint = '//api.openweathermap.org/data/2.5/onecall';
   const [state, dispatch] = useReducer(fetchReducer, initialState);
-  const { data, isLoading, errorMessage } = state;
+  const { data, errorMessage } = state;
+  const [isLoading, setIsLoading] = useState(false);
   const { unit, lang, key, lon, lat } = options;
   const params = {
     appid: key,
@@ -93,6 +92,7 @@ const useOpenWeather = (options) => {
   };
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const forecastResponse = await axios.get(endpoint, { params });
       const payload = mapData(
@@ -109,10 +109,11 @@ const useOpenWeather = (options) => {
       console.error(error.message);
       dispatch({ type: FAILURE, payload: error.message || error });
     }
+    setIsLoading(false);
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [lon, lat]);
   return { data, isLoading, errorMessage, fetchData };
 };
 

@@ -19,6 +19,12 @@ const ReactWeather = ({
   if (data) {
     const classes = useStyles({ showForecast, theme });
     const { forecast, current } = data;
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+    if (errorMessage) {
+      return <div>{errorMessage}</div>;
+    }
     return (
       <div className={classes.container}>
         <div className={classes.main}>
@@ -50,12 +56,6 @@ const ReactWeather = ({
         )}
       </div>
     );
-  }
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if (errorMessage) {
-    return <div>{errorMessage}</div>;
   }
   return null;
 };
