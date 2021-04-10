@@ -73,7 +73,7 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
         className="svg-0-2-19 svg-d0-0-2-20"
         height={120}
         version="1.1"
-        viewBox="0 0 35 40"
+        viewBox="0 -5 35 40"
         width={120}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -105,7 +105,7 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
           className="svg-0-2-19 svg-d1-0-2-32"
           height={40}
           version="1.1"
-          viewBox="0 0 35 40"
+          viewBox="0 -5 35 40"
           width={40}
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -147,7 +147,7 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
           className="svg-0-2-19 svg-d2-0-2-33"
           height={40}
           version="1.1"
-          viewBox="0 0 35 40"
+          viewBox="0 -5 35 40"
           width={40}
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -189,7 +189,7 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
           className="svg-0-2-19 svg-d3-0-2-34"
           height={40}
           version="1.1"
-          viewBox="0 0 35 40"
+          viewBox="0 -5 35 40"
           width={40}
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -231,7 +231,7 @@ exports[`ReactWeather should render the ReactWeather component 1`] = `
           className="svg-0-2-19 svg-d4-0-2-35"
           height={40}
           version="1.1"
-          viewBox="0 0 35 40"
+          viewBox="0 -5 35 40"
           width={40}
           xmlns="http://www.w3.org/2000/svg"
         >
