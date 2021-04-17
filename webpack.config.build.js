@@ -10,6 +10,7 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'ReactWeather',
     umdNamedDefine: true,
+    globalObject: 'this'
   },
   devtool: false,
   module: {
