@@ -20,7 +20,7 @@ exports[`Forecast should render the Forecast component 1`] = `
         className="svg-0-2-12 svg-d0-0-2-13"
         height={40}
         version="1.1"
-        viewBox="0 0 35 40"
+        viewBox="0 -5 35 40"
         width={40}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -62,7 +62,7 @@ exports[`Forecast should render the Forecast component 1`] = `
         className="svg-0-2-12 svg-d1-0-2-14"
         height={40}
         version="1.1"
-        viewBox="0 0 35 40"
+        viewBox="0 -5 35 40"
         width={40}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -104,7 +104,7 @@ exports[`Forecast should render the Forecast component 1`] = `
         className="svg-0-2-12 svg-d2-0-2-15"
         height={40}
         version="1.1"
-        viewBox="0 0 35 40"
+        viewBox="0 -5 35 40"
         width={40}
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -146,7 +146,7 @@ exports[`Forecast should render the Forecast component 1`] = `
         className="svg-0-2-12 svg-d3-0-2-16"
         height={40}
         version="1.1"
-        viewBox="0 0 35 40"
+        viewBox="0 -5 35 40"
         width={40}
         xmlns="http://www.w3.org/2000/svg"
       >

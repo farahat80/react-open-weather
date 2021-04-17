@@ -14,7 +14,8 @@ const useStyles = createUseStyles({
   day: {
     width: '25%',
     textAlign: 'center',
-    margin: 10,
+    margin: '10px 0',
+    padding: '0 10px',
     '&:not(:first-child)': {
       borderLeft: ({ theme }) => `solid 1px ${theme.forecastSeparatorColor}`,
     },

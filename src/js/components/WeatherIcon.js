@@ -37,7 +37,7 @@ WeatherIcon.propTypes = {
 WeatherIcon.defaultProps = {
   color: '#4BC4F7',
   size: 40,
-  viewBox: '0 0 35 40',
+  viewBox: '0 -5 35 40',
 };
 
 export default WeatherIcon;
