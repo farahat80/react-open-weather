@@ -6,6 +6,8 @@ import 'dayjs/locale/ja';
 import 'dayjs/locale/zh-tw';
 import 'dayjs/locale/ru';
 import 'dayjs/locale/uk';
+import 'dayjs/locale/fr';
+import 'dayjs/locale/it';
 
 export const langText = {
   ca: { wind: 'Vent', humidity: 'Humitat' },
@@ -17,4 +19,6 @@ export const langText = {
   zh_tw: { wind: '風速', humidity: '濕度' },
   ru: { wind: 'Ветер', humidity: 'Влажность' },
   uk: { wind: 'Вітер', humidity: 'Вологість' },
+  fr: { wind: 'Vent', humidity: 'Humidité' },
+  it: { wind: 'Vento', humidity: 'Umidità' },
 };
