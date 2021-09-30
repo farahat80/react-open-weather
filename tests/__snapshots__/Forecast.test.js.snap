@@ -2,19 +2,19 @@
 
 exports[`Forecast should render the Forecast component 1`] = `
 <div
-  className="daysPanel-0-2-1 daysPanel-d0-0-2-7"
+  className="daysPanel-0-2-1 rw-forecast-days-panel daysPanel-d0-0-2-7"
 >
   
   <div
-    className="day-0-2-2 day-d1-0-2-8"
+    className="day-0-2-2 rw-forecast-day day-d1-0-2-8"
   >
     <div
-      className="date-0-2-3 date-d2-0-2-9"
+      className="date-0-2-3 rw-forecast-date date-d2-0-2-9"
     >
       Sat 28 November
     </div>
     <div
-      className="icon-0-2-6"
+      className="icon-0-2-6 rw-forecast-icon"
     >
       <svg
         className="svg-0-2-12 svg-d0-0-2-13"
@@ -33,12 +33,12 @@ exports[`Forecast should render the Forecast component 1`] = `
       </svg>
     </div>
     <div
-      className="desc-0-2-4 desc-d3-0-2-10"
+      className="desc-0-2-4 rw-forecast-desc desc-d3-0-2-10"
     >
       few clouds
     </div>
     <div
-      className="range-0-2-5 range-d4-0-2-11"
+      className="range-0-2-5 rw-forecast-range range-d4-0-2-11"
     >
       6
        / 
@@ -48,15 +48,15 @@ exports[`Forecast should render the Forecast component 1`] = `
     </div>
   </div>
   <div
-    className="day-0-2-2 day-d1-0-2-8"
+    className="day-0-2-2 rw-forecast-day day-d1-0-2-8"
   >
     <div
-      className="date-0-2-3 date-d2-0-2-9"
+      className="date-0-2-3 rw-forecast-date date-d2-0-2-9"
     >
       Sun 29 November
     </div>
     <div
-      className="icon-0-2-6"
+      className="icon-0-2-6 rw-forecast-icon"
     >
       <svg
         className="svg-0-2-12 svg-d1-0-2-14"
@@ -75,12 +75,12 @@ exports[`Forecast should render the Forecast component 1`] = `
       </svg>
     </div>
     <div
-      className="desc-0-2-4 desc-d3-0-2-10"
+      className="desc-0-2-4 rw-forecast-desc desc-d3-0-2-10"
     >
       broken clouds
     </div>
     <div
-      className="range-0-2-5 range-d4-0-2-11"
+      className="range-0-2-5 rw-forecast-range range-d4-0-2-11"
     >
       2
        / 
@@ -90,15 +90,15 @@ exports[`Forecast should render the Forecast component 1`] = `
     </div>
   </div>
   <div
-    className="day-0-2-2 day-d1-0-2-8"
+    className="day-0-2-2 rw-forecast-day day-d1-0-2-8"
   >
     <div
-      className="date-0-2-3 date-d2-0-2-9"
+      className="date-0-2-3 rw-forecast-date date-d2-0-2-9"
     >
       Mon 30 November
     </div>
     <div
-      className="icon-0-2-6"
+      className="icon-0-2-6 rw-forecast-icon"
     >
       <svg
         className="svg-0-2-12 svg-d2-0-2-15"
@@ -117,12 +117,12 @@ exports[`Forecast should render the Forecast component 1`] = `
       </svg>
     </div>
     <div
-      className="desc-0-2-4 desc-d3-0-2-10"
+      className="desc-0-2-4 rw-forecast-desc desc-d3-0-2-10"
     >
       clear sky
     </div>
     <div
-      className="range-0-2-5 range-d4-0-2-11"
+      className="range-0-2-5 rw-forecast-range range-d4-0-2-11"
     >
       2
        / 
@@ -132,15 +132,15 @@ exports[`Forecast should render the Forecast component 1`] = `
     </div>
   </div>
   <div
-    className="day-0-2-2 day-d1-0-2-8"
+    className="day-0-2-2 rw-forecast-day day-d1-0-2-8"
   >
     <div
-      className="date-0-2-3 date-d2-0-2-9"
+      className="date-0-2-3 rw-forecast-date date-d2-0-2-9"
     >
       Tue 1 December
     </div>
     <div
-      className="icon-0-2-6"
+      className="icon-0-2-6 rw-forecast-icon"
     >
       <svg
         className="svg-0-2-12 svg-d3-0-2-16"
@@ -159,12 +159,12 @@ exports[`Forecast should render the Forecast component 1`] = `
       </svg>
     </div>
     <div
-      className="desc-0-2-4 desc-d3-0-2-10"
+      className="desc-0-2-4 rw-forecast-desc desc-d3-0-2-10"
     >
       snow
     </div>
     <div
-      className="range-0-2-5 range-d4-0-2-11"
+      className="range-0-2-5 rw-forecast-range range-d4-0-2-11"
     >
       1
        / 
