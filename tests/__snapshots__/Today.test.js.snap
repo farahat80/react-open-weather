@@ -5,30 +5,30 @@ exports[`Forecast should render the Forecast component 1`] = `
   className="rw-today"
 >
   <div
-    className="date-0-2-1 date-d0-0-2-7"
+    className="date-0-2-1 rw-today-date date-d0-0-2-7"
   >
     Fri 27 November
   </div>
   <div
-    className="hr-0-2-6"
+    className="hr-0-2-6 rw-today-hr"
   />
   <div
-    className="current-0-2-2 current-d1-0-2-8"
+    className="current-0-2-2 rw-today-current current-d1-0-2-8"
   >
     -2
      
     F
   </div>
   <div
-    className="desc-0-2-4 desc-d3-0-2-10"
+    className="desc-0-2-4 rw-today-desc desc-d3-0-2-10"
   >
     clear sky
   </div>
   <div
-    className="hr-0-2-6"
+    className="hr-0-2-6 rw-today-hr"
   />
   <div
-    className="info-0-2-5 info-d4-0-2-11"
+    className="info-0-2-5 rw-today-info info-d4-0-2-11"
   >
     <div>
       Wind
