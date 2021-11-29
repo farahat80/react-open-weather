@@ -1,4 +1,5 @@
 import 'dayjs/locale/ca';
+import 'dayjs/locale/cs';
 import 'dayjs/locale/es';
 import 'dayjs/locale/de';
 import 'dayjs/locale/sl';
@@ -12,6 +13,7 @@ import 'dayjs/locale/pl';
 
 export const langText = {
   ca: { wind: 'Vent', humidity: 'Humitat' },
+  cs: { wind: 'Vítr', humidity: 'Vlhkost' },
   en: { wind: 'Wind', humidity: 'Humidity' },
   es: { wind: 'Viento', humidity: 'Humedad' },
   de: { wind: 'Windstärke', humidity: 'Feuchtigkeit' },
