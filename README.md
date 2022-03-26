@@ -8,7 +8,7 @@
 
 [![Code Climate](https://codeclimate.com/github/farahat80/react-open-weather/badges/gpa.svg)](https://codeclimate.com/github/farahat80/react-open-weather)
 
-React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org) and [WeatherBit](https://www.weatherbit.io/).
+React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org),  [WeatherBit](https://www.weatherbit.io/) and [Visual Crossing API](https://www.visualcrossing.com/weather-api).
 
 ![Without Forecast](https://gblobscdn.gitbook.com/assets%2F-LHDmRJGuDYmiafAZxRf%2F-LKWsPRjgUAoeOiA5r0T%2F-LKWsUDUkizG0yD1Sw-I%2Frw2.png?alt=media&token=38214fad-2c8f-4d5e-b819-07d6ee511247=50x)
 
@@ -19,7 +19,8 @@ React open weather is a React Component loading forecast data from [OpenWeather 
 The component has been fully refactored and now the UI presenation is completely decoupled from the weather provider to allow using any data sources for weather, the component currently comes with 2 weather providers (WeatherBit and OpenWeather), you can create your own provider easily and provide data to the component, the two provider are built as a custom react hooks
 
 - WeatherBit provider (useWeatherBit)
-- OpenWeather provider (userOpenWeather)
+- OpenWeather provider (useOpenWeather)
+- Visual Crossing provider (useVisualCrossing)
 - Removed the dependency on the weather icon library in favor of SVG icons
 - Removed the dependency on momentjs
 - Allow custom themeing to style the component with your colors
@@ -37,7 +38,7 @@ More providers to be added in the future, feel free to open a pull request with 
 
 ---
 
-First you will need to register and account on OpenWeather or WeatherBit to obtain an API key
+First you will need to register and account on OpenWeather, WeatherBit or Visual Crossing to obtain an API key
 
 Next, in your project directory run:
 
@@ -86,6 +87,22 @@ const { data, isLoading, errorMessage } = useWeatherBit({
 });
 ```
 
+#### Usage with Visual Crossing
+
+```js
+import ReactWeather, { useVisualCrossing } from 'react-open-weather';
+
+const { data, isLoading, errorMessage } = useVisualCrossing({
+  key: 'YOUR-API-KEY',
+  lat: '48.137154',
+  lon: '11.576124',
+  lang: 'en',
+  unit: 'metric', // values are (metric,us,uk)
+});
+```
+
+
+
 #### Custom styling
 
 ```jsx
@@ -115,14 +132,14 @@ const customStyles = {
 		/>
 ```
 
-## useOpenWeather and useWeatherBit options
+## useOpenWeather, useWeatherBit and useVisualCrossing options
 
 | Option | Description                                                                                                               |
 | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| key    | your api key from the openweather or weatherbit websites                                                                  |
+| key    | your api key from the openweather, weatherbit or visual crossing websites                                                                  |
 | lon    | longitude of the location                                                                                                 |
 | lat    | latitude of the location                                                                                                  |
-| unit   | the unit will be passed to the openweather or weatherbit "units" property, please check their documentation for more info |
+| unit   | the unit will be passed to the openweather, weatherbit or visualcrossing "units" property, please check their documentation for more info |
 
 ## UI Component Props
 
