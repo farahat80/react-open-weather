@@ -16,14 +16,14 @@ React open weather is a React Component loading forecast data from [OpenWeather 
 
 # Version 1
 
-The component has been fully refactored and now the UI presenation is completely decoupled from the weather provider to allow using any data sources for weather, the component currently comes with 2 weather providers (WeatherBit and OpenWeather), you can create your own provider easily and provide data to the component, the two provider are built as a custom react hooks
+The component has been fully refactored and now the UI presentation is completely decoupled from the weather provider to allow using any data sources for weather, the component currently comes with 2 weather providers (WeatherBit and OpenWeather), you can create your own provider easily and provide data to the component, the two providers are built as custom react hooks
 
 - WeatherBit provider (useWeatherBit)
 - OpenWeather provider (useOpenWeather)
 - Visual Crossing provider (useVisualCrossing)
 - Removed the dependency on the weather icon library in favor of SVG icons
 - Removed the dependency on momentjs
-- Allow custom themeing to style the component with your colors
+- Allow custom theming to style the component with your colors
 - Fixed some major issues from version 0.6
 
 More providers to be added in the future, feel free to open a pull request with any weather providers that allow a free plan.
@@ -38,7 +38,7 @@ More providers to be added in the future, feel free to open a pull request with 
 
 ---
 
-First you will need to register and account on OpenWeather, WeatherBit or Visual Crossing to obtain an API key
+First you will need to register an account on OpenWeather, WeatherBit or Visual Crossing to obtain an API key
 
 Next, in your project directory run:
 
@@ -146,11 +146,11 @@ const customStyles = {
 | Props         | Options          | Default                                 | Description                                                                                                                                    |
 | ------------- | ---------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | data          | -                | -                                       | the data object provided from the provider hooks or your custom data provider (check the customization section below to provide your own data) |
-| isLoading     | true, false      | false                                   | boolean to determine if the component shows a loader untill data is ready                                                                      |
+| isLoading     | true, false      | false                                   | boolean to determine if the component shows a loader until data is ready                                                                      |
 | errorMessage  | -                | -                                       | error message string                                                                                                                           |
 | lang          | "en", "de", "es" | "en"                                    | the language to show "humidity" and "wind speed", feel free to open a PR to lang.js to add more languages                                      |
 | locationLabel | -                | -                                       | The name of the location or city to show in the component                                                                                      |
-| unitsLabels   | -                | { temperature: 'C', windSpeed: 'Km/h' } | the labels to be used for temprature and windspeed                                                                                             |
+| unitsLabels   | -                | { temperature: 'C', windSpeed: 'Km/h' } | the labels to be used for temperature and windspeed                                                                                             |
 | showForecast  | true, false      | true                                    | whether or not to show the forecast bottom part of the component                                                                               |
 
 ## Customizations
@@ -205,7 +205,7 @@ es: { Wind: 'Viento', Humidity: 'Humedad',}
 
 ```
 
-now in order to format the dates according to your locale you will need to import the local from [dayjs](https://github.com/iamkun/dayjs) and in your code before rendering the component you will need to set the locale as follow
+now in order to format the dates according to your locale you will need to import the locale from [dayjs](https://github.com/iamkun/dayjs) and in your code before rendering the component you will need to set the locale as follows
 
 ```js
 import 'dayjs/locale/de';
