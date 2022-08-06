@@ -35,18 +35,18 @@ export const formatDate = (dte, lang) => {
   return '';
 };
 
-export const mapCurrent = (day, currentTemp, lang) => {
+export const mapCurrent = (day, current, lang) => {
   return {
     date: formatDate(day.datetime, lang),
-    description: day.weather ? day.weather.description : null,
-    icon: day.weather && getIcon(day.weather.code),
+    description: current.weather ? current.weather.description : null,
+    icon: current.weather && getIcon(current.weather.code),
     temperature: {
-      current: currentTemp.toFixed(0),
+      current: current.temp.toFixed(0),
       min: day.min_temp.toFixed(0),
       max: day.max_temp.toFixed(0),
     },
-    wind: day.wind_spd.toFixed(0),
-    humidity: day.rh,
+    wind: current.wind_spd.toFixed(0),
+    humidity: current.rh,
   };
 };
 
@@ -71,10 +71,9 @@ export const mapForecast = (forecast, lang) => {
 export const mapData = (daysData, current, lang) => {
   const mapped = {};
   if (daysData && current) {
-    const currentTemp = current.temp;
     mapped.location = current.city_name;
     mapped.forecast = mapForecast(daysData, lang);
-    mapped.current = mapCurrent(daysData[0], currentTemp, lang);
+    mapped.current = mapCurrent(daysData[0], current, lang);
   }
   return mapped;
 };
