@@ -16,8 +16,8 @@ const ReactWeather = ({
   errorMessage,
   theme,
 }) => {
+  const classes = useStyles({ showForecast, theme });
   if (data) {
-    const classes = useStyles({ showForecast, theme });
     const { forecast, current } = data;
     if (isLoading) {
       return <div>Loading...</div>;
