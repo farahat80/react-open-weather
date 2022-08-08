@@ -33,4 +33,6 @@ export const langText = {
   da: { wind: 'Vind', humidity: 'Luftfugtighed' },
   pt_br: { wind: 'Vento', humidity: 'Umidade' },
   pt: { wind: 'Vento', humidity: 'Humidade' },
+  nl: { wind: 'Windsnelheid', humidity: 'Luchtvochtigheid' },
+  nl_be: { wind: 'Windsnelheid', humidity: 'Luchtvochtigheid' },
 };
