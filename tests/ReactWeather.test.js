@@ -1,13 +1,13 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import snapshot from 'check-snapshot';
+import { checkSnapshot } from './test-utils';
 import ReactWeather from '../src/js/components/ReactWeather';
 import { mappedForecast as forecast } from './fixtures/openweather/forecast';
 import { mappedCurrent as current } from './fixtures/openweather/current';
 
 describe('ReactWeather', () => {
   test('should render the loader when isLoading is true ', () => {
-    snapshot(
+    checkSnapshot(
       <ReactWeather
         data={null}
         lang="en"
@@ -18,7 +18,7 @@ describe('ReactWeather', () => {
     );
   });
   test('should render the errormessage when provided with one', () => {
-    snapshot(
+    checkSnapshot(
       <ReactWeather
         data={null}
         errorMessage="error occurred"
@@ -27,7 +27,7 @@ describe('ReactWeather', () => {
     );
   });
   test('should render null when no data is provided', () => {
-    snapshot(
+    checkSnapshot(
       <ReactWeather data={null} errorMessage={null} isLoading={false} />,
     );
   });
@@ -36,7 +36,7 @@ describe('ReactWeather', () => {
       forecast,
       current,
     };
-    snapshot(
+    checkSnapshot(
       <ReactWeather
         data={data}
         lang="en"

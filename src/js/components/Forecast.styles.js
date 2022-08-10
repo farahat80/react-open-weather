@@ -1,48 +1,45 @@
-import { createUseStyles } from 'react-jss';
+import styled from '@emotion/styled';
 
-const useStyles = createUseStyles({
-  daysPanel: {
-    clear: 'both',
-    display: 'flex',
-    borderLeft: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
-    borderRight: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
-    borderBottom: ({ theme }) => `solid 1px #${theme.forecastBackgroundColor}`,
-    borderRadius: '0 0 5px 5px',
-    fontSize: 11,
-    backgroundColor: ({ theme }) => theme.forecastBackgroundColor,
-    composes: 'rw-forecast-days-panel',
-  },
-  day: {
-    width: '25%',
-    textAlign: 'center',
-    margin: '10px 0',
-    padding: '0 10px',
-    '&:not(:first-child)': {
-      borderLeft: ({ theme }) => `solid 1px ${theme.forecastSeparatorColor}`,
+export const StyledDaysPanel = styled.div`
+  clear: both;
+  display: flex;
+  border-left: ${({ theme }) => `solid 1px ${theme.forecastBackgroundColor}`};
+  border-right: ${({ theme }) => `solid 1px ${theme.forecastBackgroundColor}`};
+  border-bottom: ${({ theme }) => `solid 1px ${theme.forecastBackgroundColor}`};
+  border-radius: 0 0 5px 5px;
+  font-size: 11px;
+  background-color: ${({ theme }) => theme.forecastBackgroundColor};
+
+  .rw-forecast-day{
+    width: 25%;
+    text-align: center;
+    margin: 10px 0;
+    padding: 0 10px;
+    '&:not(:first-of-type)': {
+      border-left: ${({ theme }) =>
+        `solid 1px ${theme.forecastSeparatorColor}`},
     },
-    composes: 'rw-forecast-day',
-  },
-  date: {
-    color: ({ theme }) => theme.forecastDateColor,
-    fontSize: 11,
-    fontWeight: 'bold',
-    composes: 'rw-forecast-date',
-  },
-  desc: {
-    color: ({ theme }) => theme.forecastDescColor,
-    margin: [10, 0, 10, 0],
-    fontSize: 12,
-    composes: 'rw-forecast-desc',
-  },
-  range: {
-    color: ({ theme }) => theme.forecastRangeColor,
-    fontSize: 11,
-    composes: 'rw-forecast-range',
-  },
-  icon: {
-    paddingTop: 10,
-    composes: 'rw-forecast-icon',
-  },
-});
+  }
 
-export default useStyles;
+  .rw-forecast-date{
+    color: ${({ theme }) => theme.forecastDateColor};
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .rw-forecast-desc{
+    color: ${({ theme }) => theme.forecastDescColor};
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+  }
+
+  .rw-forecast-range{
+    color: ${({ theme }) => theme.forecastRangeColor};
+    font-size: 11px;
+  }
+
+  .rw-forecast-icon{
+    padding-top:10px;
+  }
+
+`;

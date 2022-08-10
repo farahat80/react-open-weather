@@ -21,7 +21,11 @@ describe('Testing data mapping', () => {
     expect(formatDate(null)).toEqual('');
   });
   test('should map today data', () => {
-    const mapped = mapCurrent(apiForecastResponse.data[0], 33.33, 'en');
+    const mapped = mapCurrent(
+      apiForecastResponse.data[0],
+      apiCurrentResponse.data[0],
+      'en',
+    );
     expect(mapped).toMatchSnapshot();
   });
   test('should map forecast data', () => {

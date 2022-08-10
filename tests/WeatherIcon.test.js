@@ -1,11 +1,11 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import snapshot from 'check-snapshot';
+import { checkSnapshot } from './test-utils';
 import WeatherIcon from '../src/js/components/WeatherIcon';
 
 describe('WeatherIcon', () => {
   test('render WeatherIcon', () => {
-    snapshot(
+    checkSnapshot(
       <WeatherIcon
         path="svg path here"
         size={120}
