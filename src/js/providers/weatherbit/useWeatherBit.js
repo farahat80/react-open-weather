@@ -36,7 +36,6 @@ export const formatDate = (dte, lang) => {
 };
 
 export const mapCurrent = (day, current, lang) => {
-  console.log('HERE', current);
   return {
     date: formatDate(day.datetime, lang),
     description: current.weather ? current.weather.description : null,
