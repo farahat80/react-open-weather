@@ -2,13 +2,11 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/farahat80/react-open-weather.svg?branch=master)](https://travis-ci.org/farahat80/react-open-weather)
+[![Build Status](https://github.com/farahat80/react-open-weather/actions/workflows/ci.js.yml/badge.svg)](https://github.com/farahat80/react-open-weather/actions/workflows/ci.js.yml/badge.svg)
 
 [![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.png?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
 
-[![Code Climate](https://codeclimate.com/github/farahat80/react-open-weather/badges/gpa.svg)](https://codeclimate.com/github/farahat80/react-open-weather)
-
-React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org),  [WeatherBit](https://www.weatherbit.io/) and [Visual Crossing API](https://www.visualcrossing.com/weather-api).
+React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org), [WeatherBit](https://www.weatherbit.io/) and [Visual Crossing API](https://www.visualcrossing.com/weather-api).
 
 ![Without Forecast](https://gblobscdn.gitbook.com/assets%2F-LHDmRJGuDYmiafAZxRf%2F-LKWsPRjgUAoeOiA5r0T%2F-LKWsUDUkizG0yD1Sw-I%2Frw2.png?alt=media&token=38214fad-2c8f-4d5e-b819-07d6ee511247=50x)
 
@@ -101,8 +99,6 @@ const { data, isLoading, errorMessage } = useVisualCrossing({
 });
 ```
 
-
-
 #### Custom styling
 
 ```jsx
@@ -134,11 +130,11 @@ const customStyles = {
 
 ## useOpenWeather, useWeatherBit and useVisualCrossing options
 
-| Option | Description                                                                                                               |
-| ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| key    | your api key from the openweather, weatherbit or visual crossing websites                                                                  |
-| lon    | longitude of the location                                                                                                 |
-| lat    | latitude of the location                                                                                                  |
+| Option | Description                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| key    | your api key from the openweather, weatherbit or visual crossing websites                                                                 |
+| lon    | longitude of the location                                                                                                                 |
+| lat    | latitude of the location                                                                                                                  |
 | unit   | the unit will be passed to the openweather, weatherbit or visualcrossing "units" property, please check their documentation for more info |
 
 ## UI Component Props
@@ -146,11 +142,11 @@ const customStyles = {
 | Props         | Options          | Default                                 | Description                                                                                                                                    |
 | ------------- | ---------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | data          | -                | -                                       | the data object provided from the provider hooks or your custom data provider (check the customization section below to provide your own data) |
-| isLoading     | true, false      | false                                   | boolean to determine if the component shows a loader until data is ready                                                                      |
+| isLoading     | true, false      | false                                   | boolean to determine if the component shows a loader until data is ready                                                                       |
 | errorMessage  | -                | -                                       | error message string                                                                                                                           |
 | lang          | "en", "de", "es" | "en"                                    | the language to show "humidity" and "wind speed", feel free to open a PR to lang.js to add more languages                                      |
 | locationLabel | -                | -                                       | The name of the location or city to show in the component                                                                                      |
-| unitsLabels   | -                | { temperature: 'C', windSpeed: 'Km/h' } | the labels to be used for temperature and windspeed                                                                                             |
+| unitsLabels   | -                | { temperature: 'C', windSpeed: 'Km/h' } | the labels to be used for temperature and windspeed                                                                                            |
 | showForecast  | true, false      | true                                    | whether or not to show the forecast bottom part of the component                                                                               |
 
 ## Customizations
