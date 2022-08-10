@@ -64,9 +64,7 @@
     "test": "./node_modules/.bin/jest",
     "test-dev": "./node_modules/.bin/jest --watch",
     "lint": "./node_modules/.bin/eslint ./src/js ;exit 0",
-    "coverage": "./node_modules/.bin/jest --coverage",
-    "preversion": "npm build",
-    "postversion": "git push --tags"
+    "coverage": "./node_modules/.bin/jest --coverage"
   },
   "repository": {
     "type": "git",
