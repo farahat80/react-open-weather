@@ -16,7 +16,7 @@ const App = () => {
   // });
 
   const { data, isLoading, errorMessage } = useOpenWeather({
-    key: 'a7dd65bc8cbc5f653c267ff09515a609',
+    key: 'YOUR_API_KEY',
     lat: '48.137154',
     lon: '11.576124',
     lang: 'en',
