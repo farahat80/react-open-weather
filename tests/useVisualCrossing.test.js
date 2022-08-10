@@ -9,10 +9,7 @@ import useVisualCrossing, {
   mapData,
   fetchReducer,
 } from '../src/js/providers/visualcrossing/useVisualCrossing';
-import {
-  mappedCurrent,
-  apiCurrentResponse,
-} from './fixtures/visualcrossing/current';
+import { mappedCurrent } from './fixtures/visualcrossing/current';
 import {
   mappedForecast,
   apiForecastResponse,
@@ -22,21 +19,36 @@ import svgIcons from '../src/js/svgIcons';
 
 describe('Testing data mapping', () => {
   test('should return formatted date', () => {
-    expect(formatDate('1573516800', null, 'Europe/Berlin')).toEqual('Tue 12 November'); // depends on timezone of Javascript runtime. time epoch is relative to UTC
+    expect(formatDate('1573516800', null, 'Europe/Berlin')).toEqual(
+      'Tue 12 November',
+    ); // depends on timezone of Javascript runtime. time epoch is relative to UTC
   });
   test('return empty string if input date is invalid', () => {
     expect(formatDate(null)).toEqual('');
   });
   test('should map today data', () => {
-    const mapped = mapCurrent(apiForecastResponse.days[0], apiForecastResponse.currentConditions, 'en', apiForecastResponse.timezone);
+    const mapped = mapCurrent(
+      apiForecastResponse.days[0],
+      apiForecastResponse.currentConditions,
+      'en',
+      apiForecastResponse.timezone,
+    );
     expect(mapped).toEqual(mappedCurrent);
   });
   test('should map forecast data', () => {
-    const mapped = mapForecast(apiForecastResponse.days, 'en', apiForecastResponse.timezone);
+    const mapped = mapForecast(
+      apiForecastResponse.days,
+      'en',
+      apiForecastResponse.timezone,
+    );
     expect(mapped).toEqual(mappedForecast);
   });
   test('should map combined current and forecast data', () => {
-    const mapped = mapData(apiForecastResponse, 'en', apiForecastResponse.timezone);
+    const mapped = mapData(
+      apiForecastResponse,
+      'en',
+      apiForecastResponse.timezone,
+    );
     const expected = {
       current: mappedCurrent,
       forecast: mappedForecast,
@@ -60,7 +72,6 @@ describe('Test useVisualCrossing hook', () => {
         lon: '11.576124',
         lang: 'en',
         unit: 'metric',
-      
       }),
     );
 
@@ -80,7 +91,9 @@ describe('Test useVisualCrossing hook', () => {
   test('return error when http request fails', async () => {
     const mock = new MockAdapter(axios);
     mock.onGet().reply(500);
-    const { result, waitForNextUpdate } = renderHook(() => useVisualCrossing({}));
+    const { result, waitForNextUpdate } = renderHook(() =>
+      useVisualCrossing({}),
+    );
 
     result.current.fetchData();
     await waitForNextUpdate();

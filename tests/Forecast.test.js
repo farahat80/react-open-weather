@@ -1,6 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import snapshot from 'check-snapshot';
+import { checkSnapshot } from './test-utils';
 import Forecast from '../src/js/components/Forecast';
 import { mappedForecast } from './fixtures/openweather/forecast';
 
@@ -10,7 +10,7 @@ describe('Forecast', () => {
       temperature: 'F',
       windSpeed: 'km/h',
     };
-    snapshot(
+    checkSnapshot(
       <Forecast unitsLabels={labels} forecast={mappedForecast} theme={{}} />,
     );
   });

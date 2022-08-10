@@ -1,28 +1,25 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
-const useStyles = createUseStyles({
-  svg: {
-    fill: ({ color }) => color,
-  },
-});
+const StyledSVG = styled.svg`
+  fill: ${({ color }) => color};
+`;
 
 // eslint-disable-next-line no-unused-vars
 const WeatherIcon = ({ title, path, size, viewBox, color }) => {
-  const classes = useStyles({ color });
   return (
-    <svg
+    <StyledSVG
+      color={color}
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       width={size}
       height={size}
       viewBox={viewBox}
-      className={classes.svg}
     >
       <title>{title}</title>
       <path d={path} />
-    </svg>
+    </StyledSVG>
   );
 };
 

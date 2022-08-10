@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Today from './Today';
 import Forecast from './Forecast';
 import WeatherIcon from './WeatherIcon';
-import useStyles from './ReactWeather.styles';
+import { StyledContainer } from './ReactWeather.styles';
 import defaultTheme from '../defaultTheme';
 
 const ReactWeather = ({
@@ -16,7 +16,6 @@ const ReactWeather = ({
   errorMessage,
   theme,
 }) => {
-  const classes = useStyles({ showForecast, theme });
   if (data) {
     const { forecast, current } = data;
     if (isLoading) {
@@ -26,10 +25,10 @@ const ReactWeather = ({
       return <div>{errorMessage}</div>;
     }
     return (
-      <div className={classes.container}>
-        <div className={classes.main}>
-          <div className={classes.left}>
-            <h2 className={classes.header}>{locationLabel}</h2>
+      <StyledContainer className="rw-container" theme={theme}>
+        <div className="rw-container-main">
+          <div className="rw-container-left">
+            <h2 className="rw-container-header">{locationLabel}</h2>
             <Today
               current={current}
               unitsLabels={unitsLabels}
@@ -37,7 +36,7 @@ const ReactWeather = ({
               theme={theme}
             />
           </div>
-          <div className={classes.right}>
+          <div className="rw-container-right">
             <WeatherIcon
               path={current.icon}
               size={120}
@@ -54,7 +53,7 @@ const ReactWeather = ({
             theme={theme}
           />
         )}
-      </div>
+      </StyledContainer>
     );
   }
   return null;

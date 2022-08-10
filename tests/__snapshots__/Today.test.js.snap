@@ -1,52 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Forecast should render the Forecast component 1`] = `
-<div
-  className="rw-today"
->
+Array [
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": ".css-l6d5he .rw-today-current{font-size:45px;}.css-l6d5he .rw-today-range{font-size:12px;margin:0 0 5px 2px;}.css-l6d5he .rw-today-desc{font-size:16px;}.css-l6d5he .rw-today-info div{margin-bottom:5px;}.css-l6d5he .rw-today-hr{width:100%;height:0;border-bottom:solid 1px #fff;opacity:0.4;margin:10px 0px;}",
+      }
+    }
+    data-emotion="css l6d5he"
+  />,
   <div
-    className="date-0-2-1 rw-today-date date-d0-0-2-7"
+    className="rw-today css-l6d5he"
   >
-    Fri 27 November
-  </div>
-  <div
-    className="hr-0-2-6 rw-today-hr"
-  />
-  <div
-    className="current-0-2-2 rw-today-current current-d1-0-2-8"
-  >
-    -2
-     
-    F
-  </div>
-  <div
-    className="desc-0-2-4 rw-today-desc desc-d3-0-2-10"
-  >
-    clear sky
-  </div>
-  <div
-    className="hr-0-2-6 rw-today-hr"
-  />
-  <div
-    className="info-0-2-5 rw-today-info info-d4-0-2-11"
-  >
-    <div>
-      Wind
-      : 
-      <b>
-        2
-      </b>
+    <div
+      className="rw-today-date"
+    >
+      Fri 27 November
+    </div>
+    <div
+      className="rw-today-hr"
+    />
+    <div
+      className="rw-today-current"
+    >
+      -2
        
-      km/h
+      F
     </div>
-    <div>
-      Humidity
-      : 
-      <b>
-        90
-      </b>
-       %
+    <div
+      className="rw-today-desc"
+    >
+      clear sky
     </div>
-  </div>
-</div>
+    <div
+      className="rw-today-hr"
+    />
+    <div
+      className="rw-today-info"
+    >
+      <div>
+        Wind
+        : 
+        <b>
+          2
+        </b>
+         
+        km/h
+      </div>
+      <div>
+        Humidity
+        : 
+        <b>
+          90
+        </b>
+         %
+      </div>
+    </div>
+  </div>,
+]
 `;
