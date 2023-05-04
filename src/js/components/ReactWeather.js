@@ -25,7 +25,7 @@ const ReactWeather = ({
       return <div>{errorMessage}</div>;
     }
     return (
-      <StyledContainer className="rw-container" theme={theme}>
+      <StyledContainer showForecast={showForecast} className="rw-container" theme={theme}>
         <div className="rw-container-main">
           <div className="rw-container-left">
             <h2 className="rw-container-header">{locationLabel}</h2>
