@@ -7,13 +7,13 @@ Array [
   <style
     dangerouslySetInnerHTML={
       Object {
-        "__html": ".css-1gool89{font-family:Helvetica,sans-serif;font-size:13px;box-shadow:0px 3px 6px 0px rgba(50, 50, 50, 0.5);border-radius:0 0 5px 5px;}.css-1gool89 .rw-container-main{color:#FFF;height:100%;width:100%;background:linear-gradient(to bottom right, #0181C2, #04A7F9, #4BC4F7);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;border-radius:5px;}.css-1gool89 .rw-container-header{margin:0 0 10px 0;font-weight:300;font-size:x-large;letter-spacing:2px;}.css-1gool89 .rw-container-left{padding:25px;width:60%;}.css-1gool89 .rw-container-right{background-color:rgba(0, 0, 0, 0.1);width:40%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;}",
+        "__html": ".css-18c0tq9{font-family:Helvetica,sans-serif;font-size:13px;box-shadow:0px 3px 6px 0px rgba(50, 50, 50, 0.5);border-radius:0 0 5px 5px;}.css-18c0tq9 .rw-container-main{color:#FFF;height:100%;width:100%;background:linear-gradient(to bottom right, #0181C2, #04A7F9, #4BC4F7);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;border-radius:5px 5px 0 0;}.css-18c0tq9 .rw-container-header{margin:0 0 10px 0;font-weight:300;font-size:x-large;letter-spacing:2px;}.css-18c0tq9 .rw-container-left{padding:25px;width:60%;}.css-18c0tq9 .rw-container-right{background-color:rgba(0, 0, 0, 0.1);width:40%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;}",
       }
     }
-    data-emotion="css 1gool89"
+    data-emotion="css 18c0tq9"
   />,
   <div
-    className="rw-container css-1gool89"
+    className="rw-container css-18c0tq9"
   >
     <div
       className="rw-container-main"
