@@ -6,6 +6,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.png?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
 
+[![Npm package total downloads](https://badgen.net/npm/dt/react-open-weather)](https://npmjs.com/package/react-open-weather)
+
+
 React open weather is a React Component loading forecast data from [OpenWeather API](https://openweathermap.org), [WeatherBit](https://www.weatherbit.io/) and [Visual Crossing API](https://www.visualcrossing.com/weather-api).
 
 ![Without Forecast](https://gblobscdn.gitbook.com/assets%2F-LHDmRJGuDYmiafAZxRf%2F-LKWsPRjgUAoeOiA5r0T%2F-LKWsUDUkizG0yD1Sw-I%2Frw2.png?alt=media&token=38214fad-2c8f-4d5e-b819-07d6ee511247=50x)
