@@ -15,6 +15,7 @@ import 'dayjs/locale/da';
 import 'dayjs/locale/pt-br';
 import 'dayjs/locale/pt';
 import 'dayjs/locale/fi';
+import 'dayjs/locale/ar';
 
 export const langText = {
   ca: { wind: 'Vent', humidity: 'Humitat' },
@@ -37,4 +38,6 @@ export const langText = {
   nl: { wind: 'Windsnelheid', humidity: 'Luchtvochtigheid' },
   nl_be: { wind: 'Windsnelheid', humidity: 'Luchtvochtigheid' },
   fi: { wind: 'Tuuli', humidity: 'Ilmankosteus' },
+  ar: { wind: 'رياح', humidity: 'رطوبة' },
+
 };
