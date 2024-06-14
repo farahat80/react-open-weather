@@ -2,7 +2,7 @@
 
 ---
 
-[![Build Status](https://github.com/farahat80/react-open-weather/actions/workflows/ci.js.yml/badge.svg)](https://github.com/farahat80/react-open-weather/actions/workflows/ci.js.yml/badge.svg)
+[![NPM Package](https://github.com/farahat80/react-open-weather/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/farahat80/react-open-weather/actions/workflows/npm-publish.yml)
 
 [![Coverage Status](https://coveralls.io/repos/github/farahat80/react-open-weather/badge.png?branch=master)](https://coveralls.io/github/farahat80/react-open-weather?branch=master)
 
