@@ -5,6 +5,7 @@ import 'dayjs/locale/de';
 import 'dayjs/locale/sl';
 import 'dayjs/locale/ja';
 import 'dayjs/locale/zh-tw';
+import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/ru';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/fr';
@@ -26,6 +27,7 @@ export const langText = {
   sl: { wind: 'Hitrost vetra', humidity: 'Vlažnost' },
   ja: { wind: '風', humidity: '湿度' },
   zh_tw: { wind: '風速', humidity: '濕度' },
+  zh_cn: { wind: '风速', humidity: '湿度' },
   ru: { wind: 'Ветер', humidity: 'Влажность' },
   uk: { wind: 'Вітер', humidity: 'Вологість' },
   fr: { wind: 'Vent', humidity: 'Humidité' },
