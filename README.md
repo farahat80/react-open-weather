@@ -1,5 +1,13 @@
 # React Open Weather
 
+## Looking for Maintainers 👋
+
+I’m looking for dedicated maintainers to help take care of this project.
+
+If you’re passionate about open source, willing to commit time, and comfortable taking responsibility for the project’s health and future, feel free to get involved.
+
+Open an issue or start a discussion if this sounds like you.
+
 ---
 
 [![NPM Package](https://github.com/farahat80/react-open-weather/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/farahat80/react-open-weather/actions/workflows/npm-publish.yml)
