@@ -4,9 +4,19 @@ import ReactWeather, {
   useVisualCrossing,
   useOpenWeather,
   useWeatherBit,
+  useOpenMeteo
 } from '.';
 
 const App = () => {
+  //   const { data, isLoading, errorMessage } = useOpenMeteo({
+  //   // key: 'YOUR-API-KEY',
+  //   // prefix: 'YOUR-CUSTOMER-PREFIX',
+  //   lat: '52.583698',
+  //   lon: '0.056963',
+  //   lang: 'en',
+  //   // unit: { temperature: 'fahrenheit', wind_speed: 'mph' },
+  // });
+
   // const { data, isLoading, errorMessage } = useVisualCrossing({
   //   key: 'YOUR_API_KEY',
   //   lat: '48.137154',
