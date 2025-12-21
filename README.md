@@ -148,6 +148,16 @@ const customStyles = {
 | lat    | latitude of the location                                                                                                                  |
 | unit   | the unit will be passed to the openweather, weatherbit or visualcrossing "units" property, please check their documentation for more info |
 
+## useOpenMeteo options
+
+| Option | Description                                                                                                                               |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| key    | your api key from the open-meteo (this is only required for commercial customers)                                                         |
+| prefix | your customer prefix (this is only required for commercial customers)                                                                     |
+| lon    | longitude of the location                                                                                                                 |
+| lat    | latitude of the location                                                                                                                  |
+| unit   | Optional units for temperature and wind_speed e.g unit: { temperature: 'fahrenheit', wind_speed: 'mph' }. Defaults to celsius and mph     |
+
 ## UI Component Props
 
 | Props         | Options          | Default                                 | Description                                                                                                                                    |
