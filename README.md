@@ -110,6 +110,21 @@ const { data, isLoading, errorMessage } = useVisualCrossing({
 });
 ```
 
+#### Usage with Open-Meteo
+
+```js
+import ReactWeather, { useOpenMeteo } from 'react-open-weather';
+
+const { data, isLoading, errorMessage } = useOpenMeteo({
+  // key: 'YOUR-API-KEY',
+  // prefix: 'YOUR-CUSTOMER-PREFIX',
+  lat: '52.583698',
+  lon: '0.056963',
+  lang: 'en',
+  // unit: { temperature: 'fahrenheit', wind_speed: 'mph' },
+});
+```
+
 #### Custom styling
 
 ```jsx
@@ -156,7 +171,7 @@ const customStyles = {
 | prefix | your customer prefix (this is only required for commercial customers)                                                                     |
 | lon    | longitude of the location                                                                                                                 |
 | lat    | latitude of the location                                                                                                                  |
-| unit   | Optional units for temperature and wind_speed e.g unit: { temperature: 'fahrenheit', wind_speed: 'mph' }. Defaults to celsius and mph     |
+| unit   | Optional units for temperature and wind_speed e.g `unit: { temperature: 'fahrenheit', wind_speed: 'mph' }`. Defaults to celsius and mph   |
 
 ## UI Component Props
 
