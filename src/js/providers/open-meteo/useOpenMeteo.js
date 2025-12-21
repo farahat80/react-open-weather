@@ -44,7 +44,6 @@ export const formatDate = (dte, lang, tz) => {
 };
 
 export const mapCurrent = (day, current, lang) => {
-  console.log(day)
   const mappedCurrent = {
     date: formatDate(current.time, lang),
     description: getWeatherDescription(current.weather_code),
@@ -57,12 +56,10 @@ export const mapCurrent = (day, current, lang) => {
     wind: current.wind_speed_10m.toFixed(0),
     humidity: current.relative_humidity_2m,
   };
-  console.log(mappedCurrent)
   return mappedCurrent
 };
 
 export const mapForecast = (days, lang) => {
-  console.log('in forcast')
   const mappedForecast = [];
   
   for (let i = 0; i < 5; i += 1) {
