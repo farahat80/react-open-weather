@@ -98,18 +98,31 @@ const useOpenMeteo = (options) => {
   const [state, dispatch] = useReducer(fetchReducer, initialState);
   const { data, errorMessage } = state;
   const [isLoading, setIsLoading] = useState(false);
-  const { unit, lang, key, lon, lat } = options;
-  //end point supports addresses too but stay with lat,lon
-  const endpoint = 'https://api.open-meteo.com/v1/forecast';
-  const params = {
+  const { unit, lang, key, prefix, lon, lat } = options;
+  let endpoint = 'https://api.open-meteo.com/v1/forecast';
+
+  const temperature_unit = unit?.temperature ?? 'celsius';
+  const wind_speed_unit = unit?.wind_speed ?? 'kmh';
+  
+  let params = {
     latitude: lat,
     longitude: lon,
     daily: 'temperature_2m_max,temperature_2m_min,weather_code,relative_humidity_2m_max,wind_speed_10m_max',
     current: 'temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code',
     forecast_days: 5,
-    timeformat: 'unixtime'
+    timeformat: 'unixtime',
+    temperature_unit,
+    wind_speed_unit
   };
 
+  if (key && prefix) {
+    endpoint = `https://${prefix}.open-meteo.com/v1/forecast`
+    params = {
+      ...params,
+      apikey: key
+    }
+  }
+  
   const fetchData = async () => {
     setIsLoading(true);
     try {
